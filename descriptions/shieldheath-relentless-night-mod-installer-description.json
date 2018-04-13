@@ -11,8 +11,9 @@
 			"dependencies": [],
 			"assets": [
 				{
-					"url": "http://www.moddb.com/downloads/mirror/135609/102/33aef5c2d254465c1d905588f0a2348a/?referer=http%3A%2F%2Fwww.moddb.com%2Fmods%2Frelentlessnight",
-					"zipDirectory": "ModFiles"
+					"url": "http://www.moddb.com/downloads/start/135609?referer=http%3A%2F%2Fwww.moddb.com%2Fmods%2Frelentlessnight%2Fdownloads",
+					"zipDirectory": "ModFiles",
+					"type": "zip"
 				}
 			]
 		}
