@@ -1,0 +1,52 @@
+{
+	"name": "zeobviouslyfakeacc/MiniMods",
+	"description": "Various little mods. Sometimes with big effects.",
+	"url": "https://github.com/zeobviouslyfakeacc/MiniMods",
+	"releases": [
+		{
+			"name": "DisableBreathEffect",
+			"version": "v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"changes": "",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/download/v1.1/DisableBreathEffect.dll"
+				}
+			]
+		}, {
+			"name": "EnableStatusBarPercentages",
+			"version": "v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"changes": "",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/download/v1.1/EnableStatusBarPercentages.dll"
+				}
+			]
+		}, {
+			"name": "RememberBreakDownItem",
+			"version": "v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"changes": "",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/download/v1.1/RememberBreakDownItem.dll"
+				}
+			]
+		}, {
+			"name": "WildlifeBegone",
+			"version": "v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"changes": "",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/download/v1.1/WildlifeBegone.dll"
+				}
+			]
+		}
+	]
+}
