@@ -1,0 +1,28 @@
+{
+	"name": "AssetLoader",
+	"description": "Modding library for loading external assets into TLD.",
+	"url": "https://github.com/WulfMarius/AssetLoader",
+	"releases": [
+		{
+			"version": "2.0.0",
+			"url": "https://github.com/WulfMarius/AssetLoader/releases/tag/2.0.0-main",
+			"changes": "updated to work with TLD V1.27\npatched some additional occurrences of resource loading to support more use cases\nadded support for providing new instances of UIAtlas and automatically re-configuring UISprites as needed (this is all related to TLD's ui framework NGUI)",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/AssetLoader/releases/download/2.0.0-main/AssetLoader-V2.0.0.zip"
+				}
+			]
+		}, {
+			"version": "2.0.1",
+			"url": "https://github.com/WulfMarius/AssetLoader/releases/tag/2.0.1",
+			"changes": "support prefabs in subdirectories",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/AssetLoader/releases/download/2.0.1/AssetLoader-V2.0.1.zip"
+				}
+			]
+		}
+	]
+}
