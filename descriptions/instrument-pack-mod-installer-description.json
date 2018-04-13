@@ -1,0 +1,62 @@
+{
+	"name": "Instrument-Pack",
+	"description": "Adds a guitar and the skill required to play it.",
+	"url": "https://github.com/WulfMarius/Instrument-Pack",
+	"releases": [
+		{
+			"version": "2.0.2",
+			"url": "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.2",
+			"changes": "fixed mipmap setting for inventory icon\nupdated dependency to NAudio-Unity to 2.0.0",
+			"dependencies": [
+				{
+					"name": "ModComponent",
+					"version": "^2.0.1"
+				}, {
+					"name": "NAudio-Unity",
+					"version": "^2.0.0"
+				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.2/Instrument-Pack-V2.0.2.zip"
+				}
+			]
+		}, {
+			"version": "2.0.1",
+			"url": "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.1",
+			"changes": "fixed a bug that would make the guitar unplayable",
+			"dependencies": [
+				{
+					"name": "ModComponent",
+					"version": "^2.0.0"
+				}, {
+					"name": "NAudio-Unity",
+					"version": "^2.0.0"
+				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.1/Instrument-Pack-V2.0.1.zip"
+				}
+			]
+		}, {
+			"version": "2.0.0",
+			"url": "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.0",
+			"changes": "works with TLD V1.27\nadded a playable guitar\nadded two likely spawns for guitars\nadded two guitar sample songs from Free Music Archive\nusers can provide their own preferred music by adding mp3 files",
+			"dependencies": [
+				{
+					"name": "ModComponent",
+					"version": "^2.0.0"
+				}, {
+					"name": "NAudio-Unity",
+					"version": "^2.0.0"
+				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.0/Instrument-Pack-V2.0.0.zip"
+				}
+			]
+		}
+	]
+}
