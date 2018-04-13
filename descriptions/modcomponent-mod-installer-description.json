@@ -1,0 +1,38 @@
+{
+	"name": "ModComponent",
+	"description": "Modding library for creating new items and integrating elements into TLD.",
+	"url": "https://github.com/WulfMarius/ModComponent",
+	"releases": [
+		{
+			"version": "2.0.0",
+			"url": "https://github.com/WulfMarius/ModComponent/releases/tag/2.0.0-main",
+			"changes": "updated to work with TLD V1.27\nintegrated pull request from felipeds, adding support for fire starters, accelerants and blueprint definitions\nadded support for generic items (like tinder, cloth, etc)\nadded support for adding items to the radial\nadded support for new skills (still somewhat rudimental)\nadded support for reading blueprint definitions from JSON files (similar to gear-spawns)\nincreased maximum number of servings per food item from 10 to 50\nupdated template unity project\nremoved some resource loading patches because that is now handled by AssetLoader",
+			"dependencies": [
+				{
+					"name": "AssetLoader",
+					"version": "^2.0.0"
+				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/ModComponent/releases/download/2.0.0-main/ModComponent-V2.0.0.zip"
+				}
+			]
+		}, {
+			"version": "2.0.1",
+			"url": "https://github.com/WulfMarius/ModComponent/releases/tag/2.0.1",
+			"changes": "added support for stackable items\nadded support for burnable items\nadded early validation of blueprints, so problems occur before the main menu and not in the game\nfixed issue with unequipping items during a struggle\nfixed issue with gamma value initialization",
+			"dependencies": [
+				{
+					"name": "AssetLoader",
+					"version": "^2.0.1"
+				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/WulfMarius/ModComponent/releases/download/2.0.1/ModComponent-V2.0.1.zip"
+				}
+			]
+		}
+	]
+}
