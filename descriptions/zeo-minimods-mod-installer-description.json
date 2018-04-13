@@ -6,6 +6,7 @@
 		{
 			"name": "DisableBreathEffect",
 			"version": "v1.1",
+			"description": "Removes the annoying 2D breath cloud that appears every few seconds when it's cold.",
 			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
 			"changes": "",
 			"dependencies": [],
@@ -17,6 +18,7 @@
 		}, {
 			"name": "EnableStatusBarPercentages",
 			"version": "v1.1",
+			"description": "This mod re-enables some labels in the status / first aid screen that show a percentage value of how full the warmth, fatigue, thirst and hunger status bars are.",
 			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
 			"changes": "",
 			"dependencies": [],
@@ -28,6 +30,7 @@
 		}, {
 			"name": "RememberBreakDownItem",
 			"version": "v1.1",
+			"description": "This mod remembers the tool you last used to break down furniture. That way, you no longer need to constantly switch from \"using a knife\" to \"no tool\" when breaking down branches or curtains.",
 			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
 			"changes": "",
 			"dependencies": [],
@@ -39,6 +42,7 @@
 		}, {
 			"name": "WildlifeBegone",
 			"version": "v1.1",
+			"description": "This mod removes most of the animals that would usually roam the world and greatly increases their respawn times, thus making you play The Long Dark quite a bit differently.",
 			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
 			"changes": "",
 			"dependencies": [],
