@@ -1,7 +1,7 @@
 {
-	"name": "zeobviouslyfakeacc/MiniMods",
-	"description": "Various little mods. Sometimes with big effects.",
-	"url": "https://github.com/zeobviouslyfakeacc/MiniMods",
+	"name": "zeobviouslyfakeacc Collection",
+	"description": "Mods of zeobviouslyfakeacc",
+	"url": "https://github.com/zeobviouslyfakeacc",
 	"releases": [
 		{
 			"name": "DisableBreathEffect",
