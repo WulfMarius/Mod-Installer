@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pane" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.ProgressDialogController">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="200.0" prefViewportWidth="200.0">
+               <BorderPane.margin>
+                  <Insets bottom="12.0" top="12.0" />
+               </BorderPane.margin>
+               <content>
+                  <TextArea fx:id="textAreaLog" editable="false" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </ScrollPane>
+         </center>
+         <bottom>
+            <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" rowValignment="BOTTOM" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="buttonClose" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#onClose" text="Close" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </FlowPane>
+         </bottom>
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+         <top>
+            <VBox>
+               <children>
+                  <Label fx:id="labelStep" maxWidth="1.7976931348623157E308">
+                     <VBox.margin>
+                        <Insets top="6.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar fx:id="progressBarStep" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" progress="0.0" />
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

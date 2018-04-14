@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.InstallerMainPanelController">
+  <children>
+    <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+          <content>
+            <TableView fx:id="tableView">
+              <columns>
+                <TableColumn fx:id="columnName" editable="false" minWidth="200.0" prefWidth="200.0" styleClass="align-left" text="Name" />
+                <TableColumn fx:id="columnInstalledVersion" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" style="-fx-alignment: CENTER;" text="Installed Version" />
+                <TableColumn fx:id="columnAvailableVersion" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" style="-fx-alignment: CENTER;" text="Available Version" />
+              </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+            </TableView>
+          </content>
+               <BorderPane.margin>
+                  <Insets top="12.0" />
+               </BorderPane.margin>
+        </ScrollPane>
+      </center>
+      <padding>
+        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+      </padding>
+         <right>
+            <GridPane fx:id="detailsPane" minHeight="0.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </right>
+         <top>
+            <FlowPane hgap="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="12.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#refreshSources" text="Refresh Sources">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/refresh_black_24x24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#addSource" text="Add Source">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/add_circle_outline_black_24x24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </FlowPane>
+         </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

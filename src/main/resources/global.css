@@ -1,0 +1,46 @@
+.table-view .align-right.column-header .label {
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.table-view .align-left.column-header .label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.uninstall.button .text {
+	-fx-fill: RED; 
+}
+
+.update.button .text {
+	-fx-fill: GREEN; 
+}
+
+
+.table-cell:required {
+    -fx-background-image: url("/lock_grey_18x18.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right;
+}
+
+.table-cell:update-available {
+    -fx-background-image: url("/arrow_upward_black_18x18.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right;
+}
+
+.table-cell:required:update-available {
+    -fx-background-image: url("/arrow_upward_black_18x18.png"), url("/lock_grey_18x18.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right 18px top 50%, right 50%;
+}
+
+.table-row-cell:not-installed .text {
+   -fx-fill: GREY;
+}
+.table-row-cell:focused:not-installed:selected .text {
+   -fx-fill: WHITE;
+}
+
+.hyperlink:visited .text {
+}
+
+

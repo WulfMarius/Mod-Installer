@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.ModDetailsPanelController">
+  <children>
+    <VBox minHeight="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Label fx:id="labelName" maxWidth="300.0" text="Better-Water-Management">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+            <HBox>
+               <children>
+              <Label fx:id="labelVersion" maxHeight="1.7976931348623157E308" text="2.0.1" />
+                  <Hyperlink fx:id="hyperlinkChangelog" onAction="#showChangelog" text="Changes">
+                     <padding>
+                        <Insets left="6.0" />
+                     </padding>
+                  </Hyperlink>
+               </children>
+            </HBox>
+        <Hyperlink fx:id="hyperlinkURL" maxWidth="300.0" onAction="#openURL" text="https://github.com/WulfMarius/Better-Water-Management">
+               <padding>
+                  <Insets top="6.0" />
+               </padding></Hyperlink>
+        <Label fx:id="labelDescription" maxWidth="300.0" text="Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark " wrapText="true">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin></Label>
+        <VBox fx:id="panelRequires">
+          <children>
+            <Label text="Requires" textFill="GREY">
+              <VBox.margin>
+                <Insets />
+              </VBox.margin>
+              <font>
+                <Font size="10.0" />
+              </font>
+            </Label>
+            <Label fx:id="labelRequires" maxWidth="300.0" text="ModComponent 2.0.0, AssetLoader 2.0.0" wrapText="true" />
+          </children>
+          <VBox.margin>
+            <Insets top="12.0" />
+          </VBox.margin>
+        </VBox>
+        <VBox fx:id="panelRequiredBy">
+          <children>
+            <Label text="Required By" textFill="GREY">
+              <font>
+                <Font size="10.0" />
+              </font>
+              <VBox.margin>
+                <Insets />
+              </VBox.margin>
+            </Label>
+            <Label fx:id="labelRequiredBy" text="ModComponent 2.0.0, AssetLoader 2.0.0" wrapText="true" />
+          </children>
+          <VBox.margin>
+            <Insets top="12.0" />
+          </VBox.margin>
+        </VBox>
+        <GridPane alignment="CENTER" VBox.vgrow="ALWAYS">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" percentWidth="0.0" prefWidth="25.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" percentWidth="0.0" prefWidth="25.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <children>
+            <Button fx:id="buttonInstall" mnemonicParsing="false" onAction="#installMod" text="Install" GridPane.columnIndex="4" GridPane.valignment="BOTTOM">
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Button>
+            <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#installMod" styleClass="update" text="Update" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Button>
+            <Button fx:id="buttonUninstall" mnemonicParsing="false" onAction="#uninstallMod" styleClass="uninstall" text="Uninstall" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
+            <Label fx:id="infoUninstallForbidden" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+              <graphic>
+                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" smooth="false">
+                  <image>
+                    <Image url="@/lock_grey_24x24.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+              <GridPane.margin>
+                <Insets bottom="3.0" />
+              </GridPane.margin>
+            </Label>
+            <Label fx:id="infoInstallForbidden" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+              <graphic>
+                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@/lock_grey_24x24.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="3.0" />
+                     </GridPane.margin>
+            </Label>
+          </children>
+          <VBox.margin>
+            <Insets top="12.0" />
+          </VBox.margin>
+        </GridPane>
+      </children>
+      <padding>
+        <Insets left="12.0" right="12.0" top="12.0" />
+      </padding>
+    </VBox>
+  </children>
+</AnchorPane>

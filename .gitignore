@@ -1,0 +1,7 @@
+mod-installer/
+mods/
+target/
+.classpath
+.project
+.settings
+

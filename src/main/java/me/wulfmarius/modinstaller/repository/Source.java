@@ -1,0 +1,147 @@
+package me.wulfmarius.modinstaller.repository;
+
+import java.util.*;
+import java.util.stream.*;
+
+import org.springframework.util.StringUtils;
+
+import me.wulfmarius.modinstaller.*;
+
+public class Source {
+
+    private String definition;
+    private String name;
+    private String url;
+    private String description;
+    private String[] definitions;
+
+    private final Map<String, Object> parameters = new HashMap<>();
+
+    private ModDefinitions modDefinitions = new ModDefinitions();
+
+    public static Source from(String definition, SourceDescription sourceDescription) {
+        Source result = new Source();
+
+        result.setDefinition(definition);
+        result.setName(sourceDescription.getName());
+        result.setUrl(sourceDescription.getUrl());
+        result.setDescription(sourceDescription.getDescription());
+        result.setDefinitions(sourceDescription.getDefinitions());
+        result.parameters.putAll(sourceDescription.getParameters());
+        result.createModDefinitions(sourceDescription.getReleases());
+
+        return result;
+    }
+
+    public String getDefinition() {
+        return this.definition;
+    }
+
+    public String[] getDefinitions() {
+        return this.definitions;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public Stream<ModDefinition> getLatestVersions() {
+        Map<String, Optional<ModDefinition>> collect = this.modDefinitions.stream()
+                .collect(Collectors.groupingBy(ModDefinition::getName, Collectors.minBy(ModDefinition::compare)));
+        return collect.values().stream().map(Optional::get);
+    }
+
+    public Optional<ModDefinition> getModDefinition(String name, String version) {
+        return this.modDefinitions.getDefinition(name, version);
+    }
+
+    public ModDefinitions getModDefinitions() {
+        return this.modDefinitions;
+    }
+
+    public Stream<ModDefinition> getModDefinitionStream() {
+        return this.modDefinitions.stream();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public <T> T getParameter(String parameterName) {
+        if (this.parameters == null) {
+            return null;
+        }
+
+        return (T) this.parameters.get(parameterName);
+    }
+
+    public Map<String, ?> getParameters() {
+        return this.parameters;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public boolean isUnmodified() {
+        return "true".equals(this.getParameter("Unmodified"));
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
+    }
+
+    public void setDefinitions(String[] definitions) {
+        this.definitions = definitions;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setModDefinitions(ModDefinitions modDefinitions) {
+        this.modDefinitions = modDefinitions;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void update(Source refreshedSource) {
+        this.name = refreshedSource.name;
+        this.description = refreshedSource.description;
+        this.modDefinitions = refreshedSource.modDefinitions;
+
+        this.parameters.clear();
+        this.parameters.putAll(refreshedSource.parameters);
+    }
+
+    private void createModDefinitions(ModDefinition[] releases) {
+        if (releases == null) {
+            return;
+        }
+
+        for (ModDefinition eachModDefinition : releases) {
+            if (StringUtils.isEmpty(eachModDefinition.getName())) {
+                eachModDefinition.setName(this.name);
+            }
+
+            if (StringUtils.isEmpty(eachModDefinition.getUrl())) {
+                eachModDefinition.setUrl(this.url);
+            }
+            if (StringUtils.isEmpty(eachModDefinition.getUrl())) {
+                eachModDefinition.setUrl(this.definition);
+            }
+
+            if (StringUtils.isEmpty(eachModDefinition.getDescription())) {
+                eachModDefinition.setDescription(this.description);
+            }
+
+            this.modDefinitions.addModDefinition(eachModDefinition);
+        }
+    }
+}
