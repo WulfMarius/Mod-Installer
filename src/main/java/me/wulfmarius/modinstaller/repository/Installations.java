@@ -13,6 +13,12 @@ public class Installations implements Iterable<Installation> {
         this.installations.add(installation);
     }
 
+    public void addInstallations(Iterable<Installation> otherInstallations) {
+        for (Installation eachInstallation : otherInstallations) {
+            this.addInstallation(eachInstallation);
+        }
+    }
+
     public boolean contains(Installation installation) {
         return this.installations.contains(installation);
     }
@@ -31,6 +37,10 @@ public class Installations implements Iterable<Installation> {
 
     public List<Installation> getInstallationsWithAsset(String asset) {
         return this.installations.stream().filter(installation -> installation.isAssetReferenced(asset)).collect(Collectors.toList());
+    }
+
+    public boolean isEmpty() {
+        return this.installations == null || this.installations.isEmpty();
     }
 
     @Override

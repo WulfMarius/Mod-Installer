@@ -15,37 +15,30 @@ import javafx.stage.*;
 
 public class ModInstallerUI extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    private static Image ICON = new Image("/icon.png");
 
-    protected static void executeAsyncDelayed(Runnable runnable) {
-        new Thread(() -> {
-            try {
-                Thread.sleep(250);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            runnable.run();
-        }).start();
-    }
-
-    protected static void startProgressDialog(String title, Node ownerNode) {
+    protected static void startProgressDialog(String title, Node ownerNode, Runnable runnable) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(ProgressDialogController.class.getResource("ProgressDialog.fxml"));
             fxmlLoader.setControllerFactory(CONTROLLER_FACTORY);
             fxmlLoader.load();
+            ProgressDialogController controller = fxmlLoader.getController();
+            controller.setRunnable(runnable);
 
             Stage stage = new Stage();
-            stage.getIcons().add(new Image(ModInstallerUI.class.getResourceAsStream("/icon.png")));
             stage.setScene(new Scene(fxmlLoader.getRoot()));
             stage.setTitle(title);
+            setIcon(stage);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(ownerNode.getScene().getWindow());
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void setIcon(Stage stage) {
+        stage.getIcons().add(ICON);
     }
 
     private static boolean verifyInstallationDirectory() {
@@ -57,11 +50,12 @@ public class ModInstallerUI extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         if (!verifyInstallationDirectory()) {
-            Alert dialog = new Alert(AlertType.WARNING);
+            Alert dialog = new Alert(AlertType.ERROR);
             dialog.setTitle("Invalid Installation Directory");
             dialog.setHeaderText(null);
             dialog.setContentText(
                     "Mod-Installer appears to be in the wrong directory.\nMake sure you put it into the directory \"TheLongDark\", which contains the \"tld\" executable");
+            setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
 
             dialog.showAndWait();
             primaryStage.close();
@@ -75,10 +69,10 @@ public class ModInstallerUI extends Application {
         Scene scene = new Scene(mainPanel);
         scene.getStylesheets().add("global.css");
 
-        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/icon.png")));
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
-        primaryStage.setTitle("TLD Mod Installer 0.1.0");
+        primaryStage.setTitle("TLD Mod-Installer 0.1.1");
+        setIcon(primaryStage);
         primaryStage.show();
     }
 }

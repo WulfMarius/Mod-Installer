@@ -19,12 +19,12 @@ public class Repository {
 
     private final Path basePath;
 
-    private final Sources sources;
-    private final List<SourceFactory> sourceFactories = new ArrayList<>();
+    private final Sources sources = new Sources();
+    private final List<SourceFactory> sourceFactories = new ArrayList<SourceFactory>();
     private final ProgressListeners progressListeners = new ProgressListeners();
     private final SourcesChangedListeners sourcesChangedListeners = new SourcesChangedListeners();
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate restTemplate;
 
     public Repository(Path basePath) {
         super();
@@ -35,10 +35,6 @@ public class Repository {
         } catch (IOException e) {
             throw new RepositoryException("Could not create base path " + basePath + ".", e);
         }
-
-        this.sources = this.readSources();
-        this.sourceFactories.add(new GithubSourceFactory());
-        this.sourceFactories.add(new DirectSourceFactory());
     }
 
     private static String getFileName(Asset asset) {
@@ -108,6 +104,19 @@ public class Repository {
 
     public Sources getSources() {
         return this.sources;
+    }
+
+    public void initialize() {
+        this.sourceFactories.add(new GithubSourceFactory());
+        this.sourceFactories.add(new DirectSourceFactory());
+
+        Sources savedSources = this.readSources();
+        if (!savedSources.isEmpty()) {
+            this.sources.addSources(savedSources);
+            this.sourcesChangedListeners.changed();
+        }
+
+        this.restTemplate = new RestTemplate();
     }
 
     public void refreshSources() {
@@ -274,5 +283,4 @@ public class Repository {
             throw new RepositoryException("Could not save sources.", e);
         }
     }
-
 }

@@ -17,7 +17,7 @@ public class ModInstaller {
 
     private final Path basePath;
     private final Repository repository;
-    private final Installations installations;
+    private final Installations installations = new Installations();
     private final InstallationsChangedListeners installationsChangedListeners = new InstallationsChangedListeners();
     private final ProgressListeners progressListeners = new ProgressListeners();
 
@@ -32,7 +32,6 @@ public class ModInstaller {
         }
 
         this.repository = new Repository(basePath.resolve("repository"));
-        this.installations = this.readInstallations();
     }
 
     private static boolean isNonEmptyDirectory(Path path) {
@@ -134,6 +133,16 @@ public class ModInstaller {
 
     public Sources getSources() {
         return this.repository.getSources();
+    }
+
+    public void initialize() {
+        this.repository.initialize();
+
+        Installations savedInstallations = this.readInstallations();
+        if (!savedInstallations.isEmpty()) {
+            this.installations.addInstallations(savedInstallations);
+            this.installationsChangedListeners.changed();
+        }
     }
 
     public void install(ModDefinition modDefinition) {

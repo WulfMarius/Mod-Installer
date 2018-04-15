@@ -13,6 +13,12 @@ public class Sources implements Iterable<Source> {
         this.sources.add(source);
     }
 
+    public void addSources(Iterable<Source> otherSources) {
+        for (Source eachSource : otherSources) {
+            this.addSource(eachSource);
+        }
+    }
+
     public boolean contains(String definition) {
         return this.sources.stream().anyMatch(source -> definition.equals(source.getDefinition()));
     }

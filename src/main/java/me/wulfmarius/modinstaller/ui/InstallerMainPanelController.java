@@ -1,7 +1,7 @@
 package me.wulfmarius.modinstaller.ui;
 
 import static me.wulfmarius.modinstaller.ui.ControllerFactory.CONTROLLER_FACTORY;
-import static me.wulfmarius.modinstaller.ui.ModInstallerUI.*;
+import static me.wulfmarius.modinstaller.ui.ModInstallerUI.startProgressDialog;
 
 import java.io.IOException;
 import java.util.*;
@@ -28,6 +28,9 @@ public class InstallerMainPanelController {
     protected static final PseudoClass PSEUDO_CLASS_NOT_INSTALLED = PseudoClass.getPseudoClass("not-installed");
     protected static final PseudoClass PSEUDO_CLASS_REQUIRED = PseudoClass.getPseudoClass("required");
     private final ModInstaller modInstaller;
+
+    @FXML
+    private Node root;
 
     @FXML
     private Pane detailsPane;
@@ -71,15 +74,13 @@ public class InstallerMainPanelController {
     }
 
     private void addSource(String sourceDefinition) {
-        startProgressDialog("Adding Source " + sourceDefinition, this.detailsPane);
-        executeAsyncDelayed(() -> {
-            this.modInstaller.registerSource(sourceDefinition);
-        });
+        startProgressDialog("Adding Source " + sourceDefinition, this.detailsPane,
+                () -> this.modInstaller.registerSource(sourceDefinition));
     }
 
-    private void askToInstallSource() {
+    private void askToInstallDefaultSource() {
         if (!Platform.isFxApplicationThread()) {
-            Platform.runLater(this::askToInstallSource);
+            Platform.runLater(this::askToInstallDefaultSource);
             return;
         }
 
@@ -113,6 +114,7 @@ public class InstallerMainPanelController {
 
     @FXML
     private void initialize() throws IOException {
+        WindowBecameVisibleHandler.intall(this.root, this::initializeModInstaller);
         this.modInstaller.addInstallationsChangedListener(this::installationsChanged);
         this.modInstaller.addSourcesChangedListener(this::sourcesChanged);
 
@@ -131,10 +133,13 @@ public class InstallerMainPanelController {
                 .addListener((observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
 
         this.tableView.getSortOrder().add(this.columnName);
-        this.sourcesChanged();
+    }
+
+    private void initializeModInstaller() {
+        this.modInstaller.initialize();
 
         if (this.modInstaller.getSources().isEmpty()) {
-            ModInstallerUI.executeAsyncDelayed(this::askToInstallSource);
+            this.askToInstallDefaultSource();
         }
     }
 
@@ -150,8 +155,7 @@ public class InstallerMainPanelController {
 
     @FXML
     private void refreshSources() {
-        ModInstallerUI.startProgressDialog("Refreshing Sources", this.detailsPane);
-        executeAsyncDelayed(() -> this.modInstaller.refreshSources());
+        ModInstallerUI.startProgressDialog("Refreshing Sources", this.detailsPane, () -> this.modInstaller.refreshSources());
     }
 
     private void sourcesChanged() {

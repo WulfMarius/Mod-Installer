@@ -1,7 +1,7 @@
 package me.wulfmarius.modinstaller.ui;
 
 import static me.wulfmarius.modinstaller.ui.BindingsFactory.*;
-import static me.wulfmarius.modinstaller.ui.ModInstallerUI.*;
+import static me.wulfmarius.modinstaller.ui.ModInstallerUI.startProgressDialog;
 
 import java.awt.Desktop;
 import java.io.IOException;
@@ -119,12 +119,13 @@ public class ModDetailsPanelController {
 
     @FXML
     private void installMod() {
-        if (this.modDefinitionProperty.getValue() == null) {
+        ModDefinition modDefinition = this.modDefinitionProperty.getValue();
+        if (modDefinition == null) {
             return;
         }
 
-        startProgressDialog("Installing " + this.modDefinitionProperty.getValue().getDisplayName(), this.anchorPane);
-        executeAsyncDelayed(() -> this.modInstaller.install(this.modDefinitionProperty.getValue()));
+        startProgressDialog("Installing " + modDefinition.getDisplayName(), this.anchorPane,
+                () -> this.modInstaller.install(modDefinition));
     }
 
     private void onModSelected(ModInstallerEvent event) {
@@ -182,11 +183,12 @@ public class ModDetailsPanelController {
 
     @FXML
     private void uninstallMod() {
-        if (this.modDefinitionProperty.getValue() == null) {
+        ModDefinition modDefinition = this.modDefinitionProperty.getValue();
+        if (modDefinition == null) {
             return;
         }
 
-        startProgressDialog("Uninstalling " + this.modDefinitionProperty.getValue().getDisplayName(), this.anchorPane);
-        executeAsyncDelayed(() -> this.modInstaller.uninstallAll(this.modDefinitionProperty.getValue().getName()));
+        startProgressDialog("Uninstalling " + modDefinition.getDisplayName(), this.anchorPane,
+                () -> this.modInstaller.uninstallAll(modDefinition.getName()));
     }
 }

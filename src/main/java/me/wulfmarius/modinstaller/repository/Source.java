@@ -15,7 +15,7 @@ public class Source {
     private String description;
     private String[] definitions;
 
-    private final Map<String, Object> parameters = new HashMap<>();
+    private final Map<String, String> parameters = new HashMap<>();
 
     private ModDefinitions modDefinitions = new ModDefinitions();
 
@@ -51,8 +51,8 @@ public class Source {
         return collect.values().stream().map(Optional::get);
     }
 
-    public Optional<ModDefinition> getModDefinition(String name, String version) {
-        return this.modDefinitions.getDefinition(name, version);
+    public Optional<ModDefinition> getModDefinition(String modDefinitionName, String modDefinitionVersion) {
+        return this.modDefinitions.getDefinition(modDefinitionName, modDefinitionVersion);
     }
 
     public ModDefinitions getModDefinitions() {
@@ -67,15 +67,15 @@ public class Source {
         return this.name;
     }
 
-    public <T> T getParameter(String parameterName) {
+    public String getParameter(String parameterName) {
         if (this.parameters == null) {
             return null;
         }
 
-        return (T) this.parameters.get(parameterName);
+        return this.parameters.get(parameterName);
     }
 
-    public Map<String, ?> getParameters() {
+    public Map<String, String> getParameters() {
         return this.parameters;
     }
 

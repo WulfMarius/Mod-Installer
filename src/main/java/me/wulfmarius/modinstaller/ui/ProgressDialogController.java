@@ -47,6 +47,10 @@ public class ProgressDialogController implements ProgressListener {
         this.buttonClose.setDisable(false);
     }
 
+    public void setRunnable(Runnable runnable) {
+        WindowBecameVisibleHandler.intall(this.pane, runnable);
+    }
+
     @Override
     public void started(String name) {
         if (!Platform.isFxApplicationThread()) {

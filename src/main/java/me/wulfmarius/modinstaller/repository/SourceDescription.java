@@ -11,7 +11,7 @@ public class SourceDescription {
     private String description;
     private ModDefinition[] releases;
     private String[] definitions;
-    private Map<String, Object> parameters = new HashMap<>();
+    private Map<String, String> parameters = new HashMap<>();
 
     public String[] getDefinitions() {
         return this.definitions;
@@ -25,7 +25,7 @@ public class SourceDescription {
         return this.name;
     }
 
-    public Map<String, ?> getParameters() {
+    public Map<String, String> getParameters() {
         return this.parameters;
     }
 
@@ -49,11 +49,11 @@ public class SourceDescription {
         this.name = name;
     }
 
-    public void setParameter(String name, Object value) {
+    public void setParameter(String name, String value) {
         this.parameters.put(name, value);
     }
 
-    public void setParameters(Map<String, Object> parameters) {
+    public void setParameters(Map<String, String> parameters) {
         this.parameters = parameters;
     }
 
