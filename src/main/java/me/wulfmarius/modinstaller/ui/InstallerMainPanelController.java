@@ -1,9 +1,10 @@
 package me.wulfmarius.modinstaller.ui;
 
 import static me.wulfmarius.modinstaller.ui.ControllerFactory.CONTROLLER_FACTORY;
-import static me.wulfmarius.modinstaller.ui.ModInstallerUI.startProgressDialog;
+import static me.wulfmarius.modinstaller.ui.ModInstallerUI.*;
 
 import java.io.IOException;
+import java.nio.file.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -14,14 +15,16 @@ import javafx.css.PseudoClass;
 import javafx.fxml.*;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import me.wulfmarius.modinstaller.*;
 import me.wulfmarius.modinstaller.repository.Source;
+import me.wulfmarius.modinstaller.update.UpdateState;
 
 public class InstallerMainPanelController {
+
+    private static final String DEFAULT_SOURCE_DEFINITION = "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json";
 
     protected static final PseudoClass PSEUDO_CLASS_UPDATE_AVAILABLE = PseudoClass.getPseudoClass("update-available");
 
@@ -78,21 +81,64 @@ public class InstallerMainPanelController {
                 () -> this.modInstaller.registerSource(sourceDefinition));
     }
 
-    private void askToInstallDefaultSource() {
+    private void askDeleteOtherVersions() {
+        Path[] otherVersions = this.modInstaller.getOtherVersions();
+        String message = Arrays.stream(otherVersions).map(Path::getFileName).map(Path::toString).collect(Collectors.joining("\n",
+                "The following other versions of Mod-Installer are still present:\n", "\n\nDo you want to delete them now?"));
+
+        ModInstallerUI.showYesNoChoice("Other Versions Present", message, () -> {
+            for (Path eachOldVersion : otherVersions) {
+                try {
+                    Files.deleteIfExists(eachOldVersion);
+                } catch (IOException e) {
+                    showError("Could Not Delete", "Could not delete " + eachOldVersion.getFileName() + ": " + e.getMessage());
+                }
+            }
+        });
+    }
+
+    private void askDownloadNewVersion() {
+        UpdateState updateState = this.modInstaller.getUpdateState();
+
+        String message;
+        if (updateState.hasAsset()) {
+            message = "Version " + updateState.getLatestVersion() + " is available for download.\nWould you like to download it now?";
+        } else {
+            message = "Version " + updateState.getLatestVersion()
+                    + " is available for download.\nWould you like to go to the download page?";
+        }
+
+        ModInstallerUI.showYesNoChoice("Update Available", message, () -> {
+            if (updateState.hasAsset()) {
+                startProgressDialog("Download Update", this.root, this.modInstaller::prepareUpdate, this::startUpdate);
+            } else {
+                openURL(updateState.getReleaseUrl());
+            }
+        });
+    }
+
+    private void askInstallDefaultSource() {
+        ModInstallerUI.showYesNoChoice("No Sources Found",
+                "It looks like you don't have any sources yet. Would you like to import the default source now?",
+                () -> this.addSource(DEFAULT_SOURCE_DEFINITION));
+    }
+
+    private void askQuestions() {
         if (!Platform.isFxApplicationThread()) {
-            Platform.runLater(this::askToInstallDefaultSource);
+            Platform.runLater(this::askQuestions);
             return;
         }
 
-        Alert alert = new Alert(AlertType.CONFIRMATION,
-                "It looks like you don't have any sources yet. Would you like to import the default source now?", ButtonType.YES,
-                ButtonType.NO);
-        alert.setTitle("No Sources Found");
-        alert.setHeaderText(null);
+        if (this.modInstaller.isNewVersionAvailable()) {
+            this.askDownloadNewVersion();
+        }
 
-        if (alert.showAndWait().filter(ButtonType.YES::equals).isPresent()) {
-            this.addSource(
-                    "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json");
+        if (this.modInstaller.areOtherVersionsPresent()) {
+            this.askDeleteOtherVersions();
+        }
+
+        if (this.modInstaller.getSources().isEmpty()) {
+            this.askInstallDefaultSource();
         }
     }
 
@@ -114,7 +160,7 @@ public class InstallerMainPanelController {
 
     @FXML
     private void initialize() throws IOException {
-        WindowBecameVisibleHandler.intall(this.root, this::initializeModInstaller);
+        WindowBecameVisibleHandler.install(this.root, this::initializeModInstaller);
         this.modInstaller.addInstallationsChangedListener(this::installationsChanged);
         this.modInstaller.addSourcesChangedListener(this::sourcesChanged);
 
@@ -138,9 +184,7 @@ public class InstallerMainPanelController {
     private void initializeModInstaller() {
         this.modInstaller.initialize();
 
-        if (this.modInstaller.getSources().isEmpty()) {
-            this.askToInstallDefaultSource();
-        }
+        this.askQuestions();
     }
 
     private void installationsChanged() {
@@ -166,6 +210,16 @@ public class InstallerMainPanelController {
 
         this.tableView.getItems().setAll(this.getModDefinitions());
         this.tableView.sort();
+    }
+
+    private void startUpdate() {
+        try {
+            this.modInstaller.startUpdate();
+            System.exit(0);
+        } catch (IOException e) {
+            showError("Could Not Start",
+                    "The downloaded version could not be started: " + e.getMessage() + "\n\nYou should try to start it manually.");
+        }
     }
 
     protected class ModStatusTableCell extends TableCell<ModDefinition, String> {

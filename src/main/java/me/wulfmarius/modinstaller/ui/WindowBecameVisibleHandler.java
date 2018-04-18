@@ -13,7 +13,7 @@ public class WindowBecameVisibleHandler {
         this.runnable = runnable;
     }
 
-    public static void intall(Node node, Runnable runnable) {
+    public static void install(Node node, Runnable runnable) {
         WindowBecameVisibleHandler windowBecameVisibleHandler = new WindowBecameVisibleHandler(runnable);
         node.sceneProperty().addListener(windowBecameVisibleHandler::onSceneChanged);
     }

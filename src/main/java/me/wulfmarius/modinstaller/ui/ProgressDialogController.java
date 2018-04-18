@@ -48,7 +48,7 @@ public class ProgressDialogController implements ProgressListener {
     }
 
     public void setRunnable(Runnable runnable) {
-        WindowBecameVisibleHandler.intall(this.pane, runnable);
+        WindowBecameVisibleHandler.install(this.pane, runnable);
     }
 
     @Override

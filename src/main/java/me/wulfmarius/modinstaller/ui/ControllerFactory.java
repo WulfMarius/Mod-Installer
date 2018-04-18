@@ -10,7 +10,7 @@ public class ControllerFactory implements Callback<Class<?>, Object> {
 
     public static final ControllerFactory CONTROLLER_FACTORY = new ControllerFactory();
 
-    private final ModInstaller modInstaller = new ModInstaller(Paths.get("./mod-installer"));;
+    private final ModInstaller modInstaller = new ModInstaller(Paths.get("./mod-installer"));
 
     private ControllerFactory() {
         // hide singleton constructor

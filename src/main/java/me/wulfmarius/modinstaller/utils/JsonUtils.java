@@ -1,7 +1,6 @@
 package me.wulfmarius.modinstaller.utils;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.file.*;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -30,10 +29,8 @@ public class JsonUtils {
         }
     }
 
-    public static <T> T deserialize(String url, Class<T> type) throws IOException {
-        try (InputStream inputStream = new URL(url).openStream()) {
-            return deserialize(inputStream, type);
-        }
+    public static <T> T deserialize(String content, Class<T> type) throws IOException {
+        return OBJECT_MAPPER.readValue(content, type);
     }
 
     public static void serialize(Path path, Object value) throws IOException {

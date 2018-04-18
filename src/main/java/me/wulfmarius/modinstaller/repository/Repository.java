@@ -5,14 +5,12 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import org.springframework.http.HttpMethod;
-import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.util.StringUtils;
-import org.springframework.web.client.RestTemplate;
 
 import me.wulfmarius.modinstaller.*;
 import me.wulfmarius.modinstaller.ProgressListener.StepType;
 import me.wulfmarius.modinstaller.repository.source.*;
+import me.wulfmarius.modinstaller.rest.RestClient;
 import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class Repository {
@@ -24,7 +22,7 @@ public class Repository {
     private final ProgressListeners progressListeners = new ProgressListeners();
     private final SourcesChangedListeners sourcesChangedListeners = new SourcesChangedListeners();
 
-    private RestTemplate restTemplate;
+    private RestClient restClient;
 
     public Repository(Path basePath) {
         super();
@@ -37,7 +35,7 @@ public class Repository {
         }
     }
 
-    private static String getFileName(Asset asset) {
+    public static String getFileName(Asset asset) {
         String url = asset.getUrl();
 
         int index = url.indexOf("?");
@@ -107,16 +105,16 @@ public class Repository {
     }
 
     public void initialize() {
-        this.sourceFactories.add(new GithubSourceFactory());
-        this.sourceFactories.add(new DirectSourceFactory());
+        this.restClient = new RestClient();
+
+        this.sourceFactories.add(new GithubSourceFactory(this.restClient));
+        this.sourceFactories.add(new DirectSourceFactory(this.restClient));
 
         Sources savedSources = this.readSources();
         if (!savedSources.isEmpty()) {
             this.sources.addSources(savedSources);
             this.sourcesChangedListeners.changed();
         }
-
-        this.restTemplate = new RestTemplate();
     }
 
     public void refreshSources() {
@@ -164,7 +162,7 @@ public class Repository {
         this.writeSources();
     }
 
-    private Source createSource(String sourceDefinition, Map<String, ?> parameters) {
+    private Source createSource(String sourceDefinition, Map<String, String> parameters) {
         for (SourceFactory eachSourceFactory : this.sourceFactories) {
             if (!eachSourceFactory.isSupportedSource(sourceDefinition)) {
                 continue;
@@ -179,11 +177,7 @@ public class Repository {
 
     private void downloadAsset(Path assetPath, String assetURL) {
         this.progressListeners.stepStarted(assetURL, StepType.DOWNLOAD);
-
-        for (String url = assetURL; url != null;) {
-            url = this.restTemplate.execute(url, HttpMethod.GET, this::prepareRequest,
-                    new DownloadResponseExtractor(assetPath, this.progressListeners));
-        }
+        this.restClient.downloadAsset(assetURL, assetPath, this.progressListeners);
     }
 
     private Path getSourcesPath() {
@@ -220,10 +214,6 @@ public class Repository {
                 this.progressListeners.detail(e.toString());
             }
         }
-    }
-
-    private void prepareRequest(@SuppressWarnings("unused") ClientHttpRequest request) {
-        // nothing to do
     }
 
     private Sources readSources() {

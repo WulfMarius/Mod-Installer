@@ -11,15 +11,20 @@ import org.springframework.util.StringUtils;
 
 import me.wulfmarius.modinstaller.ProgressListener.StepType;
 import me.wulfmarius.modinstaller.repository.*;
+import me.wulfmarius.modinstaller.rest.RestClient;
+import me.wulfmarius.modinstaller.update.*;
 import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
+
+    public static final String VERSION = "0.1.1";
 
     private final Path basePath;
     private final Repository repository;
     private final Installations installations = new Installations();
     private final InstallationsChangedListeners installationsChangedListeners = new InstallationsChangedListeners();
     private final ProgressListeners progressListeners = new ProgressListeners();
+    private UpdateChecker updateChecker;
 
     public ModInstaller(Path basePath) {
         super();
@@ -63,6 +68,10 @@ public class ModInstaller {
         this.repository.addSourcesChangedListener(listener);
     }
 
+    public boolean areOtherVersionsPresent() {
+        return this.updateChecker.areOtherVersionsPresent();
+    }
+
     public Installations getInstallations() {
         return this.installations;
     }
@@ -82,6 +91,10 @@ public class ModInstaller {
 
     public List<ModDefinition> getModDefinitions(String name) {
         return this.repository.getModDefinitions(name);
+    }
+
+    public Path[] getOtherVersions() {
+        return this.updateChecker.getOtherVersions();
     }
 
     public List<ModDefinition> getRequired(ModDefinition modDefinition, Installations presentInstallations) {
@@ -135,6 +148,10 @@ public class ModInstaller {
         return this.repository.getSources();
     }
 
+    public UpdateState getUpdateState() {
+        return this.updateChecker.getState();
+    }
+
     public void initialize() {
         this.repository.initialize();
 
@@ -143,6 +160,10 @@ public class ModInstaller {
             this.installations.addInstallations(savedInstallations);
             this.installationsChangedListeners.changed();
         }
+
+        this.updateChecker = new UpdateChecker(new RestClient());
+        this.updateChecker.findLatestVersion();
+        this.updateChecker.findOtherVersions(this.basePath.getParent());
     }
 
     public void install(ModDefinition modDefinition) {
@@ -166,6 +187,10 @@ public class ModInstaller {
         return this.installations.contains(modDefinition);
     }
 
+    public boolean isNewVersionAvailable() {
+        return this.updateChecker.isNewVersionAvailable(VERSION);
+    }
+
     public boolean isNoVersionInstalled(ModDefinition modDefinition) {
         return this.installations.getInstallations(modDefinition.getName()).isEmpty();
     }
@@ -176,6 +201,18 @@ public class ModInstaller {
 
     public boolean isRequiredByInstallation(ModDefinition modDefinition) {
         return this.getRequiredBy(modDefinition).stream().filter(this::isAnyVersionInstalled).count() > 0;
+    }
+
+    public void prepareUpdate() {
+        this.progressListeners.started("Downloading version " + this.updateChecker.getLatestVersion());
+        try {
+            this.updateChecker.downloadNewVersion(this.basePath.getParent(), this.progressListeners);
+            this.progressListeners.finished();
+            this.progressListeners.started("\nClose this window to start the new version.");
+        } catch (Exception e) {
+            this.progressListeners.detail("ERROR: " + e.toString());
+            this.progressListeners.finished();
+        }
     }
 
     public void refreshSources() {
@@ -197,6 +234,10 @@ public class ModInstaller {
     public void removeProgressListener(ProgressListener listener) {
         this.progressListeners.removeListener(listener);
         this.repository.removeProgressListener(listener);
+    }
+
+    public void startUpdate() throws IOException {
+        this.updateChecker.startNewVersion();
     }
 
     public void uninstallAll(String name) {

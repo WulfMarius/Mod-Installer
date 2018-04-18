@@ -3,9 +3,6 @@ package me.wulfmarius.modinstaller.ui;
 import static me.wulfmarius.modinstaller.ui.BindingsFactory.*;
 import static me.wulfmarius.modinstaller.ui.ModInstallerUI.startProgressDialog;
 
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -160,11 +157,7 @@ public class ModDetailsPanelController {
 
     @FXML
     private void openURL() {
-        try {
-            Desktop.getDesktop().browse(new URI(this.modDefinitionProperty.get().getUrl()));
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
+        ModInstallerUI.openURL(this.modDefinitionProperty.get().getUrl());
     }
 
     @FXML

@@ -7,6 +7,12 @@ public class Asset {
     private String zipDirectory;
     private String type;
 
+    public static Asset withUrl(String url) {
+        Asset result = new Asset();
+        result.setUrl(url);
+        return result;
+    }
+
     public String getTargetDirectory() {
         return this.targetDirectory;
     }

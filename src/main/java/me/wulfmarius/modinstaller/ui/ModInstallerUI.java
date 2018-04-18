@@ -2,13 +2,16 @@ package me.wulfmarius.modinstaller.ui;
 
 import static me.wulfmarius.modinstaller.ui.ControllerFactory.CONTROLLER_FACTORY;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.*;
 import java.nio.file.*;
+import java.util.Optional;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.*;
@@ -17,7 +20,42 @@ public class ModInstallerUI extends Application {
 
     private static Image ICON = new Image("/icon.png");
 
+    protected static void openURL(String url) {
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (IOException | URISyntaxException e) {
+            showError("Could Not Open", "Could not open URL '" + url + "': " + e.getMessage());
+        }
+    }
+
+    protected static void showError(String title, String message) {
+        Alert dialog = new Alert(AlertType.ERROR);
+        dialog.setTitle(title);
+        dialog.setHeaderText(null);
+        dialog.setContentText(message);
+        setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
+        dialog.showAndWait();
+    }
+
+    protected static Optional<ButtonType> showYesNoChoice(String title, String message) {
+        Alert dialog = new Alert(AlertType.CONFIRMATION, message, ButtonType.YES, ButtonType.NO);
+        dialog.setTitle(title);
+        dialog.setHeaderText(null);
+        setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
+        return dialog.showAndWait();
+    }
+
+    protected static void showYesNoChoice(String title, String message, Runnable onYes) {
+        if (ModInstallerUI.showYesNoChoice(title, message).filter(ButtonType.YES::equals).isPresent()) {
+            onYes.run();
+        }
+    }
+
     protected static void startProgressDialog(String title, Node ownerNode, Runnable runnable) {
+        startProgressDialog(title, ownerNode, runnable, null);
+    }
+
+    protected static void startProgressDialog(String title, Node ownerNode, Runnable runnable, Runnable onClosed) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(ProgressDialogController.class.getResource("ProgressDialog.fxml"));
             fxmlLoader.setControllerFactory(CONTROLLER_FACTORY);
@@ -31,9 +69,14 @@ public class ModInstallerUI extends Application {
             setIcon(stage);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(ownerNode.getScene().getWindow());
+
+            if (onClosed != null) {
+                stage.setOnHidden(event -> onClosed.run());
+            }
+
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            showError("Could Not Show Dialog", e.getMessage());
         }
     }
 
@@ -50,14 +93,8 @@ public class ModInstallerUI extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         if (!verifyInstallationDirectory()) {
-            Alert dialog = new Alert(AlertType.ERROR);
-            dialog.setTitle("Invalid Installation Directory");
-            dialog.setHeaderText(null);
-            dialog.setContentText(
+            showError("Invalid Installation Directory",
                     "Mod-Installer appears to be in the wrong directory.\nMake sure you put it into the directory \"TheLongDark\", which contains the \"tld\" executable");
-            setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
-
-            dialog.showAndWait();
             primaryStage.close();
             return;
         }
