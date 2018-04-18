@@ -6,7 +6,7 @@
 
   <groupId>me.wulfmarius</groupId>
   <artifactId>mod-installer</artifactId>
-  <version>0.2.1-SNAPSHOT</version>
+  <version>0.2.2</version>
   <name>Mod-Installer</name>
   <inceptionYear>2018</inceptionYear>
 

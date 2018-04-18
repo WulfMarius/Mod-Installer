@@ -10,6 +10,7 @@ import org.springframework.http.client.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.*;
 
+import me.wulfmarius.modinstaller.ProgressListener.StepType;
 import me.wulfmarius.modinstaller.ProgressListeners;
 import me.wulfmarius.modinstaller.repository.*;
 import me.wulfmarius.modinstaller.utils.JsonUtils;
@@ -51,8 +52,9 @@ public class RestClient {
     }
 
     public void downloadAsset(String url, Path assetPath, ProgressListeners progressListeners) {
-        String redirectURL = url;
+        progressListeners.stepStarted(url, StepType.DOWNLOAD);
 
+        String redirectURL = url;
         while (redirectURL != null) {
             redirectURL = this.restTemplate.execute(redirectURL, HttpMethod.GET, this::prepareRequest,
                     new DownloadResponseExtractor(assetPath, progressListeners));

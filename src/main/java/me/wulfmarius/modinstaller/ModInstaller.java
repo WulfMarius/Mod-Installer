@@ -17,7 +17,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.2.1";
+    public static final String VERSION = "0.2.2";
 
     private final Path basePath;
     private final Repository repository;
@@ -152,6 +152,10 @@ public class ModInstaller {
         return this.updateChecker.getState();
     }
 
+    public boolean hasDownloadedNewVersion() {
+        return this.updateChecker.hasDownloadedNewVersion();
+    }
+
     public void initialize() {
         this.repository.initialize();
 
@@ -208,7 +212,7 @@ public class ModInstaller {
         try {
             this.updateChecker.downloadNewVersion(this.basePath.getParent(), this.progressListeners);
             this.progressListeners.finished();
-            this.progressListeners.started("\nClose this window to start the new version.");
+            this.progressListeners.detail("\nClose this window to start the new version.");
         } catch (Exception e) {
             this.progressListeners.detail("ERROR: " + e.toString());
             this.progressListeners.finished();

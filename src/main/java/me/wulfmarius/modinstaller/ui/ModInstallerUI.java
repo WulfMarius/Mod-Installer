@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.*;
+import me.wulfmarius.modinstaller.ModInstaller;
 
 public class ModInstallerUI extends Application {
 
@@ -85,7 +86,6 @@ public class ModInstallerUI extends Application {
     }
 
     private static boolean verifyInstallationDirectory() {
-        // return true;
         return Files.exists(Paths.get("./TLD.exe")) || Files.exists(Paths.get("./tld.app")) || Files.exists(Paths.get("./tld.x86"))
                 || Files.exists(Paths.get("./tld.x86_64"));
     }
@@ -108,7 +108,7 @@ public class ModInstallerUI extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
-        primaryStage.setTitle("TLD Mod-Installer 0.1.1");
+        primaryStage.setTitle("TLD Mod-Installer " + ModInstaller.VERSION);
         setIcon(primaryStage);
         primaryStage.show();
     }

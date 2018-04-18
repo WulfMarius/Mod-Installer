@@ -213,10 +213,14 @@ public class InstallerMainPanelController {
     }
 
     private void startUpdate() {
+        if (!this.modInstaller.hasDownloadedNewVersion()) {
+            return;
+        }
+
         try {
             this.modInstaller.startUpdate();
             System.exit(0);
-        } catch (IOException e) {
+        } catch (Exception e) {
             showError("Could Not Start",
                     "The downloaded version could not be started: " + e.getMessage() + "\n\nYou should try to start it manually.");
         }

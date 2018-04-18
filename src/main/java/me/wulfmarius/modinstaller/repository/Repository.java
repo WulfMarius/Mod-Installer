@@ -74,7 +74,7 @@ public class Repository {
         for (Asset eachAsset : assets) {
             Path assetPath = this.getAssetPath(modDefinition, eachAsset);
             if (Files.notExists(assetPath)) {
-                this.downloadAsset(assetPath, eachAsset.getUrl());
+                this.restClient.downloadAsset(eachAsset.getUrl(), assetPath, this.progressListeners);
             }
         }
     }
@@ -173,11 +173,6 @@ public class Repository {
         }
 
         throw new SourceException("Unsupported source '" + sourceDefinition + "'.");
-    }
-
-    private void downloadAsset(Path assetPath, String assetURL) {
-        this.progressListeners.stepStarted(assetURL, StepType.DOWNLOAD);
-        this.restClient.downloadAsset(assetURL, assetPath, this.progressListeners);
     }
 
     private Path getSourcesPath() {

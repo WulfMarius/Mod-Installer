@@ -93,6 +93,10 @@ public class UpdateChecker {
         return this.state;
     }
 
+    public boolean hasDownloadedNewVersion() {
+        return this.downloadPath != null && Files.exists(this.downloadPath);
+    }
+
     public boolean isNewVersionAvailable(String version) {
         return this.state.getLatestVersion() != null && !this.state.getLatestVersion().equals(version);
     }
