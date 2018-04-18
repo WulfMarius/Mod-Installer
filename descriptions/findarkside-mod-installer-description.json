@@ -1,0 +1,20 @@
+{
+	"name": "FINDarkside Collection",
+	"description": "Mods of FINDarkside",
+	"url": "https://github.com/FINDarkside",
+	"releases": [
+		{
+			"name": "Developer-Console",
+			"version": "1.0",
+			"description": "Enables the developer console, which can be opened by pressing F1\nType help for a list of commands and press TAB to autocomplete.",
+			"url": "https://github.com/FINDarkside/TLD-Developer-Console/releases/tag/1",
+			"changes": "Initial version",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/FINDarkside/TLD-Developer-Console/releases/download/1/DeveloperConsole.dll"
+				}
+			]
+		}
+	]
+}
