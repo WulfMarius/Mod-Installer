@@ -34,4 +34,12 @@ public class StringUtils {
 
         return path.substring(0, firstPartLength) + "..." + path.substring(path.length() - lastPathLength, path.length());
     }
+
+    public static String trimToEmpty(String value) {
+        if (value == null) {
+            return "";
+        }
+
+        return value.trim();
+    }
 }
