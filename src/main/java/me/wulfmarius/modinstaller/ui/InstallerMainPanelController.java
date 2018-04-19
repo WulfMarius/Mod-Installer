@@ -209,6 +209,7 @@ public class InstallerMainPanelController {
         }
 
         this.tableView.getItems().setAll(this.getModDefinitions());
+        this.tableView.refresh();
         this.tableView.sort();
     }
 
