@@ -29,8 +29,6 @@ public class ModDetailsPanelController {
     @FXML
     private Hyperlink hyperlinkChangelog;
     @FXML
-    private Button buttonChangelog;
-    @FXML
     private Hyperlink hyperlinkURL;
     @FXML
     private Label labelDescription;
@@ -50,6 +48,8 @@ public class ModDetailsPanelController {
     @FXML
     private Button buttonInstall;
 
+    @FXML
+    private Label infoUpdateForbidden;
     @FXML
     private Button buttonUpdate;
 
@@ -102,6 +102,10 @@ public class ModDetailsPanelController {
         this.infoInstallForbidden.tooltipProperty().bind(this.installTooltipProperty);
 
         this.buttonUpdate.visibleProperty().bind(createModDefinitionUpdateBinding(this.modDefinitionProperty, this.modInstaller));
+        this.buttonUpdate.disableProperty().bind(this.installForbiddenProperty);
+        this.infoUpdateForbidden.visibleProperty()
+                .bind(Bindings.and(this.buttonUpdate.visibleProperty(), this.installForbiddenProperty));
+        this.infoUpdateForbidden.tooltipProperty().bind(this.installTooltipProperty);
 
         this.buttonUninstall.visibleProperty()
                 .bind(createModDefinitionUninstallBinding(this.modDefinitionProperty, this.modInstaller));

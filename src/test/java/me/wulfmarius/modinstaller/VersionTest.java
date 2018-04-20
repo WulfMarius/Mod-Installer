@@ -95,8 +95,10 @@ public class VersionTest {
         Version version_1_6f = Version.parse("1.6f");
         Version version_1_7 = Version.parse("1.7");
         Version version_1_7a = Version.parse("1.7a");
+        Version version_17a = Version.parse("17a");
 
-        List<Version> versions = Arrays.asList(version_1_5, version_1_6c, version_1_6e, version_1_6f, version_1_7, version_1_7a);
+        List<Version> versions = Arrays.asList(version_1_5, version_1_6c, version_1_6e, version_1_6f, version_1_7, version_1_7a,
+                version_17a);
         Collections.shuffle(versions);
         Collections.sort(versions, Version::compare);
 

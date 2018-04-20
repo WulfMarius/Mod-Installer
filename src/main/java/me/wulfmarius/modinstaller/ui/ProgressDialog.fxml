@@ -21,16 +21,6 @@
                </content>
             </ScrollPane>
          </center>
-         <bottom>
-            <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" rowValignment="BOTTOM" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="buttonClose" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#onClose" text="Close" />
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </FlowPane>
-         </bottom>
          <padding>
             <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
          </padding>
@@ -49,6 +39,21 @@
                </children>
             </VBox>
          </top>
+         <bottom>
+            <GridPane BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="labelTime" text="00:00" textFill="GREY" GridPane.halignment="LEFT" />
+                  <Button fx:id="buttonClose" alignment="CENTER_RIGHT" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#onClose" text="Close" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+               </children>
+            </GridPane>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>

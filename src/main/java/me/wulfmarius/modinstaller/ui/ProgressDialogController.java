@@ -1,8 +1,12 @@
 package me.wulfmarius.modinstaller.ui;
 
+import static java.text.MessageFormat.format;
 import static me.wulfmarius.modinstaller.utils.StringUtils.*;
 
+import java.util.*;
+
 import javafx.application.Platform;
+import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -30,6 +34,11 @@ public class ProgressDialogController implements ProgressListener {
     @FXML
     private TextArea textAreaLog;
 
+    @FXML
+    private Label labelTime;
+
+    private final Clock clock = new Clock();
+
     public ProgressDialogController(ModInstaller modInstaller) {
         super();
         this.modInstaller = modInstaller;
@@ -45,6 +54,7 @@ public class ProgressDialogController implements ProgressListener {
         this.appendToLog("FINISHED");
         this.progressBarStep.setProgress(1);
         this.buttonClose.setDisable(false);
+        this.clock.stop();
     }
 
     public void setRunnable(Runnable runnable) {
@@ -101,6 +111,8 @@ public class ProgressDialogController implements ProgressListener {
         this.currentStepType = stepType;
         this.labelStep.setText(stepType + ": " + step);
         this.appendToLog(stepType + ": " + step);
+
+        this.clock.start();
     }
 
     private void appendToLog(String message) {
@@ -111,6 +123,7 @@ public class ProgressDialogController implements ProgressListener {
     @FXML
     private void initialize() {
         this.modInstaller.addProgressListener(this);
+        this.labelTime.textProperty().bind(this.clock.formattedTime);
 
         this.buttonClose.requestFocus();
     }
@@ -119,5 +132,57 @@ public class ProgressDialogController implements ProgressListener {
     private void onClose() {
         this.modInstaller.removeProgressListener(this);
         this.buttonClose.getScene().getWindow().hide();
+    }
+
+    protected static class Clock {
+
+        protected final StringProperty formattedTime = new SimpleStringProperty();
+
+        private final Timer timer = new Timer(true);
+        private long startTime;
+        private boolean running;
+
+        public boolean isRunning() {
+            return this.running;
+        }
+
+        public void reset() {
+            this.startTime = System.currentTimeMillis();
+            this.formattedTime.set("");
+        }
+
+        public void start() {
+            if (this.running) {
+                return;
+            }
+
+            Platform.runLater(this::reset);
+
+            this.timer.scheduleAtFixedRate(new TimerTask() {
+
+                @Override
+                public void run() {
+                    if (!Clock.this.isRunning()) {
+                        this.cancel();
+                        return;
+                    }
+
+                    Platform.runLater(Clock.this::update);
+                }
+            }, 1000, 1000);
+            this.running = true;
+        }
+
+        public void stop() {
+            this.running = false;
+        }
+
+        protected void update() {
+            long elapsed = System.currentTimeMillis() - this.startTime;
+            long minutes = elapsed / 60000;
+            elapsed %= 60000;
+            long seconds = elapsed / 1000;
+            this.formattedTime.set(format("{0,number,00}:{1,number,00}", minutes, seconds));
+        }
     }
 }

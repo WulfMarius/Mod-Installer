@@ -68,7 +68,7 @@ public class GithubSourceFactory extends AbstractSourceFactory {
                 eachRelease.setChanges(optional.map(GithubRelease::getBody).orElse(""));
             }
 
-            if (eachRelease.getAssets() == null || eachRelease.getAssets().length == 1) {
+            if (eachRelease.getAssets() == null || eachRelease.getAssets().length == 0) {
                 eachRelease.setAssets(optional.map(GithubRelease::getAssets).map((Function<GithubAsset[], Asset[]>) assets -> Arrays
                         .stream(assets).map(GithubAsset::toAsset).toArray(Asset[]::new)).orElse(new Asset[0]));
             }

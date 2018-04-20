@@ -74,6 +74,7 @@
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" percentWidth="0.0" prefWidth="25.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" percentWidth="0.0" prefWidth="25.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" percentWidth="0.0" prefWidth="25.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" />
@@ -82,17 +83,40 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
           </rowConstraints>
           <children>
-            <Button fx:id="buttonInstall" mnemonicParsing="false" onAction="#installMod" text="Install" GridPane.columnIndex="4" GridPane.valignment="BOTTOM">
+            <Label fx:id="infoInstallForbidden" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+              <graphic>
+                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@/lock_grey_24x24.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="3.0" />
+                     </GridPane.margin>
+            </Label>
+            <Button fx:id="buttonInstall" mnemonicParsing="false" onAction="#installMod" text="Install" GridPane.columnIndex="5" GridPane.valignment="BOTTOM">
               <GridPane.margin>
                 <Insets />
               </GridPane.margin>
             </Button>
-            <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#installMod" styleClass="update" text="Update" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+                  <Label fx:id="infoUpdateForbidden" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="3.0" />
+                     </GridPane.margin>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/lock_grey_24x24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+            <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#installMod" styleClass="update" text="Update" GridPane.columnIndex="3" GridPane.valignment="BOTTOM">
               <GridPane.margin>
                 <Insets />
               </GridPane.margin>
             </Button>
-            <Button fx:id="buttonUninstall" mnemonicParsing="false" onAction="#uninstallMod" styleClass="uninstall" text="Uninstall" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
             <Label fx:id="infoUninstallForbidden" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
               <graphic>
                 <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" smooth="false">
@@ -105,18 +129,7 @@
                 <Insets bottom="3.0" />
               </GridPane.margin>
             </Label>
-            <Label fx:id="infoInstallForbidden" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-              <graphic>
-                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                    <Image url="@/lock_grey_24x24.png" />
-                  </image>
-                </ImageView>
-              </graphic>
-                     <GridPane.margin>
-                        <Insets bottom="3.0" />
-                     </GridPane.margin>
-            </Label>
+            <Button fx:id="buttonUninstall" mnemonicParsing="false" onAction="#uninstallMod" styleClass="uninstall" text="Uninstall" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
           </children>
           <VBox.margin>
             <Insets top="12.0" />
