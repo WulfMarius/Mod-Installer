@@ -7,7 +7,7 @@
 			"name": "DisableBreathEffect",
 			"version": "v1.1",
 			"description": "Removes the annoying 2D breath cloud that appears every few seconds when it's cold.",
-			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods",
 			"changes": "",
 			"dependencies": [],
 			"assets": [
@@ -16,10 +16,22 @@
 				}
 			]
 		}, {
+			"name": "EnableFeatProgressInCustomMode",
+			"version": "v1.0",
+			"description": "The v1.29 update turned off Feat progress in custom mode games - this mod turns it back on.",
+			"url": "https://github.com/zeobviouslyfakeacc/EnableFeatProgressInCustomMode",
+			"changes": "",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/zeobviouslyfakeacc/EnableFeatProgressInCustomMode/releases/download/v1.0/EnableFeatProgressInCustomMode.dll"
+				}
+			]
+		}, {
 			"name": "EnableStatusBarPercentages",
 			"version": "v1.1",
 			"description": "This mod re-enables some labels in the status / first aid screen that show a percentage value of how full the warmth, fatigue, thirst and hunger status bars are.",
-			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods",
 			"changes": "",
 			"dependencies": [],
 			"assets": [
@@ -28,10 +40,22 @@
 				}
 			]
 		}, {
+			"name": "HungerRevamped",
+			"version": "v1.1",
+			"description": "Improves the hunger system by separating hunger and stored calories.",
+			"url": "https://github.com/zeobviouslyfakeacc/HungerRevamped",
+			"changes": "",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://github.com/zeobviouslyfakeacc/HungerRevamped/releases/download/v1.1/HungerRevamped.dll"
+				}
+			]
+		}, {
 			"name": "RememberBreakDownItem",
 			"version": "v1.1",
 			"description": "This mod remembers the tool you last used to break down furniture. That way, you no longer need to constantly switch from \"using a knife\" to \"no tool\" when breaking down branches or curtains.",
-			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods",
 			"changes": "",
 			"dependencies": [],
 			"assets": [
@@ -43,7 +67,7 @@
 			"name": "WildlifeBegone",
 			"version": "v1.1",
 			"description": "This mod removes most of the animals that would usually roam the world and greatly increases their respawn times, thus making you play The Long Dark quite a bit differently.",
-			"url": "https://github.com/zeobviouslyfakeacc/MiniMods/releases/tag/v1.1",
+			"url": "https://github.com/zeobviouslyfakeacc/MiniMods",
 			"changes": "",
 			"dependencies": [],
 			"assets": [
