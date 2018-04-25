@@ -2,7 +2,6 @@ package me.wulfmarius.modinstaller.repository.source;
 
 import java.text.MessageFormat;
 import java.util.*;
-import java.util.function.Function;
 import java.util.regex.*;
 
 import org.springframework.http.ResponseEntity;
@@ -52,26 +51,43 @@ public class GithubSourceFactory extends AbstractSourceFactory {
             return;
         }
 
-        String url = definition.replace("//github.com/", "//api.github.com/repos/") + "/releases";
-        ResponseEntity<String> response = this.restClient.fetch(url, null);
-        GithubRelease[] githubReleases = this.restClient.deserialize(response, GithubRelease[].class, () -> new GithubRelease[0]);
+        GithubRelease[] githubReleases = null;
 
         for (ModDefinition eachRelease : releases) {
-            Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
-
             if (StringUtils.isEmpty(eachRelease.getUrl())) {
+                if (githubReleases == null) {
+                    githubReleases = this.getGithubReleases(definition);
+                }
+
+                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
                 eachRelease
                         .setUrl(optional.map(GithubRelease::getUrl).orElse(definition + "/releases/tag/" + eachRelease.getVersion()));
             }
 
             if (StringUtils.isEmpty(eachRelease.getChanges())) {
+                if (githubReleases == null) {
+                    githubReleases = this.getGithubReleases(definition);
+                }
+
+                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
                 eachRelease.setChanges(optional.map(GithubRelease::getBody).orElse(""));
             }
 
             if (eachRelease.getAssets() == null || eachRelease.getAssets().length == 0) {
-                eachRelease.setAssets(optional.map(GithubRelease::getAssets).map((Function<GithubAsset[], Asset[]>) assets -> Arrays
-                        .stream(assets).map(GithubAsset::toAsset).toArray(Asset[]::new)).orElse(new Asset[0]));
+                if (githubReleases == null) {
+                    githubReleases = this.getGithubReleases(definition);
+                }
+
+                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
+                eachRelease.setAssets(optional.map(GithubRelease::getAssets)
+                        .map(assets -> Arrays.stream(assets).map(GithubAsset::toAsset).toArray(Asset[]::new)).orElse(new Asset[0]));
             }
         }
+    }
+
+    private GithubRelease[] getGithubReleases(String definition) {
+        String url = definition.replace("//github.com/", "//api.github.com/repos/") + "/releases";
+        ResponseEntity<String> response = this.restClient.fetch(url, null);
+        return this.restClient.deserialize(response, GithubRelease[].class, () -> new GithubRelease[0]);
     }
 }
