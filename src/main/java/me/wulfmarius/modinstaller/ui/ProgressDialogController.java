@@ -169,7 +169,7 @@ public class ProgressDialogController implements ProgressListener {
 
                     Platform.runLater(Clock.this::update);
                 }
-            }, 1000, 1000);
+            }, 1000, 200);
             this.running = true;
         }
 
