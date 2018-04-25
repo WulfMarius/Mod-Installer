@@ -41,8 +41,12 @@ public class RestClient {
 
         try {
             String json = response.getBody();
-            if (json.charAt(0) == '\uFEFF') {
+            if (json.startsWith("\uFEFF")) {
                 json = json.substring(1);
+            }
+
+            if (json.startsWith("\u00EF\u00BB\u00BF")) {
+                json = json.substring(3);
             }
 
             return JsonUtils.deserialize(json, type);
