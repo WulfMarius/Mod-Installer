@@ -1,6 +1,6 @@
 package me.wulfmarius.modinstaller;
 
-import java.util.Arrays;
+import java.util.*;
 import java.util.stream.Stream;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,6 +14,8 @@ public class ModDefinition {
     private String version;
     private String description;
     private String changes;
+    private Date releaseDate;
+    private Date lastUpdated;
 
     private Asset[] assets;
     private ModDependency[] dependencies;
@@ -79,8 +81,16 @@ public class ModDefinition {
         return this.name + " " + this.version;
     }
 
+    public Date getLastUpdated() {
+        return this.lastUpdated;
+    }
+
     public String getName() {
         return this.name;
+    }
+
+    public Date getReleaseDate() {
+        return this.releaseDate;
     }
 
     public String getSourceDefinition() {
@@ -128,8 +138,16 @@ public class ModDefinition {
         this.description = description;
     }
 
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public void setSourceDefinition(String sourceDefinition) {

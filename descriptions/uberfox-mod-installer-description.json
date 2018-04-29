@@ -6,6 +6,7 @@
 		{
 			"name": "UModTld",
 			"version": "1.7",
+			"releaseDate": "2017-12-12",
 			"description": "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
 			"url": "http://ubersoft.org/umodtld/",
 			"changes": "Updated UModTld to fully support the new features of the December update so it can spawn mooses and heal broken ribs etc etc.\nAlso added a new command \"/custom\" that gives you the code for your current custom game just so you never lose it!.\n\nAdded various more things to the Config file such as jump settings, ability to show time of day on screen, hotkeys to spawn wildlife etc etc and all kinds of good stuff.",
@@ -18,6 +19,7 @@
 		}, {
 			"name": "UModTld",
 			"version": "1.7a",
+			"releaseDate": "2018-03-13",
 			"description": "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
 			"url": "http://ubersoft.org/umodtld/",
 			"changes": "Updated UModTld to newest Long Dark version and newest Mod Loader since it seems a lot of bullshit was changed.",

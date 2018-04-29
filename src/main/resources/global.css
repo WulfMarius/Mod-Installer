@@ -1,17 +1,34 @@
-.table-view .align-right.column-header .label {
-    -fx-alignment: CENTER_RIGHT;
-}
-
-.table-view .align-left.column-header .label {
-    -fx-alignment: CENTER_LEFT;
-}
-
 .uninstall.button .text {
 	-fx-fill: RED; 
 }
 
 .update.button .text {
 	-fx-fill: GREEN; 
+}
+
+
+.hyperlink:visited .text {
+}
+
+
+.table-view .align-right.column-header .label {
+    -fx-alignment: CENTER_RIGHT;
+}
+.table-view .align-left.column-header .label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.table-row-cell:not-installed .text {
+   -fx-fill: darkgray  ;
+}
+
+.table-row-cell:not-installed:selected .text {
+   -fx-fill: lightgray;
+}
+
+.table-row-cell .tooltip .text {
+   -fx-fill: WHITE;
 }
 
 
@@ -33,14 +50,8 @@
     -fx-background-position: right 18px top 50%, right 50%;
 }
 
-.table-row-cell:not-installed .text {
-   -fx-fill: GREY;
+.table-cell:recent {
+    -fx-background-image: url("new_releases_grey_18x18.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right 50%;
 }
-.table-row-cell:focused:not-installed:selected .text {
-   -fx-fill: WHITE;
-}
-
-.hyperlink:visited .text {
-}
-
-

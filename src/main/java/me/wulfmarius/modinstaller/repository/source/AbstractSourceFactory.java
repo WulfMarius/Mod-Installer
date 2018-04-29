@@ -2,7 +2,7 @@ package me.wulfmarius.modinstaller.repository.source;
 
 import java.util.Map;
 
-import org.springframework.http.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 
 import me.wulfmarius.modinstaller.repository.*;
@@ -33,10 +33,11 @@ public abstract class AbstractSourceFactory implements SourceFactory {
     protected SourceDescription getSourceDescription(String sourceDefinition, Map<String, String> parameters) {
         String url = this.getDefinitionsUrl(sourceDefinition);
 
-        ResponseEntity<String> response = this.restClient.fetch(url, parameters.get(HttpHeaders.ETAG));
+        ResponseEntity<String> response = this.restClient.fetch(url, parameters.get(PARAMETER_ETAG));
         SourceDescription result = this.restClient.deserialize(response, SourceDescription.class,
                 this::createUnmodifiedSourceDescription);
-        result.setParameter(HttpHeaders.ETAG, response.getHeaders().getETag());
+        result.setParameter(PARAMETER_ETAG, response.getHeaders().getETag());
+        result.setParameter(PARAMETER_VERSION, Source.VERSION);
 
         return result;
     }
@@ -49,7 +50,7 @@ public abstract class AbstractSourceFactory implements SourceFactory {
 
     private SourceDescription createUnmodifiedSourceDescription() {
         SourceDescription result = new SourceDescription();
-        result.setParameter("Unmodified", "true");
+        result.setParameter(PARAMETER_UNMODIFIED, "true");
         return result;
     }
 }

@@ -5,7 +5,9 @@ import static me.wulfmarius.modinstaller.ui.ModInstallerUI.*;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.text.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import javafx.application.Platform;
@@ -18,18 +20,20 @@ import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.util.Callback;
 import me.wulfmarius.modinstaller.*;
-import me.wulfmarius.modinstaller.repository.Source;
+import me.wulfmarius.modinstaller.repository.*;
 import me.wulfmarius.modinstaller.update.UpdateState;
 
 public class InstallerMainPanelController {
 
-    private static final String DEFAULT_SOURCE_DEFINITION = "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json";
-
     protected static final PseudoClass PSEUDO_CLASS_UPDATE_AVAILABLE = PseudoClass.getPseudoClass("update-available");
-
+    protected static final PseudoClass PSEUDO_CLASS_RECENT = PseudoClass.getPseudoClass("recent");
     protected static final PseudoClass PSEUDO_CLASS_NOT_INSTALLED = PseudoClass.getPseudoClass("not-installed");
     protected static final PseudoClass PSEUDO_CLASS_REQUIRED = PseudoClass.getPseudoClass("required");
+
+    private static final String DEFAULT_SOURCE_DEFINITION = "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json";
+
     private final ModInstaller modInstaller;
 
     @FXML
@@ -47,10 +51,38 @@ public class InstallerMainPanelController {
     private TableColumn<ModDefinition, String> columnInstalledVersion;
     @FXML
     private TableColumn<ModDefinition, String> columnAvailableVersion;
+    @FXML
+    private TableColumn<ModDefinition, Date> columnReleaseDate;
 
     public InstallerMainPanelController(ModInstaller modInstaller) {
         super();
         this.modInstaller = modInstaller;
+    }
+
+    public static <R, T> Callback<TableColumn<R, T>, TableCell<R, T>> getFormattedCell(Format format) {
+        return column -> {
+            return new TableCell<R, T>() {
+
+                @Override
+                protected void updateItem(T item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null || empty) {
+                        this.setText(null);
+                    } else {
+                        this.setText(format.format(item));
+                    }
+                }
+            };
+        };
+    }
+
+    public boolean isRecent(ModDefinition modDefinition) {
+        if (modDefinition.getLastUpdated() == null) {
+            return false;
+        }
+
+        return modDefinition.getLastUpdated().getTime() >= System.currentTimeMillis() - TimeUnit.DAYS.toMillis(2)
+                && this.isNotInstalled(modDefinition);
     }
 
     protected boolean isNotInstalled(ModDefinition modDefinition) {
@@ -139,6 +171,8 @@ public class InstallerMainPanelController {
 
         if (this.modInstaller.getSources().isEmpty()) {
             this.askInstallDefaultSource();
+        } else {
+            this.migrateSources();
         }
     }
 
@@ -152,10 +186,6 @@ public class InstallerMainPanelController {
 
     private ObservableValue<String> getInstalledVersion(CellDataFeatures<ModDefinition, String> features) {
         return new ReadOnlyStringWrapper(this.modInstaller.getInstalledVersion(features.getValue().getName()));
-    }
-
-    private List<ModDefinition> getModDefinitions() {
-        return this.modInstaller.getSources().stream().flatMap(Source::getLatestVersions).collect(Collectors.toList());
     }
 
     @FXML
@@ -173,10 +203,13 @@ public class InstallerMainPanelController {
         this.columnName.setCellFactory(this::createTableCell);
         this.columnAvailableVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         this.columnInstalledVersion.setCellValueFactory(this::getInstalledVersion);
+        this.columnReleaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+        this.columnReleaseDate.setCellFactory(getFormattedCell(DateFormat.getDateInstance(DateFormat.SHORT)));
 
         this.tableView.setRowFactory(this::createTableRow);
         this.tableView.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
+        this.tableView.boundsInLocalProperty().addListener((obs, oldValue, newValue) -> Platform.runLater(this.tableView::refresh));
 
         this.tableView.getSortOrder().add(this.columnName);
     }
@@ -188,13 +221,18 @@ public class InstallerMainPanelController {
     }
 
     private void installationsChanged() {
-        if (!Platform.isFxApplicationThread()) {
-            Platform.runLater(this::installationsChanged);
-            return;
-        }
+        Platform.runLater(this.tableView::sort);
+        Platform.runLater(this.tableView::refresh);
+    }
 
-        this.tableView.refresh();
-        this.tableView.sort();
+    private void migrateSources() {
+        boolean requiresRefresh = this.modInstaller.getSources().stream()
+                .anyMatch(source -> !source.hasParameterValue(SourceFactory.PARAMETER_VERSION, Source.VERSION));
+
+        if (requiresRefresh) {
+            this.modInstaller.invalidateSources();
+            this.refreshSources();
+        }
     }
 
     @FXML
@@ -203,14 +241,9 @@ public class InstallerMainPanelController {
     }
 
     private void sourcesChanged() {
-        if (!Platform.isFxApplicationThread()) {
-            Platform.runLater(this::sourcesChanged);
-            return;
-        }
-
-        this.tableView.getItems().setAll(this.getModDefinitions());
-        this.tableView.refresh();
-        this.tableView.sort();
+        this.tableView.getItems().setAll(this.modInstaller.getLatestVersions());
+        Platform.runLater(this.tableView::sort);
+        Platform.runLater(this.tableView::refresh);
     }
 
     private void startUpdate() {
@@ -239,11 +272,33 @@ public class InstallerMainPanelController {
             this.setText(item);
             this.setGraphic(null);
 
+            StringBuilder stringBuilder = new StringBuilder();
+
             ModDefinition modDefinition = (ModDefinition) this.getTableRow().getItem();
             if (modDefinition != null) {
-                this.pseudoClassStateChanged(PSEUDO_CLASS_UPDATE_AVAILABLE,
-                        InstallerMainPanelController.this.isUpdateAvailable(modDefinition));
-                this.pseudoClassStateChanged(PSEUDO_CLASS_REQUIRED, InstallerMainPanelController.this.isRequired(modDefinition));
+                boolean updateAvailable = InstallerMainPanelController.this.isUpdateAvailable(modDefinition);
+                this.pseudoClassStateChanged(PSEUDO_CLASS_UPDATE_AVAILABLE, updateAvailable);
+                if (updateAvailable) {
+                    stringBuilder.append("An newer version is available.");
+                }
+
+                boolean required = InstallerMainPanelController.this.isRequired(modDefinition);
+                this.pseudoClassStateChanged(PSEUDO_CLASS_REQUIRED, required);
+                if (required) {
+                    stringBuilder.append("\nCannot be uninstalled because it is required by another mod.");
+                }
+
+                boolean recent = InstallerMainPanelController.this.isRecent(modDefinition);
+                this.pseudoClassStateChanged(PSEUDO_CLASS_RECENT, recent);
+                if (recent) {
+                    stringBuilder.append("\nThis version was added or updated recently.");
+                }
+            }
+
+            if (stringBuilder.length() == 0) {
+                this.setTooltip(null);
+            } else {
+                this.setTooltip(new Tooltip(stringBuilder.toString().trim()));
             }
         }
     }

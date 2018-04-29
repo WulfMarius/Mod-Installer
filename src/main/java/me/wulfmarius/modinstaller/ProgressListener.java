@@ -2,7 +2,7 @@ package me.wulfmarius.modinstaller;
 
 public interface ProgressListener {
 
-    void finished();
+    void finished(String message);
 
     void started(String name);
 

@@ -45,13 +45,17 @@ public class ProgressDialogController implements ProgressListener {
     }
 
     @Override
-    public void finished() {
+    public void finished(String message) {
         if (!Platform.isFxApplicationThread()) {
-            Platform.runLater(this::finished);
+            Platform.runLater(() -> this.finished(message));
             return;
         }
 
         this.appendToLog("FINISHED");
+        if (message != null) {
+            this.appendToLog(message);
+        }
+
         this.progressBarStep.setProgress(1);
         this.buttonClose.setDisable(false);
         this.clock.stop();

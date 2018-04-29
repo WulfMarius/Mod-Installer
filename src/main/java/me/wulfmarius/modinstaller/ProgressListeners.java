@@ -9,7 +9,11 @@ public class ProgressListeners extends Listeners<ProgressListener> {
     }
 
     public void finished() {
-        this.fire(listener -> listener.finished());
+        this.finished(null);
+    }
+
+    public void finished(String message) {
+        this.fire(listener -> listener.finished(message));
     }
 
     public void started(String name) {

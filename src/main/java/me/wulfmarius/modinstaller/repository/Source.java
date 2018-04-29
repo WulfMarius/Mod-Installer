@@ -9,6 +9,8 @@ import me.wulfmarius.modinstaller.*;
 
 public class Source {
 
+    public static final String VERSION = "1";
+
     private String definition;
     private String name;
     private String url;
@@ -83,8 +85,16 @@ public class Source {
         return this.url;
     }
 
-    public boolean isUnmodified() {
-        return "true".equals(this.getParameter("Unmodified"));
+    public boolean hasParameterValue(String parameterName, String value) {
+        if (value == null) {
+            return this.getParameter(parameterName) == null;
+        }
+
+        return value.equals(this.getParameter(parameterName));
+    }
+
+    public void removeParameter(String parameterName) {
+        this.parameters.remove(parameterName);
     }
 
     public void setDefinition(String definition) {
@@ -140,6 +150,8 @@ public class Source {
             if (StringUtils.isEmpty(eachModDefinition.getDescription())) {
                 eachModDefinition.setDescription(this.description);
             }
+
+            eachModDefinition.setLastUpdated(new Date());
 
             this.modDefinitions.addModDefinition(eachModDefinition);
         }

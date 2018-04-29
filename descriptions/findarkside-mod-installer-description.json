@@ -6,6 +6,7 @@
 		{
 			"name": "Developer-Console",
 			"version": "1.0",
+			"releaseDate": "2017-07-01",
 			"description": "Enables the developer console, which can be opened by pressing F1\nType help for a list of commands and press TAB to autocomplete.",
 			"url": "https://github.com/FINDarkside/TLD-Developer-Console/releases/tag/1",
 			"changes": "Initial version",

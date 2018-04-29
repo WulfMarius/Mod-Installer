@@ -83,6 +83,10 @@ public class Repository {
         return this.basePath.resolve(modDefinition.getName()).resolve(modDefinition.getVersion()).resolve(getFileName(asset));
     }
 
+    public List<ModDefinition> getLatestVersions() {
+        return this.getSources().stream().flatMap(Source::getLatestVersions).collect(Collectors.toList());
+    }
+
     public Optional<ModDefinition> getModDefinition(String name, String version) {
         for (Source eachSource : this.sources) {
             Optional<ModDefinition> modDefinition = eachSource.getModDefinition(name, version);
@@ -117,12 +121,32 @@ public class Repository {
         }
     }
 
+    public void invalidateSources() {
+        for (Source eachSource : this.sources) {
+            eachSource.removeParameter(SourceFactory.PARAMETER_ETAG);
+        }
+    }
+
     public void refreshSources() {
+        String changes = null;
+
         try {
             this.progressListeners.started("Refreshing Sources");
+
+            List<ModDefinition> previousLatestVersions = this.getLatestVersions();
+
             this.performRefreshSources();
+
+            List<ModDefinition> currentLatestVersions = this.getLatestVersions();
+            currentLatestVersions.removeAll(previousLatestVersions);
+            if (!currentLatestVersions.isEmpty()) {
+                changes = currentLatestVersions.stream().map(ModDefinition::getName)
+                        .collect(Collectors.joining("\n\t", "\n\nThe following mods were added/updated:\n\t", "\n"));
+            } else {
+                changes = "\n\nNo changes found";
+            }
         } finally {
-            this.progressListeners.finished();
+            this.progressListeners.finished(changes);
         }
     }
 
@@ -228,7 +252,7 @@ public class Repository {
         this.progressListeners.stepStarted(source.getDefinition(), StepType.REFRESH);
 
         Source refreshedSource = this.createSource(source.getDefinition(), source.getParameters());
-        if (refreshedSource.isUnmodified()) {
+        if (refreshedSource.hasParameterValue(SourceFactory.PARAMETER_UNMODIFIED, "true")) {
             this.progressListeners.detail("Unmodified");
 
             // it may be possible that this source's definitions were not added last time (because of an error)

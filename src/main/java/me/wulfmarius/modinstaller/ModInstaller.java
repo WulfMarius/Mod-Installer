@@ -17,7 +17,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.2.5";
+    public static final String VERSION = "0.3.0";
 
     private final Path basePath;
     private final Repository repository;
@@ -83,6 +83,10 @@ public class ModInstaller {
         }
 
         return modInstallations.stream().map(Installation::getVersion).collect(Collectors.joining(", "));
+    }
+
+    public List<ModDefinition> getLatestVersions() {
+        return this.repository.getLatestVersions();
     }
 
     public Optional<ModDefinition> getModDefinition(String name, String version) {
@@ -181,6 +185,10 @@ public class ModInstaller {
         } finally {
             this.progressListeners.finished();
         }
+    }
+
+    public void invalidateSources() {
+        this.repository.invalidateSources();
     }
 
     public boolean isAnyVersionInstalled(ModDefinition modDefinition) {
