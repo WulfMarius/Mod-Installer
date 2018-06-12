@@ -1,0 +1,9 @@
+{
+	"name": "MikeyPdog Collection",
+	"description": "Mods of MikeyPdog",
+	"url": "https://github.com/MikeyPdog",
+	"releases": [],
+	"definitions": [
+		"https://github.com/MikeyPdog/TLD-Minimods",
+	]
+}
