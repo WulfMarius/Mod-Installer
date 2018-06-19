@@ -18,6 +18,21 @@
 					"type": "zip"
 				}
 			]
+		}, {
+			"name": "RelentlessNight",
+			"version": "v3.01",
+			"releaseDate": "2018-06-19",
+			"description": "Relentless Night is a gameplay mod for The Long Dark that introduces a new sandbox scenario where the spin of the Earth is slowing down. Slowly but surely, days and nights are getting longer over time, leading to a world with continuously changing temperatures, weather patterns, wildlife populations, and more.",
+			"url": "https://www.moddb.com/mods/relentlessnight/downloads/relentless-night-v301-133",
+			"changes": "- Updated all mod features to work with new Vigilant Flame update.\n- Coals can now be added to a fire without a waiting period (late-game balancing).\n- More fuel can be added to a fire even if the fire has reached its maximum duration, provided that the fuel can still increase the fire's current temperature. Although the duration of fire will not increase further, the heat bonus will still be applied. (late-game balancing)\n- The immediate area where an outdoor fire burned will also retain some heat a while longer after the fire's out, although of course the temperature bonus will drop and disappear much quicker compared to the heat from a fire inside an insulated building.\n- Fixed mod bug where failing to start a fire indoors could reset the residual heat bonus remaining inside back to zero in RN's heat retention feature.\n- Fixed mod bug where blizzard temperature drop didn't change temperature during blizzards in certain Relentless Night runs.\n- Fixed mod bug where the temperature of outdoors caves would sometimes get calculated incorrectly and were warmer than intended.\n- Fixed mod bug where custom mode option \"Day Length Multiplier\" would cause timing issues in RN runs if it was set above 1x. All values of this option can now be chosen for RN runs as well.\n- Should you need to correct something in the RN settings later into your game, you can now change specific setting values through new console commands. Loading the save you want to change and entering \"rn_help\" into the console will provide information on all RN commands needed to change each setting.",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "https://www.moddb.com/downloads/mirror/138754/114/932175ae61561d2667de6119aee18107",
+					"zipDirectory": "ModFiles",
+					"type": "zip"
+				}
+			]
 		}
 	]
 }
