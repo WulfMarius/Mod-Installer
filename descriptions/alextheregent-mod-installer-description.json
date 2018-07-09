@@ -1,0 +1,9 @@
+{
+	"name": "AlexTheRegent Collection",
+	"description": "Mods of AlexTheRegent",
+	"url": "https://github.com/AlexTheRegent",
+	"releases": [],
+	"definitions": [
+		"https://github.com/AlexTheRegent/tld-GameTweaks"
+	]
+}
