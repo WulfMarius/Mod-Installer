@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.*;
-import java.util.zip.ZipFile;
+import java.util.zip.*;
 
 import org.springframework.util.StringUtils;
 
@@ -37,6 +37,20 @@ public class ModInstaller {
         }
 
         this.repository = new Repository(basePath.resolve("repository"));
+    }
+
+    private static Path getRelativeTargetPath(Asset asset, ZipEntry entry) {
+        Path path = Paths.get(entry.getName());
+
+        if (StringUtils.isEmpty(asset.getZipDirectory())) {
+            return path.normalize();
+        }
+
+        if (!path.startsWith(asset.getZipDirectory())) {
+            return null;
+        }
+
+        return Paths.get(asset.getZipDirectory()).relativize(path);
     }
 
     private static boolean isNonEmptyDirectory(Path path) {
@@ -372,12 +386,13 @@ public class ModInstaller {
 
             try (ZipFile zipFile = new ZipFile(sourcePath.toFile())) {
                 zipFile.stream().forEach(entry -> {
-                    Path entryPath = Paths.get(entry.getName());
-                    if (!StringUtils.isEmpty(asset.getZipDirectory())) {
-                        entryPath = Paths.get(asset.getZipDirectory()).relativize(entryPath);
+                    Path entryPath = getRelativeTargetPath(asset, entry);
+                    if (entryPath == null || entryPath.getFileName().toString().equals("")) {
+                        return;
                     }
 
-                    if (entryPath.startsWith("..") || entryPath.getFileName().toString().equals("")) {
+                    if (entryPath.startsWith("..") || entryPath.isAbsolute()) {
+                        this.progressListeners.detail("WARNING: Entry '" + entry.getName() + "' is invalid and will be ignored!");
                         return;
                     }
 
