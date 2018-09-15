@@ -2,7 +2,7 @@ package me.wulfmarius.modinstaller;
 
 import static me.wulfmarius.modinstaller.utils.StringUtils.trimToEmpty;
 
-import java.util.Optional;
+import java.util.Comparator;
 import java.util.regex.*;
 
 import org.springframework.util.StringUtils;
@@ -12,6 +12,13 @@ public class Version implements Comparable<Version> {
     // an extension to the semver.org pattern to accomodate UModTld
     private static final Pattern VERSION_PATTERN = Pattern.compile("(\\d+)(?:\\.(\\d+)(?:\\.(\\d+))?)?(\\w+)?(?:-(\\w+))?");
 
+    private static final Comparator<Version> COMPARATOR = Comparator
+            .comparingInt(Version::getMajor)
+            .thenComparingInt(Version::getMinor)
+            .thenComparingInt(Version::getPatch)
+            .thenComparing(Version::getSpecial, Version::compareSpecial)
+            .thenComparing(Version::getPrelease, Version::comparePrerelease);
+
     private int major;
     private int minor;
     private int patch;
@@ -20,11 +27,7 @@ public class Version implements Comparable<Version> {
     private String special;
 
     public static int compare(Version v1, Version v2) {
-        return Optional.of(Integer.compare(v1.major, v2.major))
-                .map(result -> result == 0 ? Integer.compare(v1.minor, v2.minor) : result)
-                .map(result -> result == 0 ? Integer.compare(v1.patch, v2.patch) : result)
-                .map(result -> result == 0 ? compareSpecial(v1.special, v2.special) : result)
-                .map(result -> result == 0 ? comparePrerelease(v1.prelease, v2.prelease) : result).orElse(0);
+        return COMPARATOR.compare(v1, v2);
     }
 
     public static Version parse(String version) {
