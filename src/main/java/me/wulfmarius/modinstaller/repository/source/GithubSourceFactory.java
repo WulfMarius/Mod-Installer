@@ -15,15 +15,11 @@ public class GithubSourceFactory extends AbstractSourceFactory {
 
     public static final String PARAMETER_USER = "user";
 
-    private static final Pattern SOURCE_PATTERN = Pattern.compile("\\Qhttps://github.com/\\E([A-Z0-9-]+)/([A-Z0-9-]+)",
+    private static final Pattern SOURCE_PATTERN = Pattern.compile("\\Qhttps://github.com/\\E([A-Z0-9-]+)/([A-Z0-9-]+)/?",
             Pattern.CASE_INSENSITIVE);
 
     public GithubSourceFactory(RestClient restClient) {
         super(restClient);
-    }
-
-    private static Optional<GithubRelease> getRelease(GithubRelease[] releases, String version) {
-        return Arrays.stream(releases).filter(release -> release.getName().equals(version)).findFirst();
     }
 
     @Override
@@ -42,6 +38,12 @@ public class GithubSourceFactory extends AbstractSourceFactory {
                 matcher.group(1), matcher.group(2));
     }
 
+    protected GithubRelease[] getGithubReleases(String definition) {
+        String url = definition.replace("//github.com/", "//api.github.com/repos/") + "/releases";
+        ResponseEntity<String> response = this.restClient.fetch(url, null);
+        return this.restClient.deserialize(response, GithubRelease[].class, () -> new GithubRelease[0]);
+    }
+
     @Override
     protected void postProcessSourceDescription(String definition, SourceDescription sourceDescription) {
         super.postProcessSourceDescription(definition, sourceDescription);
@@ -51,52 +53,58 @@ public class GithubSourceFactory extends AbstractSourceFactory {
             return;
         }
 
-        GithubRelease[] githubReleases = null;
+        ReleaseProvider releaseProvider = new ReleaseProvider(definition);
 
         for (ModDefinition eachRelease : releases) {
             if (StringUtils.isEmpty(eachRelease.getUrl())) {
-                if (githubReleases == null) {
-                    githubReleases = this.getGithubReleases(definition);
-                }
-
-                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
-                eachRelease
-                        .setUrl(optional.map(GithubRelease::getUrl).orElse(definition + "/releases/tag/" + eachRelease.getVersion()));
+                eachRelease.setUrl(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getUrl)
+                        .orElse(definition + "/releases/tag/" + eachRelease.getVersion()));
             }
 
             if (StringUtils.isEmpty(eachRelease.getChanges())) {
-                if (githubReleases == null) {
-                    githubReleases = this.getGithubReleases(definition);
-                }
-
-                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
-                eachRelease.setChanges(optional.map(GithubRelease::getBody).orElse(""));
+                eachRelease.setChanges(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getBody).orElse(""));
             }
 
             if (eachRelease.getAssets() == null || eachRelease.getAssets().length == 0) {
-                if (githubReleases == null) {
-                    githubReleases = this.getGithubReleases(definition);
-                }
-
-                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
-                eachRelease.setAssets(optional.map(GithubRelease::getAssets)
+                eachRelease.setAssets(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getAssets)
                         .map(assets -> Arrays.stream(assets).map(GithubAsset::toAsset).toArray(Asset[]::new)).orElse(new Asset[0]));
             }
 
             if (eachRelease.getReleaseDate() == null) {
-                if (githubReleases == null) {
-                    githubReleases = this.getGithubReleases(definition);
-                }
+                eachRelease.setReleaseDate(
+                        releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getDate).orElse(new Date()));
+            }
 
-                Optional<GithubRelease> optional = getRelease(githubReleases, eachRelease.getVersion());
-                eachRelease.setReleaseDate(optional.map(GithubRelease::getDate).orElse(new Date()));
+            if (eachRelease.getAuthor() == null) {
+                eachRelease.setAuthor(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getAuthor)
+                        .map(GithubAuthor::getLogin).orElse(sourceDescription.getAuthor()));
+            }
+
+            if (eachRelease.getAuthor() == null) {
+                Matcher matcher = SOURCE_PATTERN.matcher(definition);
+                if (matcher.matches()) {
+                    eachRelease.setAuthor(matcher.group(1));
+                }
             }
         }
     }
 
-    private GithubRelease[] getGithubReleases(String definition) {
-        String url = definition.replace("//github.com/", "//api.github.com/repos/") + "/releases";
-        ResponseEntity<String> response = this.restClient.fetch(url, null);
-        return this.restClient.deserialize(response, GithubRelease[].class, () -> new GithubRelease[0]);
+    private class ReleaseProvider {
+
+        private final String definition;
+        private GithubRelease[] githubReleases = null;
+
+        public ReleaseProvider(String definition) {
+            super();
+            this.definition = definition;
+        }
+
+        public Optional<GithubRelease> getRelease(String version) {
+            if (this.githubReleases == null) {
+                this.githubReleases = GithubSourceFactory.this.getGithubReleases(this.definition);
+            }
+
+            return Arrays.stream(this.githubReleases).filter(release -> release.getName().equals(version)).findFirst();
+        }
     }
 }

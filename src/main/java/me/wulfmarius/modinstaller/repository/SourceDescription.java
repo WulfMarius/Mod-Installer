@@ -7,11 +7,16 @@ import me.wulfmarius.modinstaller.ModDefinition;
 public class SourceDescription {
 
     private String name;
+    private String author;
     private String url;
     private String description;
     private ModDefinition[] releases;
     private String[] definitions;
     private Map<String, String> parameters = new HashMap<>();
+
+    public String getAuthor() {
+        return this.author;
+    }
 
     public String[] getDefinitions() {
         return this.definitions;
@@ -35,6 +40,10 @@ public class SourceDescription {
 
     public String getUrl() {
         return this.url;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setDefinitions(String[] definitions) {

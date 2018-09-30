@@ -2,13 +2,11 @@ package me.wulfmarius.modinstaller.ui;
 
 import static me.wulfmarius.modinstaller.ui.ControllerFactory.CONTROLLER_FACTORY;
 
-import java.awt.Desktop;
 import java.io.IOException;
-import java.net.*;
-import java.nio.file.*;
+import java.net.URISyntaxException;
 import java.util.Optional;
 
-import javafx.application.Application;
+import javafx.application.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -21,10 +19,13 @@ public class ModInstallerUI extends Application {
 
     private static Image ICON = new Image("/icon.png");
 
+    private static HostServices hostServices;
+
     protected static void openURL(String url) {
         try {
-            Desktop.getDesktop().browse(new URI(url));
-        } catch (IOException | URISyntaxException e) {
+            hostServices.showDocument(url);
+            // Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
             showError("Could Not Open", "Could not open URL '" + url + "': " + e.getMessage());
         }
     }
@@ -33,6 +34,7 @@ public class ModInstallerUI extends Application {
         Alert dialog = new Alert(AlertType.ERROR);
         dialog.setTitle(title);
         dialog.setHeaderText(null);
+        dialog.getDialogPane().getStylesheets().add(ModInstaller.class.getResource("/global.css").toExternalForm());
         dialog.setContentText(message);
         setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
         dialog.showAndWait();
@@ -85,19 +87,18 @@ public class ModInstallerUI extends Application {
         stage.getIcons().add(ICON);
     }
 
-    private static boolean verifyInstallationDirectory() {
-        return Files.exists(Paths.get("./TLD.exe")) || Files.exists(Paths.get("./tld.app")) || Files.exists(Paths.get("./tld.x86"))
-                || Files.exists(Paths.get("./tld.x86_64"));
-    }
-
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        if (!verifyInstallationDirectory()) {
+    public void start(Stage primaryStage) throws IOException, URISyntaxException {
+        if (!ControllerFactory.isInstallationDirectoryValid()) {
             showError("Invalid Installation Directory",
-                    "Mod-Installer appears to be in the wrong directory.\nMake sure you put it into the directory \"TheLongDark\", which contains the \"tld\" executable");
+                    "Mod-Installer appears to be in the wrong directory.\n\n"
+                            + "Make sure you put it into the directory \"TheLongDark\", which contains the \"tld\" executable.\n\n"
+                            + "Working directory is " + ControllerFactory.getBaseDirectory());
             primaryStage.close();
             return;
         }
+
+        hostServices = this.getHostServices();
 
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("InstallerMainPanel.fxml"));
         fxmlLoader.setControllerFactory(ControllerFactory.CONTROLLER_FACTORY);

@@ -8,6 +8,7 @@ import me.wulfmarius.modinstaller.ModDefinition;
 public class Sources implements Iterable<Source> {
 
     private List<Source> sources = new ArrayList<>();
+    private Date lastUpdate;
 
     public void addSource(Source source) {
         this.sources.add(source);
@@ -21,6 +22,10 @@ public class Sources implements Iterable<Source> {
 
     public boolean contains(String definition) {
         return this.sources.stream().anyMatch(source -> definition.equals(source.getDefinition()));
+    }
+
+    public Date getLastUpdate() {
+        return this.lastUpdate;
     }
 
     public List<Source> getSources() {
@@ -43,6 +48,10 @@ public class Sources implements Iterable<Source> {
     public Optional<ModDefinition> resolve(String name, String version) {
         return this.sources.stream().map(source -> source.getModDefinition(name, version)).filter(Optional::isPresent)
                 .map(Optional::get).findFirst();
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     public void setSources(List<Source> sources) {

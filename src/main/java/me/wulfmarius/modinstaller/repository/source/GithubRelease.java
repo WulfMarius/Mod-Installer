@@ -17,10 +17,16 @@ public class GithubRelease {
 
     private GithubAsset[] assets;
 
+    private GithubAuthor author;
+
     private String body;
 
     public GithubAsset[] getAssets() {
         return this.assets;
+    }
+
+    public GithubAuthor getAuthor() {
+        return this.author;
     }
 
     public String getBody() {
@@ -41,6 +47,10 @@ public class GithubRelease {
 
     public void setAssets(GithubAsset[] assets) {
         this.assets = assets;
+    }
+
+    public void setAuthor(GithubAuthor author) {
+        this.author = author;
     }
 
     public void setBody(String body) {

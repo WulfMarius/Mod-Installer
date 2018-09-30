@@ -2,6 +2,7 @@
 	"name": "FINDarkside Collection",
 	"description": "Mods of FINDarkside",
 	"url": "https://github.com/FINDarkside",
+	"author": "FINDarkside",
 	"releases": [
 		{
 			"name": "Developer-Console",

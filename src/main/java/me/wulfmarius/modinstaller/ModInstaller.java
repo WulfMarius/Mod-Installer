@@ -2,6 +2,8 @@ package me.wulfmarius.modinstaller;
 
 import java.io.*;
 import java.nio.file.*;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.*;
@@ -17,7 +19,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.3.0";
+    public static final String VERSION = "0.4.0";
 
     private final Path basePath;
     private final Repository repository;
@@ -84,6 +86,15 @@ public class ModInstaller {
 
     public boolean areOtherVersionsPresent() {
         return this.updateChecker.areOtherVersionsPresent();
+    }
+
+    public boolean areSourcesOld() {
+        Date lastUpdate = this.getSources().getLastUpdate();
+        if (lastUpdate == null) {
+            return true;
+        }
+
+        return ChronoUnit.DAYS.between(lastUpdate.toInstant(), Instant.now()) > 30;
     }
 
     public Installations getInstallations() {
@@ -227,6 +238,12 @@ public class ModInstaller {
 
     public boolean isRequiredByInstallation(ModDefinition modDefinition) {
         return this.getRequiredBy(modDefinition).stream().filter(this::isAnyVersionInstalled).count() > 0;
+    }
+
+    public boolean isSourceMigrationRequired() {
+        return this.getSources().stream()
+                .anyMatch(source -> !source.hasParameterValue(SourceFactory.PARAMETER_VERSION, Source.VERSION));
+
     }
 
     public void prepareUpdate() {

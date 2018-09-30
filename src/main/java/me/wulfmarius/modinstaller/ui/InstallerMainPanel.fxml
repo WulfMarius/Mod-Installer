@@ -16,61 +16,89 @@
           <content>
             <TableView fx:id="tableView">
               <columns>
-                <TableColumn fx:id="columnName" editable="false" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="200.0" styleClass="align-left" text="Name" />
-                <TableColumn fx:id="columnInstalledVersion" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" style="-fx-alignment: CENTER;" text="Installed Version" />
-                <TableColumn fx:id="columnAvailableVersion" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" style="-fx-alignment: CENTER;" text="Available Version" />
-                        <TableColumn fx:id="columnReleaseDate" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: CENTER;" text="Release Date" />
+                <TableColumn fx:id="columnName" editable="false" minWidth="200.0" prefWidth="200.0" styleClass="align-left" text="Name" />
+                <TableColumn fx:id="columnAuthor" maxWidth="1000.0" minWidth="110.0" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Author" />
+                <TableColumn fx:id="columnInstalledVersion" editable="false" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" resizable="false" style="-fx-alignment: CENTER;" text="Installed Version" />
+                <TableColumn fx:id="columnAvailableVersion" editable="false" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" resizable="false" style="-fx-alignment: CENTER;" text="Available Version" />
+                <TableColumn fx:id="columnReleaseDate" editable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" style="-fx-alignment: CENTER;" text="Release Date" />
               </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
+              <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+              </columnResizePolicy>
             </TableView>
           </content>
-               <BorderPane.margin>
-                  <Insets top="12.0" />
-               </BorderPane.margin>
+          <BorderPane.margin>
+            <Insets top="12.0" />
+          </BorderPane.margin>
         </ScrollPane>
       </center>
       <padding>
         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
       </padding>
-         <right>
-            <GridPane fx:id="detailsPane" minHeight="0.0" prefWidth="300.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </right>
-         <top>
-            <FlowPane hgap="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="12.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#refreshSources" text="Refresh Sources">
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@/refresh_black_24x24.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#addSource" text="Add Source">
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@/add_circle_outline_black_24x24.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
+      <right>
+        <GridPane fx:id="detailsPane" minHeight="0.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </right>
+      <top>
+        <GridPane>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <children>
+            <FlowPane alignment="CENTER_LEFT" hgap="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="12.0" BorderPane.alignment="CENTER_RIGHT">
+              <children>
+                <Button mnemonicParsing="false" onAction="#refreshSources" prefWidth="130.0" text="Refresh Sources">
+                  <graphic>
+                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@/refresh_black_24x24.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#addSource" prefWidth="130.0" text="Add Source">
+                  <graphic>
+                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@/add_circle_outline_black_24x24.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+              </children>
+              <BorderPane.margin>
+                <Insets />
+              </BorderPane.margin>
             </FlowPane>
-         </top>
+            <FlowPane alignment="CENTER_RIGHT" hgap="12.0" vgap="12.0" GridPane.columnIndex="1">
+              <children>
+                <Button mnemonicParsing="false" onAction="#openLogFolder">
+                  <graphic>
+                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@/folder_open_black_24.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                           <tooltip>
+                              <Tooltip text="Open Log File Folder" />
+                           </tooltip>
+                </Button>
+              </children>
+            </FlowPane>
+          </children>
+        </GridPane>
+      </top>
     </BorderPane>
   </children>
 </AnchorPane>

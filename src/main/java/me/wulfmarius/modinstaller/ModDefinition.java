@@ -12,11 +12,11 @@ public class ModDefinition {
 
     private String name;
     private String version;
+    private String author;
     private String description;
     private String changes;
     private Date releaseDate;
     private Date lastUpdated;
-
     private Asset[] assets;
     private ModDependency[] dependencies;
 
@@ -55,6 +55,10 @@ public class ModDefinition {
 
     public Asset[] getAssets() {
         return this.assets;
+    }
+
+    public String getAuthor() {
+        return this.author;
     }
 
     public String getChanges() {
@@ -124,6 +128,10 @@ public class ModDefinition {
 
     public void setAssets(Asset[] assets) {
         this.assets = assets;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setChanges(String changes) {

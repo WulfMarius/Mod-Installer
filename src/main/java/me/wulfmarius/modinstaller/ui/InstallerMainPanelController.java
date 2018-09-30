@@ -3,6 +3,7 @@ package me.wulfmarius.modinstaller.ui;
 import static me.wulfmarius.modinstaller.ui.ControllerFactory.CONTROLLER_FACTORY;
 import static me.wulfmarius.modinstaller.ui.ModInstallerUI.*;
 
+import java.awt.Desktop;
 import java.io.IOException;
 import java.nio.file.*;
 import java.text.*;
@@ -22,8 +23,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import me.wulfmarius.modinstaller.*;
-import me.wulfmarius.modinstaller.repository.*;
 import me.wulfmarius.modinstaller.update.UpdateState;
+import me.wulfmarius.modinstaller.utils.OsUtils;
 
 public class InstallerMainPanelController {
 
@@ -47,6 +48,8 @@ public class InstallerMainPanelController {
 
     @FXML
     private TableColumn<ModDefinition, String> columnName;
+    @FXML
+    private TableColumn<ModDefinition, String> columnAuthor;
     @FXML
     private TableColumn<ModDefinition, String> columnInstalledVersion;
     @FXML
@@ -134,10 +137,11 @@ public class InstallerMainPanelController {
 
         String message;
         if (updateState.hasAsset()) {
-            message = "Version " + updateState.getLatestVersion() + " is available for download.\nWould you like to download it now?";
+            message = "Version " + updateState.getLatestVersion()
+                    + " is available for download.\n\nWould you like to download it now?";
         } else {
             message = "Version " + updateState.getLatestVersion()
-                    + " is available for download.\nWould you like to go to the download page?";
+                    + " is available for download.\n\nWould you like to go to the download page?";
         }
 
         ModInstallerUI.showYesNoChoice("Update Available", message, () -> {
@@ -151,7 +155,7 @@ public class InstallerMainPanelController {
 
     private void askInstallDefaultSource() {
         ModInstallerUI.showYesNoChoice("No Sources Found",
-                "It looks like you don't have any sources yet. Would you like to import the default source now?",
+                "It looks like you don't have any sources yet.\n\nWould you like to import the default source now?",
                 () -> this.addSource(DEFAULT_SOURCE_DEFINITION));
     }
 
@@ -171,9 +175,17 @@ public class InstallerMainPanelController {
 
         if (this.modInstaller.getSources().isEmpty()) {
             this.askInstallDefaultSource();
-        } else {
+        } else if (this.modInstaller.isSourceMigrationRequired()) {
             this.migrateSources();
+        } else if (this.modInstaller.areSourcesOld()) {
+            this.askRefreshSource();
         }
+    }
+
+    private void askRefreshSource() {
+        ModInstallerUI.showYesNoChoice("Refresh Sources?",
+                "It looks like you haven't refreshed your sources in quite some time.\n\nWould you like to search for updates now?",
+                () -> this.refreshSources());
     }
 
     private TableCell<ModDefinition, String> createTableCell(@SuppressWarnings("unused") TableColumn<ModDefinition, String> column) {
@@ -201,6 +213,7 @@ public class InstallerMainPanelController {
 
         this.columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.columnName.setCellFactory(this::createTableCell);
+        this.columnAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
         this.columnAvailableVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         this.columnInstalledVersion.setCellValueFactory(this::getInstalledVersion);
         this.columnReleaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
@@ -226,12 +239,26 @@ public class InstallerMainPanelController {
     }
 
     private void migrateSources() {
-        boolean requiresRefresh = this.modInstaller.getSources().stream()
-                .anyMatch(source -> !source.hasParameterValue(SourceFactory.PARAMETER_VERSION, Source.VERSION));
+        this.modInstaller.invalidateSources();
+        this.refreshSources();
+    }
 
-        if (requiresRefresh) {
-            this.modInstaller.invalidateSources();
-            this.refreshSources();
+    @FXML
+    private void openLogFolder() {
+        Path folder = Paths.get(System.getProperty("user.home"));
+
+        if (OsUtils.isWindows()) {
+            folder = folder.resolve("AppData/LocalLow/Hinterland/TheLongDark");
+        } else if (OsUtils.isMac()) {
+            folder = folder.resolve("Library/Logs/Unity");
+        } else {
+            folder = folder.resolve(".config/unity3d/Hinterland/TheLongDark");
+        }
+
+        try {
+            Desktop.getDesktop().open(folder.toFile());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

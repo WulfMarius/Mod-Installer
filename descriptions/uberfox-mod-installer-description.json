@@ -2,6 +2,7 @@
 	"name": "UberFoX Collection",
 	"description": "Mods of UberFoX",
 	"url": "http://ubersoft.org/",
+	"author": "UberFoX",
 	"releases": [
 		{
 			"name": "UModTld",

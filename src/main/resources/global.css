@@ -1,3 +1,8 @@
+.alert > *.label.content {
+	-fx-pref-width: 400px;
+    -fx-wrap-text: true;
+}
+
 .uninstall.button .text {
 	-fx-fill: RED; 
 }
@@ -47,11 +52,11 @@
 .table-cell:required:update-available {
     -fx-background-image: url("/arrow_upward_black_18x18.png"), url("/lock_grey_18x18.png");
     -fx-background-repeat: no-repeat;
-    -fx-background-position: right 18px top 50%, right 50%;
+    -fx-background-position: right 18.0px top 50.0%, right 50.0%;
 }
 
 .table-cell:recent {
     -fx-background-image: url("new_releases_grey_18x18.png");
     -fx-background-repeat: no-repeat;
-    -fx-background-position: right 50%;
+    -fx-background-position: right 50.0%;
 }

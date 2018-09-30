@@ -136,6 +136,7 @@ public class Repository {
             List<ModDefinition> previousLatestVersions = this.getLatestVersions();
 
             this.performRefreshSources();
+            this.writeSources();
 
             List<ModDefinition> currentLatestVersions = this.getLatestVersions();
             currentLatestVersions.removeAll(previousLatestVersions);
@@ -154,6 +155,7 @@ public class Repository {
         try {
             this.progressListeners.started("Add " + definition);
             this.performRegisterSource(definition);
+            this.writeSources();
         } finally {
             this.progressListeners.stepProgress(1, 1);
             this.progressListeners.finished();
@@ -183,7 +185,6 @@ public class Repository {
 
     private void addSource(Source source) {
         this.sources.addSource(source);
-        this.writeSources();
     }
 
     private Source createSource(String sourceDefinition, Map<String, String> parameters) {
@@ -215,8 +216,6 @@ public class Repository {
             }
             this.progressListeners.stepProgress(++refreshed, total);
         }
-
-        this.writeSources();
     }
 
     private void performRegisterSource(String definition) {
@@ -286,6 +285,7 @@ public class Repository {
 
     private void writeSources() {
         try {
+            this.sources.setLastUpdate(new Date());
             JsonUtils.serialize(this.getSourcesPath(), this.sources);
             this.sourcesChangedListeners.changed();
         } catch (IOException e) {
