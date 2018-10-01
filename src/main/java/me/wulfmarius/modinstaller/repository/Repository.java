@@ -117,6 +117,7 @@ public class Repository {
         Sources savedSources = this.readSources();
         if (!savedSources.isEmpty()) {
             this.sources.addSources(savedSources);
+            this.sources.setLastUpdate(savedSources.getLastUpdate());
             this.sourcesChangedListeners.changed();
         }
     }
