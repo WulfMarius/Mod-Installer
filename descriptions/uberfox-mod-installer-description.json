@@ -43,6 +43,19 @@
 					"url": "http://ubersoft.org/download/UModTld17b.zip"
 				}
 			]
-		}	
+		}, {
+			"name": "UModTld",
+			"version": "1.8a",
+			"releaseDate": "2018-10-08",
+			"description": "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
+			"url": "http://ubersoft.org/umodtld/",
+			"changes": "Just a quick update to UModTld this one allows other mod developers to add their own console commands to UModTld",
+			"dependencies": [],
+			"assets": [
+				{
+					"url": "http://ubersoft.org/download/UModTld18a.zip"
+				}
+			]
+		}
 	]
 }
