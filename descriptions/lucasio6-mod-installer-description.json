@@ -1,0 +1,11 @@
+{
+	"name": "Lucasio6 Collection",
+	"description": "Mods of Lucasio6",
+	"url": "https://github.com/lucasio6",
+	"releases": [],
+	"definitions": [
+		"https://github.com/lucasio6/Flint",
+		"https://github.com/lucasio6/Lint",
+		"https://github.com/lucasio6/Wolfhat"
+	]
+}
