@@ -34,12 +34,17 @@ public abstract class AbstractSourceFactory implements SourceFactory {
         String url = this.getDefinitionsUrl(sourceDefinition);
 
         ResponseEntity<String> response = this.restClient.fetch(url, parameters.get(PARAMETER_ETAG));
-        SourceDescription result = this.restClient.deserialize(response, SourceDescription.class,
-                this::createUnmodifiedSourceDescription);
-        result.setParameter(PARAMETER_ETAG, response.getHeaders().getETag());
-        result.setParameter(PARAMETER_VERSION, Source.VERSION);
+        if (!response.getStatusCode().isError()) {
+            SourceDescription result = this.restClient.deserialize(response, SourceDescription.class,
+                    this::createUnmodifiedSourceDescription);
 
-        return result;
+            result.setParameter(PARAMETER_ETAG, response.getHeaders().getETag());
+            result.setParameter(PARAMETER_VERSION, Source.VERSION);
+
+            return result;
+        }
+
+        throw new SourceException("Could not read source description: " + response.getStatusCodeValue() + ", " + response.getBody());
     }
 
     protected void postProcessSourceDescription(String definition, SourceDescription sourceDescription) {

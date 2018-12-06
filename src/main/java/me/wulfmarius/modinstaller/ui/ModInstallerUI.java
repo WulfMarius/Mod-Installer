@@ -4,7 +4,8 @@ import static me.wulfmarius.modinstaller.ui.ControllerFactory.CONTROLLER_FACTORY
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Optional;
+import java.text.DateFormat;
+import java.util.*;
 
 import javafx.application.*;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.*;
-import me.wulfmarius.modinstaller.ModInstaller;
+import me.wulfmarius.modinstaller.*;
 
 public class ModInstallerUI extends Application {
 
@@ -21,10 +22,13 @@ public class ModInstallerUI extends Application {
 
     private static HostServices hostServices;
 
+    protected static String formatReleaseDate(Date date) {
+        return DateFormat.getDateInstance(DateFormat.SHORT).format(date);
+    }
+
     protected static void openURL(String url) {
         try {
             hostServices.showDocument(url);
-            // Desktop.getDesktop().browse(new URI(url));
         } catch (Exception e) {
             showError("Could Not Open", "Could not open URL '" + url + "': " + e.getMessage());
         }
@@ -51,6 +55,29 @@ public class ModInstallerUI extends Application {
     protected static void showYesNoChoice(String title, String message, Runnable onYes) {
         if (ModInstallerUI.showYesNoChoice(title, message).filter(ButtonType.YES::equals).isPresent()) {
             onYes.run();
+        }
+    }
+
+    protected static void startChangeLogViewer(Node ownerNode, ModDefinition modDefinition) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(ProgressDialogController.class.getResource("ChangeLogViewer.fxml"));
+            fxmlLoader.setControllerFactory(CONTROLLER_FACTORY);
+            fxmlLoader.load();
+            ChangeLogViewerController controller = fxmlLoader.getController();
+            controller.setModDefinition(modDefinition);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fxmlLoader.getRoot()));
+            stage.setTitle("Change Log - " + modDefinition.getName());
+            setIcon(stage);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(ownerNode.getScene().getWindow());
+            stage.setResizable(false);
+            stage.centerOnScreen();
+
+            stage.show();
+        } catch (IOException e) {
+            showError("Could not show change log viewer", e.getMessage());
         }
     }
 

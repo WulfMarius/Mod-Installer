@@ -19,7 +19,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.4.1";
+    public static final String VERSION = "0.5.0";
 
     private final Path basePath;
     private final Repository repository;
@@ -69,6 +69,14 @@ public class ModInstaller {
         } catch (IOException e) {
             throw new ModInstallerException("Failed to list files in directory " + path + ".", e);
         }
+    }
+
+    private static boolean shouldCopy(Asset asset) {
+        if (StringUtils.isEmpty(asset.getType())) {
+            return !asset.getUrl().endsWith(".zip");
+        }
+
+        return !"zip".equals(asset.getType());
     }
 
     public void addInstallationsChangedListener(InstallationsChangedListener listener) {
@@ -194,7 +202,7 @@ public class ModInstaller {
             this.installationsChangedListeners.changed();
         }
 
-        this.updateChecker = new UpdateChecker(new RestClient());
+        this.updateChecker = new UpdateChecker(RestClient.getInstance());
         this.updateChecker.findLatestVersion();
         this.updateChecker.findOtherVersions(this.basePath.getParent());
     }
@@ -312,12 +320,19 @@ public class ModInstaller {
 
     private String copyAsset(InputStream inputStream, String relativePath, Path targetDirectory) {
         Path targetPath = targetDirectory.resolve(relativePath);
-        this.progressListeners.detail(relativePath);
+        String assetPath = this.getModsDirectory().relativize(targetPath).toString();
+
+        if (assetPath.startsWith("..")) {
+            this.progressListeners.detail("WARNING: Entry '" + relativePath + "' is invalid and will be ignored!");
+            return null;
+        }
+
+        this.progressListeners.detail(assetPath);
 
         try {
             Files.createDirectories(targetPath.getParent());
             Files.copy(inputStream, targetPath, StandardCopyOption.REPLACE_EXISTING);
-            return relativePath;
+            return assetPath;
         } catch (IOException e) {
             throw new ModInstallerException("Failed to install asset " + relativePath + ".", e);
         }
@@ -390,13 +405,15 @@ public class ModInstaller {
         Path modsDirectory = this.getModsDirectory();
 
         Path sourcePath = this.repository.getAssetPath(modDefinition, asset);
-        Path targetDirectory = modsDirectory;
+        Path targetDirectory;
         if (!StringUtils.isEmpty(asset.getTargetDirectory())) {
-            targetDirectory.resolve(asset.getTargetDirectory());
+            targetDirectory = modsDirectory.resolve(asset.getTargetDirectory());
+        } else {
+            targetDirectory = modsDirectory;
         }
 
         try {
-            if (!"zip".equals(asset.getType()) && !asset.getUrl().endsWith(".zip")) {
+            if (shouldCopy(asset)) {
                 installation.addAsset(this.copyAsset(sourcePath, targetDirectory));
                 return;
             }

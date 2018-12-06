@@ -6,9 +6,9 @@ import static me.wulfmarius.modinstaller.ui.ModInstallerUI.*;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.nio.file.*;
-import java.text.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import javafx.application.Platform;
@@ -62,7 +62,7 @@ public class InstallerMainPanelController {
         this.modInstaller = modInstaller;
     }
 
-    public static <R, T> Callback<TableColumn<R, T>, TableCell<R, T>> getFormattedCell(Format format) {
+    public static <R, T> Callback<TableColumn<R, T>, TableCell<R, T>> getFormattedCell(Function<T, String> formatter) {
         return column -> {
             return new TableCell<R, T>() {
 
@@ -72,7 +72,7 @@ public class InstallerMainPanelController {
                     if (item == null || empty) {
                         this.setText(null);
                     } else {
-                        this.setText(format.format(item));
+                        this.setText(formatter.apply(item));
                     }
                 }
             };
@@ -217,7 +217,7 @@ public class InstallerMainPanelController {
         this.columnAvailableVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         this.columnInstalledVersion.setCellValueFactory(this::getInstalledVersion);
         this.columnReleaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
-        this.columnReleaseDate.setCellFactory(getFormattedCell(DateFormat.getDateInstance(DateFormat.SHORT)));
+        this.columnReleaseDate.setCellFactory(getFormattedCell(ModInstallerUI::formatReleaseDate));
 
         this.tableView.setRowFactory(this::createTableRow);
         this.tableView.getSelectionModel().selectedItemProperty()

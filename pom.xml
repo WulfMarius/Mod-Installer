@@ -6,7 +6,7 @@
 
   <groupId>me.wulfmarius</groupId>
   <artifactId>mod-installer</artifactId>
-  <version>0.4.1</version>
+  <version>0.5.0</version>
   <name>Mod-Installer</name>
   <inceptionYear>2018</inceptionYear>
 
@@ -55,6 +55,7 @@
                 <JavaFX-Version>8.0</JavaFX-Version>
                 <Main-Class>me.wulfmarius.modinstaller.ui.ModInstallerUI</Main-Class>
                 <Built-By>WulfMarius</Built-By>
+                <Version>${project.version}</Version>
               </manifestEntries>
             </transformer>
           </transformers>
@@ -103,6 +104,6 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
+
 </project>

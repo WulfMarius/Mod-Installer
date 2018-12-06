@@ -2,6 +2,8 @@ package me.wulfmarius.modinstaller.repository;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.time.ZoneId;
+import java.time.format.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -21,8 +23,6 @@ public class Repository {
     private final List<SourceFactory> sourceFactories = new ArrayList<SourceFactory>();
     private final ProgressListeners progressListeners = new ProgressListeners();
     private final SourcesChangedListeners sourcesChangedListeners = new SourcesChangedListeners();
-
-    private RestClient restClient;
 
     public Repository(Path basePath) {
         super();
@@ -57,7 +57,7 @@ public class Repository {
             return url;
         }
 
-        return url + "." + asset.getType();
+        return url;
     }
 
     public void addProgressListener(ProgressListener listener) {
@@ -74,7 +74,7 @@ public class Repository {
         for (Asset eachAsset : assets) {
             Path assetPath = this.getAssetPath(modDefinition, eachAsset);
             if (Files.notExists(assetPath)) {
-                this.restClient.downloadAsset(eachAsset.getUrl(), assetPath, this.progressListeners);
+                RestClient.getInstance().downloadAsset(eachAsset.getUrl(), assetPath, this.progressListeners);
             }
         }
     }
@@ -109,10 +109,8 @@ public class Repository {
     }
 
     public void initialize() {
-        this.restClient = new RestClient();
-
-        this.sourceFactories.add(new GithubSourceFactory(this.restClient));
-        this.sourceFactories.add(new DirectSourceFactory(this.restClient));
+        this.sourceFactories.add(new GithubSourceFactory(RestClient.getInstance()));
+        this.sourceFactories.add(new DirectSourceFactory(RestClient.getInstance()));
 
         Sources savedSources = this.readSources();
         if (!savedSources.isEmpty()) {
@@ -137,7 +135,6 @@ public class Repository {
             List<ModDefinition> previousLatestVersions = this.getLatestVersions();
 
             this.performRefreshSources();
-            this.writeSources();
 
             List<ModDefinition> currentLatestVersions = this.getLatestVersions();
             currentLatestVersions.removeAll(previousLatestVersions);
@@ -147,7 +144,12 @@ public class Repository {
             } else {
                 changes = "\n\nNo changes found";
             }
+        } catch (RateLimitException e) {
+            this.progressListeners.detail("RATE LIMIT REACHED. Please try again after "
+                    + DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).format(e.getReset().atZone(ZoneId.systemDefault())));
+            this.progressListeners.detail("Aborting now.");
         } finally {
+            this.writeSources();
             this.progressListeners.finished(changes);
         }
     }
@@ -156,8 +158,12 @@ public class Repository {
         try {
             this.progressListeners.started("Add " + definition);
             this.performRegisterSource(definition);
-            this.writeSources();
+        } catch (RateLimitException e) {
+            this.progressListeners.detail("RATE LIMIT REACHED. Please try again after "
+                    + DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).format(e.getReset().atZone(ZoneId.systemDefault())));
+            this.progressListeners.detail("Aborting now.");
         } finally {
+            this.writeSources();
             this.progressListeners.stepProgress(1, 1);
             this.progressListeners.finished();
         }
@@ -224,14 +230,17 @@ public class Repository {
 
         if (this.sources.contains(definition)) {
             this.progressListeners.detail("Already present.");
-        } else {
-            try {
-                Source source = this.createSource(definition, Collections.emptyMap());
-                this.registerDefinitions(source);
-                this.addSource(source);
-            } catch (Exception e) {
-                this.progressListeners.detail(e.toString());
-            }
+            return;
+        }
+
+        try {
+            Source source = this.createSource(definition, Collections.emptyMap());
+            this.registerDefinitions(source);
+            this.addSource(source);
+        } catch (RateLimitException e) {
+            throw e;
+        } catch (RuntimeException e) {
+            this.progressListeners.detail("Could not register source: " + e);
         }
     }
 
@@ -290,7 +299,7 @@ public class Repository {
             JsonUtils.serialize(this.getSourcesPath(), this.sources);
             this.sourcesChangedListeners.changed();
         } catch (IOException e) {
-            throw new RepositoryException("Could not save sources.", e);
+            this.progressListeners.detail("Could not save sources: " + e);
         }
     }
 }

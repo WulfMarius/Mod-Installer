@@ -12,6 +12,10 @@ public class Installation {
     private List<String> assets = new ArrayList<>();
 
     public void addAsset(String asset) {
+        if (asset == null) {
+            return;
+        }
+
         this.assets.add(asset);
     }
 

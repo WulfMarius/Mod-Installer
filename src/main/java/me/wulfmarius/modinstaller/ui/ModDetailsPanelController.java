@@ -11,7 +11,6 @@ import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import me.wulfmarius.modinstaller.*;
 
@@ -166,16 +165,7 @@ public class ModDetailsPanelController {
 
     @FXML
     private void showChangelog() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Changelog");
-        alert.setHeaderText(null);
-
-        String changelog = this.modInstaller.getModDefinitions(this.modDefinitionProperty.get().getName()).stream()
-                .map(definition -> "Version " + definition.getVersion() + "\n" + definition.getChanges())
-                .collect(Collectors.joining("\n\n\n"));
-        alert.setContentText(changelog);
-
-        alert.show();
+        ModInstallerUI.startChangeLogViewer(this.anchorPane, this.modDefinitionProperty.get());
     }
 
     @FXML
