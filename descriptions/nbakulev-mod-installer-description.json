@@ -1,0 +1,10 @@
+{
+	"name": "nbakulev Collection",
+	"description": "Mods of nbakulev",
+	"url": "https://github.com/nbakulev",
+	"releases": [],
+	"definitions": [
+		"https://github.com/nbakulev/Deerskincoat",
+		"https://github.com/nbakulev/Woodenstatuettes"
+	]
+}
