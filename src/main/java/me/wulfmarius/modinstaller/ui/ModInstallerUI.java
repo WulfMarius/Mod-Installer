@@ -21,6 +21,11 @@ public class ModInstallerUI extends Application {
     private static Image ICON = new Image("/icon.png");
 
     private static HostServices hostServices;
+    private static Stage mainStage;
+
+    public static void setTitle(String title) {
+        mainStage.setTitle(title);
+    }
 
     protected static String formatReleaseDate(Date date) {
         return DateFormat.getDateInstance(DateFormat.SHORT).format(date);
@@ -35,12 +40,17 @@ public class ModInstallerUI extends Application {
     }
 
     protected static void showError(String title, String message) {
+        if (!Platform.isFxApplicationThread()) {
+            Platform.runLater(() -> showError(title, message));
+            return;
+        }
+
         Alert dialog = new Alert(AlertType.ERROR);
         dialog.setTitle(title);
         dialog.setHeaderText(null);
         dialog.getDialogPane().getStylesheets().add(ModInstaller.class.getResource("/global.css").toExternalForm());
         dialog.setContentText(message);
-        setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
+        ((Stage) dialog.getDialogPane().getScene().getWindow()).getIcons().add(ICON);
         dialog.showAndWait();
     }
 
@@ -48,7 +58,7 @@ public class ModInstallerUI extends Application {
         Alert dialog = new Alert(AlertType.CONFIRMATION, message, ButtonType.YES, ButtonType.NO);
         dialog.setTitle(title);
         dialog.setHeaderText(null);
-        setIcon((Stage) dialog.getDialogPane().getScene().getWindow());
+        ((Stage) dialog.getDialogPane().getScene().getWindow()).getIcons().add(ICON);
         return dialog.showAndWait();
     }
 
@@ -56,6 +66,14 @@ public class ModInstallerUI extends Application {
         if (ModInstallerUI.showYesNoChoice(title, message).filter(ButtonType.YES::equals).isPresent()) {
             onYes.run();
         }
+    }
+
+    protected static void startAutoCloseProgressDialog(String title, Node ownerNode, Runnable runnable) {
+        progressDialog(title, ownerNode, runnable, null, true);
+    }
+
+    protected static void startAutoCloseProgressDialog(String title, Node ownerNode, Runnable runnable, Runnable onClosed) {
+        progressDialog(title, ownerNode, runnable, onClosed, true);
     }
 
     protected static void startChangeLogViewer(Node ownerNode, ModDefinition modDefinition) {
@@ -69,7 +87,7 @@ public class ModInstallerUI extends Application {
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.getRoot()));
             stage.setTitle("Change Log - " + modDefinition.getName());
-            setIcon(stage);
+            stage.getIcons().add(ICON);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(ownerNode.getScene().getWindow());
             stage.setResizable(false);
@@ -82,21 +100,32 @@ public class ModInstallerUI extends Application {
     }
 
     protected static void startProgressDialog(String title, Node ownerNode, Runnable runnable) {
-        startProgressDialog(title, ownerNode, runnable, null);
+        progressDialog(title, ownerNode, runnable, null, false);
     }
 
     protected static void startProgressDialog(String title, Node ownerNode, Runnable runnable, Runnable onClosed) {
+        progressDialog(title, ownerNode, runnable, onClosed, false);
+    }
+
+    private static void progressDialog(String title, Node ownerNode, Runnable runnable, Runnable onClosed,
+            boolean autoCloseWithoutErrors) {
+        if (!Platform.isFxApplicationThread()) {
+            Platform.runLater(() -> progressDialog(title, ownerNode, runnable, onClosed, autoCloseWithoutErrors));
+            return;
+        }
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(ProgressDialogController.class.getResource("ProgressDialog.fxml"));
             fxmlLoader.setControllerFactory(CONTROLLER_FACTORY);
             fxmlLoader.load();
             ProgressDialogController controller = fxmlLoader.getController();
             controller.setRunnable(runnable);
+            controller.setAutoCloseWithoutErrors(autoCloseWithoutErrors);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.getRoot()));
             stage.setTitle(title);
-            setIcon(stage);
+            stage.getIcons().add(ICON);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(ownerNode.getScene().getWindow());
 
@@ -110,13 +139,9 @@ public class ModInstallerUI extends Application {
         }
     }
 
-    private static void setIcon(Stage stage) {
-        stage.getIcons().add(ICON);
-    }
-
     @Override
     public void start(Stage primaryStage) throws IOException, URISyntaxException {
-        if (!ControllerFactory.isInstallationDirectoryValid()) {
+        if (System.getProperty("SKIP_DIRECTORY_CHECK") == null && !ControllerFactory.isInstallationDirectoryValid()) {
             showError("Invalid Installation Directory",
                     "Mod-Installer appears to be in the wrong directory.\n\n"
                             + "Make sure you put it into the directory \"TheLongDark\", which contains the \"tld\" executable.\n\n"
@@ -126,6 +151,7 @@ public class ModInstallerUI extends Application {
         }
 
         hostServices = this.getHostServices();
+        mainStage = primaryStage;
 
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("InstallerMainPanel.fxml"));
         fxmlLoader.setControllerFactory(ControllerFactory.CONTROLLER_FACTORY);
@@ -137,7 +163,10 @@ public class ModInstallerUI extends Application {
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
         primaryStage.setTitle("TLD Mod-Installer " + ModInstaller.VERSION);
-        setIcon(primaryStage);
+        primaryStage.getIcons().add(ICON);
         primaryStage.show();
+
+        primaryStage.setMinWidth(600);
+        primaryStage.setMinHeight(350);
     }
 }

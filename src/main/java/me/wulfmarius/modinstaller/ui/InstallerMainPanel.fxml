@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.InstallerMainPanelController">
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.InstallerMainPanelController">
   <children>
     <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
@@ -16,8 +16,8 @@
           <content>
             <TableView fx:id="tableView">
               <columns>
-                <TableColumn fx:id="columnName" editable="false" minWidth="200.0" prefWidth="200.0" styleClass="align-left" text="Name" />
-                <TableColumn fx:id="columnAuthor" maxWidth="1000.0" minWidth="110.0" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Author" />
+                <TableColumn fx:id="columnName" editable="false" minWidth="220.0" prefWidth="220.0" styleClass="align-left" text="Name" />
+                <TableColumn fx:id="columnAuthor" editable="false" minWidth="110.0" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Author" />
                 <TableColumn fx:id="columnInstalledVersion" editable="false" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" resizable="false" style="-fx-alignment: CENTER;" text="Installed Version" />
                 <TableColumn fx:id="columnAvailableVersion" editable="false" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" resizable="false" style="-fx-alignment: CENTER;" text="Available Version" />
                 <TableColumn fx:id="columnReleaseDate" editable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" style="-fx-alignment: CENTER;" text="Release Date" />

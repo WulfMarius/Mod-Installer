@@ -23,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import me.wulfmarius.modinstaller.*;
+import me.wulfmarius.modinstaller.compatibility.CompatibilityChecker.Compatibility;
 import me.wulfmarius.modinstaller.update.UpdateState;
 import me.wulfmarius.modinstaller.utils.OsUtils;
 
@@ -32,6 +33,7 @@ public class InstallerMainPanelController {
     protected static final PseudoClass PSEUDO_CLASS_RECENT = PseudoClass.getPseudoClass("recent");
     protected static final PseudoClass PSEUDO_CLASS_NOT_INSTALLED = PseudoClass.getPseudoClass("not-installed");
     protected static final PseudoClass PSEUDO_CLASS_REQUIRED = PseudoClass.getPseudoClass("required");
+    protected static final PseudoClass PSEUDO_CLASS_INCOMPATIBLE = PseudoClass.getPseudoClass("incompatible");
 
     private static final String DEFAULT_SOURCE_DEFINITION = "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json";
 
@@ -86,6 +88,10 @@ public class InstallerMainPanelController {
 
         return modDefinition.getLastUpdated().getTime() >= System.currentTimeMillis() - TimeUnit.DAYS.toMillis(2)
                 && this.isNotInstalled(modDefinition);
+    }
+
+    protected boolean isIncompatible(ModDefinition modDefinition) {
+        return this.modInstaller.getCompatibility(modDefinition) != Compatibility.OK;
     }
 
     protected boolean isNotInstalled(ModDefinition modDefinition) {
@@ -159,29 +165,6 @@ public class InstallerMainPanelController {
                 () -> this.addSource(DEFAULT_SOURCE_DEFINITION));
     }
 
-    private void askQuestions() {
-        if (!Platform.isFxApplicationThread()) {
-            Platform.runLater(this::askQuestions);
-            return;
-        }
-
-        if (this.modInstaller.isNewVersionAvailable()) {
-            this.askDownloadNewVersion();
-        }
-
-        if (this.modInstaller.areOtherVersionsPresent()) {
-            this.askDeleteOtherVersions();
-        }
-
-        if (this.modInstaller.getSources().isEmpty()) {
-            this.askInstallDefaultSource();
-        } else if (this.modInstaller.isSourceMigrationRequired()) {
-            this.migrateSources();
-        } else if (this.modInstaller.areSourcesOld()) {
-            this.askRefreshSource();
-        }
-    }
-
     private void askRefreshSource() {
         ModInstallerUI.showYesNoChoice("Refresh Sources?",
                 "It looks like you haven't refreshed your sources in quite some time.\n\nWould you like to search for updates now?",
@@ -222,15 +205,14 @@ public class InstallerMainPanelController {
         this.tableView.setRowFactory(this::createTableRow);
         this.tableView.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
-        this.tableView.boundsInLocalProperty().addListener((obs, oldValue, newValue) -> Platform.runLater(this.tableView::refresh));
+        // this.tableView.boundsInLocalProperty().addListener((obs, oldValue, newValue) -> Platform.runLater(this.tableView::refresh));
 
         this.tableView.getSortOrder().add(this.columnName);
     }
 
     private void initializeModInstaller() {
-        this.modInstaller.initialize();
-
-        this.askQuestions();
+        ModInstallerUI.startAutoCloseProgressDialog("Initializing", this.detailsPane, this.modInstaller::initialize,
+                this::postInitialize);
     }
 
     private void installationsChanged() {
@@ -259,6 +241,32 @@ public class InstallerMainPanelController {
             Desktop.getDesktop().open(folder.toFile());
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void postInitialize() {
+        if (!Platform.isFxApplicationThread()) {
+            Platform.runLater(this::postInitialize);
+            return;
+        }
+
+        ModInstallerUI
+                .setTitle("TLD Mod-Installer " + ModInstaller.VERSION + " (TLD Version: " + this.modInstaller.getTldVersion() + ")");
+
+        if (this.modInstaller.isNewVersionAvailable()) {
+            this.askDownloadNewVersion();
+        }
+
+        if (this.modInstaller.areOtherVersionsPresent()) {
+            this.askDeleteOtherVersions();
+        }
+
+        if (this.modInstaller.getSources().isEmpty()) {
+            this.askInstallDefaultSource();
+        } else if (this.modInstaller.isSourceMigrationRequired()) {
+            this.migrateSources();
+        } else if (this.modInstaller.areSourcesOld()) {
+            this.askRefreshSource();
         }
     }
 
@@ -319,6 +327,12 @@ public class InstallerMainPanelController {
                 this.pseudoClassStateChanged(PSEUDO_CLASS_RECENT, recent);
                 if (recent) {
                     stringBuilder.append("\nThis version was added or updated recently.");
+                }
+
+                boolean incompatible = InstallerMainPanelController.this.isIncompatible(modDefinition);
+                this.pseudoClassStateChanged(PSEUDO_CLASS_INCOMPATIBLE, incompatible);
+                if (incompatible) {
+                    stringBuilder.append("\nThis version is probably incompatible with your current version of TLD.");
                 }
             }
 

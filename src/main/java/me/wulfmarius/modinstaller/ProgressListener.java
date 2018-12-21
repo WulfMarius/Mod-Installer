@@ -8,11 +8,13 @@ public interface ProgressListener {
 
     void stepDetail(String detail);
 
+    void stepError(String error);
+
     void stepProgress(int completed, int total);
 
     void stepStarted(String step, StepType stepType);
 
     enum StepType {
-        DOWNLOAD, INSTALL, UNINSTALL, REFRESH, ADD;
+        DOWNLOAD, INSTALL, UNINSTALL, REFRESH, ADD, INITIALIZE;
     }
 }

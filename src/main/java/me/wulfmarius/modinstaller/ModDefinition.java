@@ -8,20 +8,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ModDefinition {
 
     private String sourceDefinition;
-    private String url;
 
     private String name;
-    private String version;
+    private String url;
     private String author;
+    private String version;
     private String description;
     private String changes;
     private Date releaseDate;
     private Date lastUpdated;
     private Asset[] assets;
     private ModDependency[] dependencies;
+    private String compatibleWith;
 
     @JsonIgnore
     private transient Version parsedVersion;
+
+    @JsonIgnore
+    private transient Version parsedCompatibleWith;
 
     public static int compare(ModDefinition m1, ModDefinition m2) {
         return -Version.compare(m1.getParsedVersion(), m2.getParsedVersion());
@@ -65,6 +69,10 @@ public class ModDefinition {
         return this.changes;
     }
 
+    public String getCompatibleWith() {
+        return this.compatibleWith;
+    }
+
     public ModDependency[] getDependencies() {
         return this.dependencies;
     }
@@ -91,6 +99,14 @@ public class ModDefinition {
 
     public String getName() {
         return this.name;
+    }
+
+    public Version getParsedCompatibleWith() {
+        if (this.parsedCompatibleWith == null && this.compatibleWith != null) {
+            this.parsedCompatibleWith = Version.parse(this.compatibleWith);
+        }
+
+        return this.parsedCompatibleWith;
     }
 
     public Date getReleaseDate() {
@@ -136,6 +152,10 @@ public class ModDefinition {
 
     public void setChanges(String changes) {
         this.changes = changes;
+    }
+
+    public void setCompatibleWith(String compatibleWith) {
+        this.compatibleWith = compatibleWith;
     }
 
     public void setDependencies(ModDependency[] dependencies) {

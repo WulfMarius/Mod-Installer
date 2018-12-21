@@ -9,13 +9,13 @@ import org.springframework.util.StringUtils;
 
 public class Version implements Comparable<Version> {
 
+    public static final String VERSION_UNKNOWN = "UNKNOWN";
+
     // an extension to the semver.org pattern to accomodate UModTld
     private static final Pattern VERSION_PATTERN = Pattern.compile("(\\d+)(?:\\.(\\d+)(?:\\.(\\d+))?)?(\\w+)?(?:-(\\w+))?");
 
-    private static final Comparator<Version> COMPARATOR = Comparator
-            .comparingInt(Version::getMajor)
-            .thenComparingInt(Version::getMinor)
-            .thenComparingInt(Version::getPatch)
+    private static final Comparator<Version> COMPARATOR = Comparator.comparingInt(Version::getMajor)
+            .thenComparingInt(Version::getMinor).thenComparingInt(Version::getPatch)
             .thenComparing(Version::getSpecial, Version::compareSpecial)
             .thenComparing(Version::getPrelease, Version::comparePrerelease);
 

@@ -12,6 +12,8 @@ import java.util.zip.*;
 import org.springframework.util.StringUtils;
 
 import me.wulfmarius.modinstaller.ProgressListener.StepType;
+import me.wulfmarius.modinstaller.compatibility.*;
+import me.wulfmarius.modinstaller.compatibility.CompatibilityChecker.Compatibility;
 import me.wulfmarius.modinstaller.repository.*;
 import me.wulfmarius.modinstaller.rest.RestClient;
 import me.wulfmarius.modinstaller.update.*;
@@ -19,14 +21,17 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.5.0";
+    public static final String VERSION = "0.6.0";
 
     private final Path basePath;
+
     private final Repository repository;
+    private final UpdateChecker updateChecker;
+    private final CompatibilityChecker compatibilityChecker;
     private final Installations installations = new Installations();
+
     private final InstallationsChangedListeners installationsChangedListeners = new InstallationsChangedListeners();
     private final ProgressListeners progressListeners = new ProgressListeners();
-    private UpdateChecker updateChecker;
 
     public ModInstaller(Path basePath) {
         super();
@@ -39,6 +44,8 @@ public class ModInstaller {
         }
 
         this.repository = new Repository(basePath.resolve("repository"));
+        this.updateChecker = new UpdateChecker(basePath.getParent(), RestClient.getInstance());
+        this.compatibilityChecker = new CompatibilityChecker(basePath, RestClient.getInstance());
     }
 
     private static Path getRelativeTargetPath(Asset asset, ZipEntry entry) {
@@ -103,6 +110,14 @@ public class ModInstaller {
         }
 
         return ChronoUnit.DAYS.between(lastUpdate.toInstant(), Instant.now()) > 30;
+    }
+
+    public Compatibility getCompatibility(ModDefinition modDefinition) {
+        return this.compatibilityChecker.getCompatibility(modDefinition);
+    }
+
+    public CompatibilityState getCompatibilityState() {
+        return this.compatibilityChecker.getState();
     }
 
     public Installations getInstallations() {
@@ -185,6 +200,10 @@ public class ModInstaller {
         return this.repository.getSources();
     }
 
+    public String getTldVersion() {
+        return this.compatibilityChecker.getCurrentVersion();
+    }
+
     public UpdateState getUpdateState() {
         return this.updateChecker.getState();
     }
@@ -194,17 +213,22 @@ public class ModInstaller {
     }
 
     public void initialize() {
-        this.repository.initialize();
+        this.progressListeners.started("Initializing");
+        this.progressListeners.stepStarted("Mod-Installer", StepType.INITIALIZE);
 
-        Installations savedInstallations = this.readInstallations();
-        if (!savedInstallations.isEmpty()) {
-            this.installations.addInstallations(savedInstallations);
-            this.installationsChangedListeners.changed();
-        }
+        this.initializeUpdateChecker();
+        this.progressListeners.stepProgress(1, 4);
 
-        this.updateChecker = new UpdateChecker(RestClient.getInstance());
-        this.updateChecker.findLatestVersion();
-        this.updateChecker.findOtherVersions(this.basePath.getParent());
+        this.initializeCompatibilityChecker();
+        this.progressListeners.stepProgress(2, 4);
+
+        this.initializeRepository();
+        this.progressListeners.stepProgress(3, 4);
+
+        this.initializeInstallations();
+        this.progressListeners.stepProgress(4, 4);
+
+        this.progressListeners.finished();
     }
 
     public void install(ModDefinition modDefinition) {
@@ -213,7 +237,7 @@ public class ModInstaller {
             this.performInstall(modDefinition);
             this.writeInstallations();
         } catch (Exception e) {
-            this.progressListeners.detail(e.toString());
+            this.progressListeners.error(e.toString());
             this.progressListeners.stepProgress(1, 1);
         } finally {
             this.progressListeners.finished();
@@ -261,7 +285,7 @@ public class ModInstaller {
             this.progressListeners.finished();
             this.progressListeners.detail("\nClose this window to start the new version.");
         } catch (Exception e) {
-            this.progressListeners.detail("ERROR: " + e.toString());
+            this.progressListeners.error(e.toString());
             this.progressListeners.finished();
         }
     }
@@ -399,6 +423,46 @@ public class ModInstaller {
 
     private Path getModsDirectory() {
         return this.basePath.resolveSibling("mods");
+    }
+
+    private void initializeCompatibilityChecker() {
+        try {
+            this.progressListeners.detail("Mod Compatibility");
+            this.compatibilityChecker.initialize();
+        } catch (Exception e) {
+            this.progressListeners.error(e.toString());
+        }
+    }
+
+    private void initializeInstallations() {
+        try {
+            this.progressListeners.detail("Installed mods");
+            Installations savedInstallations = this.readInstallations();
+            if (!savedInstallations.isEmpty()) {
+                this.installations.addInstallations(savedInstallations);
+                this.installationsChangedListeners.changed();
+            }
+        } catch (Exception e) {
+            this.progressListeners.error(e.toString());
+        }
+    }
+
+    private void initializeRepository() {
+        try {
+            this.progressListeners.detail("Repository");
+            this.repository.initialize();
+        } catch (Exception e) {
+            this.progressListeners.error(e.toString());
+        }
+    }
+
+    private void initializeUpdateChecker() {
+        try {
+            this.progressListeners.detail("Updates");
+            this.updateChecker.initialize();
+        } catch (Exception e) {
+            this.progressListeners.error(e.toString());
+        }
     }
 
     private void installAsset(ModDefinition modDefinition, Asset asset, Installation installation) {

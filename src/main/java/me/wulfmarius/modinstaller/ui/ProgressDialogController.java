@@ -39,6 +39,9 @@ public class ProgressDialogController implements ProgressListener {
 
     private final Clock clock = new Clock();
 
+    private boolean autoCloseWithoutErrors;
+    private boolean hadError;
+
     public ProgressDialogController(ModInstaller modInstaller) {
         super();
         this.modInstaller = modInstaller;
@@ -59,6 +62,18 @@ public class ProgressDialogController implements ProgressListener {
         this.progressBarStep.setProgress(1);
         this.buttonClose.setDisable(false);
         this.clock.stop();
+
+        if (this.autoCloseWithoutErrors && !this.hadError) {
+            this.onClose();
+        }
+    }
+
+    public boolean isAutoCloseWithoutErrors() {
+        return this.autoCloseWithoutErrors;
+    }
+
+    public void setAutoCloseWithoutErrors(boolean autoCloseWithoutErrors) {
+        this.autoCloseWithoutErrors = autoCloseWithoutErrors;
     }
 
     public void setRunnable(Runnable runnable) {
@@ -88,6 +103,17 @@ public class ProgressDialogController implements ProgressListener {
         }
 
         this.appendToLog("\t" + detail);
+    }
+
+    @Override
+    public void stepError(String error) {
+        if (!Platform.isFxApplicationThread()) {
+            Platform.runLater(() -> this.stepError(error));
+            return;
+        }
+
+        this.appendToLog("ERROR: " + error);
+        this.hadError = true;
     }
 
     @Override

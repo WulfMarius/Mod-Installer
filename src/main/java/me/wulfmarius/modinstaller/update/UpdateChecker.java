@@ -19,14 +19,17 @@ public class UpdateChecker {
 
     private static final String LATEST_RELEASE_URL = "https://api.github.com/repos/WulfMarius/Mod-Installer/releases/latest";
 
+    private final Path basePath;
     private final RestClient restClient;
     private final UpdateState state;
 
     private Path downloadPath;
     private Path[] otherVersions;
 
-    public UpdateChecker(RestClient restClient) {
+    public UpdateChecker(Path basePath, RestClient restClient) {
         super();
+
+        this.basePath = basePath;
         this.restClient = restClient;
         this.state = this.readState();
     }
@@ -61,13 +64,12 @@ public class UpdateChecker {
 
         this.state.setEtag(response.getHeaders().getETag());
         this.state.setChecked(new Date());
-        this.writeState();
     }
 
-    public void findOtherVersions(Path path) {
+    public void findOtherVersions() {
         Path currentJar = this.getCurrentJarPath();
 
-        try (Stream<Path> stream = Files.list(path)) {
+        try (Stream<Path> stream = Files.list(this.basePath)) {
             this.otherVersions = stream.filter(Files::isRegularFile).filter(file -> !file.getFileName().equals(currentJar))
                     .filter(file -> file.getFileName().toString().startsWith("mod-installer-")
                             && file.getFileName().toString().endsWith(".jar"))
@@ -95,6 +97,18 @@ public class UpdateChecker {
 
     public boolean hasDownloadedNewVersion() {
         return this.downloadPath != null && Files.exists(this.downloadPath);
+    }
+
+    public void initialize() {
+        if (System.getProperty("SKIP_SELF_UPDATE_CHECK") != null) {
+            this.state.setLatestVersion(null);
+            return;
+        }
+
+        this.findLatestVersion();
+        this.findOtherVersions();
+
+        this.writeState();
     }
 
     public boolean isNewVersionAvailable(String version) {
@@ -141,6 +155,7 @@ public class UpdateChecker {
     private void writeState() {
         try {
             Path path = this.getUpdateCheckStatePath();
+            Files.createDirectories(path.getParent());
             JsonUtils.serialize(path, this.state);
         } catch (IOException e) {
             // ignore

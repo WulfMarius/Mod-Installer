@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import me.wulfmarius.modinstaller.*;
+import me.wulfmarius.modinstaller.compatibility.CompatibilityChecker.Compatibility;
 
 public class ModDetailsPanelController {
 
@@ -57,9 +58,17 @@ public class ModDetailsPanelController {
     @FXML
     private Button buttonUninstall;
 
+    @FXML
+    private Label infoCompatibilityOld;
+    @FXML
+    private Label infoCompatibilityUnknown;
+
     private final RefreshableObjectProperty<ModDefinition> modDefinitionProperty = new RefreshableObjectProperty<>(null);
     private final Property<String> requiresProperty = new RefreshableObjectProperty<>(null);
     private final Property<String> requiredByProperty = new RefreshableObjectProperty<>(null);
+
+    private final BooleanProperty compatibilityOldProperty = new SimpleBooleanProperty(false);
+    private final BooleanProperty compatibilityUnknownProperty = new SimpleBooleanProperty(false);
 
     private final BooleanProperty installForbiddenProperty = new SimpleBooleanProperty(false);
     private final Property<Tooltip> installTooltipProperty = new SimpleObjectProperty<>();
@@ -111,21 +120,42 @@ public class ModDetailsPanelController {
         this.buttonUninstall.disableProperty().bind(this.uninstallForbiddenProperty);
         this.infoUninstallForbidden.visibleProperty().bind(this.uninstallForbiddenProperty);
         this.infoUninstallForbidden.tooltipProperty().bind(this.uninstallTooltipProperty);
+
+        this.infoCompatibilityOld.visibleProperty().bind(this.compatibilityOldProperty);
+        this.infoCompatibilityUnknown.visibleProperty().bind(this.compatibilityUnknownProperty);
     }
 
     private void installationsChanged() {
         this.modDefinitionProperty.fireValueChangedEvent();
     }
 
+    private void installMod(ModDefinition modDefinition) {
+        startProgressDialog("Installing " + modDefinition.getDisplayName(), this.anchorPane,
+                () -> this.modInstaller.install(modDefinition));
+    }
+
     @FXML
-    private void installMod() {
+    private void onInstallMod() {
         ModDefinition modDefinition = this.modDefinitionProperty.getValue();
         if (modDefinition == null) {
             return;
         }
 
-        startProgressDialog("Installing " + modDefinition.getDisplayName(), this.anchorPane,
-                () -> this.modInstaller.install(modDefinition));
+        if (this.compatibilityOldProperty.get()) {
+            ModInstallerUI.showYesNoChoice("Incompatible Mod",
+                    "This mod is probably not compatible with your current version of The Long Dark and may cause problems.\nDo you want to install it anyway?",
+                    () -> this.installMod(modDefinition));
+            return;
+        }
+
+        if (this.compatibilityUnknownProperty.get()) {
+            ModInstallerUI.showYesNoChoice("Unknown Compatibility",
+                    "The compatibility of this mod could not be checked.\nDo you want to install it anyway?",
+                    () -> this.installMod(modDefinition));
+            return;
+        }
+
+        this.installMod(modDefinition);
     }
 
     private void onModSelected(ModInstallerEvent event) {
@@ -156,6 +186,21 @@ public class ModDetailsPanelController {
         this.uninstallForbiddenProperty.setValue(!installedRequiredBy.isEmpty());
         this.uninstallTooltipProperty.setValue(new Tooltip(installedRequiredBy.stream().map(ModDefinition::getName)
                 .collect(Collectors.joining(", ", "Required by installed mods: ", ""))));
+
+        Compatibility compatibility = this.modInstaller.getCompatibility(modDefinition);
+        this.compatibilityOldProperty.setValue(compatibility == Compatibility.OLD);
+        this.compatibilityUnknownProperty.setValue(compatibility == Compatibility.UNKNOWN);
+    }
+
+    @FXML
+    private void onUninstallMod() {
+        ModDefinition modDefinition = this.modDefinitionProperty.getValue();
+        if (modDefinition == null) {
+            return;
+        }
+
+        startProgressDialog("Uninstalling " + modDefinition.getDisplayName(), this.anchorPane,
+                () -> this.modInstaller.uninstallAll(modDefinition.getName()));
     }
 
     @FXML
@@ -166,16 +211,5 @@ public class ModDetailsPanelController {
     @FXML
     private void showChangelog() {
         ModInstallerUI.startChangeLogViewer(this.anchorPane, this.modDefinitionProperty.get());
-    }
-
-    @FXML
-    private void uninstallMod() {
-        ModDefinition modDefinition = this.modDefinitionProperty.getValue();
-        if (modDefinition == null) {
-            return;
-        }
-
-        startProgressDialog("Uninstalling " + modDefinition.getDisplayName(), this.anchorPane,
-                () -> this.modInstaller.uninstallAll(modDefinition.getName()));
     }
 }

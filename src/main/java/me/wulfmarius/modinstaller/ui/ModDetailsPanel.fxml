@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.image.Image?>
 
-<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.ModDetailsPanelController">
+<AnchorPane fx:id="anchorPane" prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.wulfmarius.modinstaller.ui.ModDetailsPanelController">
   <children>
     <VBox minHeight="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Label fx:id="labelName" maxWidth="300.0" text="Better-Water-Management">
+        <Label fx:id="labelName" maxWidth="300.0" text="Better-Water-Management" VBox.vgrow="NEVER">
           <font>
             <Font name="System Bold" size="14.0" />
           </font>
         </Label>
-            <HBox>
+            <HBox VBox.vgrow="NEVER">
                <children>
               <Label fx:id="labelVersion" maxHeight="1.7976931348623157E308" text="2.0.1" />
                   <Hyperlink fx:id="hyperlinkChangelog" onAction="#showChangelog" text="Changes">
@@ -30,11 +30,11 @@
                   </Hyperlink>
                </children>
             </HBox>
-        <Hyperlink fx:id="hyperlinkURL" maxWidth="300.0" onAction="#openURL" text="https://github.com/WulfMarius/Better-Water-Management">
+        <Hyperlink fx:id="hyperlinkURL" maxWidth="300.0" onAction="#openURL" text="https://github.com/WulfMarius/Better-Water-Management" VBox.vgrow="NEVER">
                <padding>
                   <Insets top="6.0" />
                </padding></Hyperlink>
-        <Label fx:id="labelDescription" maxWidth="300.0" text="Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark " wrapText="true">
+        <Label fx:id="labelDescription" alignment="TOP_LEFT" text="Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark Mod improving the way water is managed for The Long Dark " wrapText="true">
                <VBox.margin>
                   <Insets top="12.0" />
                </VBox.margin></Label>
@@ -54,7 +54,7 @@
             <Insets top="12.0" />
           </VBox.margin>
         </VBox>
-        <VBox fx:id="panelRequiredBy">
+        <VBox fx:id="panelRequiredBy" VBox.vgrow="NEVER">
           <children>
             <Label text="Required By" textFill="GREY">
               <font>
@@ -70,7 +70,8 @@
             <Insets top="12.0" />
           </VBox.margin>
         </VBox>
-        <GridPane alignment="CENTER" VBox.vgrow="ALWAYS">
+            <Pane VBox.vgrow="SOMETIMES" />
+        <GridPane vgap="12.0" VBox.vgrow="NEVER">
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" percentWidth="0.0" prefWidth="25.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -80,10 +81,11 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" />
           </columnConstraints>
           <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
           </rowConstraints>
           <children>
-            <Label fx:id="infoInstallForbidden" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Label fx:id="infoInstallForbidden" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
               <graphic>
                 <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -95,12 +97,12 @@
                         <Insets bottom="3.0" />
                      </GridPane.margin>
             </Label>
-            <Button fx:id="buttonInstall" mnemonicParsing="false" onAction="#installMod" text="Install" GridPane.columnIndex="5" GridPane.valignment="BOTTOM">
+            <Button fx:id="buttonInstall" mnemonicParsing="false" onAction="#onInstallMod" text="Install" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
               <GridPane.margin>
                 <Insets />
               </GridPane.margin>
             </Button>
-                  <Label fx:id="infoUpdateForbidden" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label fx:id="infoUpdateForbidden" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="3.0" />
                      </GridPane.margin>
@@ -112,12 +114,12 @@
                         </ImageView>
                      </graphic>
                   </Label>
-            <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#installMod" styleClass="update" text="Update" GridPane.columnIndex="3" GridPane.valignment="BOTTOM">
+            <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#onInstallMod" styleClass="update" text="Update" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
               <GridPane.margin>
                 <Insets />
               </GridPane.margin>
             </Button>
-            <Label fx:id="infoUninstallForbidden" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Label fx:id="infoUninstallForbidden" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
               <graphic>
                 <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" smooth="false">
                   <image>
@@ -129,7 +131,31 @@
                 <Insets bottom="3.0" />
               </GridPane.margin>
             </Label>
-            <Button fx:id="buttonUninstall" mnemonicParsing="false" onAction="#uninstallMod" styleClass="uninstall" text="Uninstall" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
+            <Button fx:id="buttonUninstall" mnemonicParsing="false" onAction="#onUninstallMod" styleClass="uninstall" text="Uninstall" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                  <Label fx:id="infoCompatibilityOld" layoutX="14.0" layoutY="44.0" text="This mod is probably outdated.&#10;Using it may cause problems." textFill="DARKRED" GridPane.columnSpan="2147483647">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@/baseline_access_time_red_24x24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="3.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="infoCompatibilityUnknown" layoutX="10.0" layoutY="11.0" text="Compatibility could not be checked.&#10;Using this mod may cause problems." textFill="DARKRED" GridPane.columnSpan="2147483647">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@/baseline_access_time_red_24x24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="3.0" />
+                     </padding>
+                  </Label>
           </children>
           <VBox.margin>
             <Insets top="12.0" />

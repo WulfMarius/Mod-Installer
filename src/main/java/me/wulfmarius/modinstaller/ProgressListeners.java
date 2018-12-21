@@ -8,6 +8,10 @@ public class ProgressListeners extends Listeners<ProgressListener> {
         this.fire(listener -> listener.stepDetail(detail));
     }
 
+    public void error(String error) {
+        this.fire(listener -> listener.stepError(error));
+    }
+
     public void finished() {
         this.finished(null);
     }

@@ -25,38 +25,59 @@
 
 
 .table-row-cell:not-installed .text {
-   -fx-fill: darkgray  ;
+    -fx-opacity: 0.5;
 }
 
-.table-row-cell:not-installed:selected .text {
-   -fx-fill: lightgray;
-}
-
+ 
 .table-row-cell .tooltip .text {
    -fx-fill: WHITE;
+   -fx-opacity: 1;
 }
 
+.table-cell {
+    -fx-background-repeat: no-repeat;
+}
 
 .table-cell:required {
     -fx-background-image: url("/lock_grey_18x18.png");
-    -fx-background-repeat: no-repeat;
     -fx-background-position: right;
 }
 
 .table-cell:update-available {
     -fx-background-image: url("/arrow_upward_black_18x18.png");
-    -fx-background-repeat: no-repeat;
+    -fx-background-position: right;
+}
+
+.table-cell:recent {
+    -fx-background-image: url("new_releases_grey_18x18.png");
+    -fx-background-position: right;
+}
+
+.table-cell:incompatible {
+    -fx-background-image: url("baseline_access_time_red_18x18.png");
     -fx-background-position: right;
 }
 
 .table-cell:required:update-available {
     -fx-background-image: url("/arrow_upward_black_18x18.png"), url("/lock_grey_18x18.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: right 18.0px top 50.0%, right 50.0%;
+    -fx-background-position: right 18.0px center, right;
 }
 
-.table-cell:recent {
-    -fx-background-image: url("new_releases_grey_18x18.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: right 50.0%;
+.table-cell:required:incompatible {
+    -fx-background-image: url("/lock_grey_18x18.png"), url("baseline_access_time_red_18x18.png");
+    -fx-background-position: right 18.0px center, right;
+}
+
+.table-cell:required:update-available:incompatible {
+    -fx-background-image: url("/arrow_upward_black_18x18.png"), url("/lock_grey_18x18.png"), url("baseline_access_time_red_18x18.png");
+    -fx-background-position: right 36.0px center, right 18.0px center, right;
+}
+
+.table-cell:update-available:incompatible {
+    -fx-background-image: url("/arrow_upward_black_18x18.png"), url("baseline_access_time_red_18x18.png");
+    -fx-background-position: right 18.0px center, right;
+}
+.table-cell:recent:incompatible {
+    -fx-background-image: url("new_releases_grey_18x18.png"), url("baseline_access_time_red_18x18.png");
+    -fx-background-position: right 18.0px center, right;
 }

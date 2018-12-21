@@ -145,7 +145,7 @@ public class Repository {
                 changes = "\n\nNo changes found";
             }
         } catch (RateLimitException e) {
-            this.progressListeners.detail("RATE LIMIT REACHED. Please try again after "
+            this.progressListeners.error("RATE LIMIT REACHED. Please try again after "
                     + DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).format(e.getReset().atZone(ZoneId.systemDefault())));
             this.progressListeners.detail("Aborting now.");
         } finally {
@@ -159,7 +159,7 @@ public class Repository {
             this.progressListeners.started("Add " + definition);
             this.performRegisterSource(definition);
         } catch (RateLimitException e) {
-            this.progressListeners.detail("RATE LIMIT REACHED. Please try again after "
+            this.progressListeners.error("RATE LIMIT REACHED. Please try again after "
                     + DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).format(e.getReset().atZone(ZoneId.systemDefault())));
             this.progressListeners.detail("Aborting now.");
         } finally {
@@ -219,7 +219,7 @@ public class Repository {
             try {
                 this.refreshSource(this.sources.getSources().get(i));
             } catch (Exception e) {
-                this.progressListeners.detail(e.getMessage());
+                this.progressListeners.error(e.getMessage());
             }
             this.progressListeners.stepProgress(++refreshed, total);
         }
@@ -299,7 +299,7 @@ public class Repository {
             JsonUtils.serialize(this.getSourcesPath(), this.sources);
             this.sourcesChangedListeners.changed();
         } catch (IOException e) {
-            this.progressListeners.detail("Could not save sources: " + e);
+            this.progressListeners.error("Could not save sources: " + e);
         }
     }
 }
