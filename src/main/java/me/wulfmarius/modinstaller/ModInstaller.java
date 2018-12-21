@@ -292,6 +292,7 @@ public class ModInstaller {
 
     public void refreshSources() {
         this.repository.refreshSources();
+        this.compatibilityChecker.invalidate();
     }
 
     public void registerSource(String definition) {

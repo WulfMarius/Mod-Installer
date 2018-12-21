@@ -52,6 +52,10 @@ public class CompatibilityChecker {
         this.writeState();
     }
 
+    public void invalidate() {
+        this.compatibilityCache.clear();
+    }
+
     private Compatibility calculateCompatibility(ModDefinition modDefinition) {
         if (this.currentCompatibilityVersion == null) {
             return Compatibility.UNKNOWN;
@@ -97,7 +101,7 @@ public class CompatibilityChecker {
             this.currentVersion = lines.get(0).split("\\s")[0];
             this.parsedCurrentVersion = Version.parse(this.currentVersion);
             this.currentCompatibilityVersion = this.state.getCompatibilityVersions().floor(this.parsedCurrentVersion);
-            this.compatibilityCache.clear();
+            this.invalidate();
         } catch (IllegalArgumentException | IOException e) {
             throw new ModInstallerException("Could not read TLD version.", e);
         }
