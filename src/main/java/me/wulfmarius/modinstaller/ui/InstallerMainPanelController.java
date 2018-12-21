@@ -216,8 +216,10 @@ public class InstallerMainPanelController {
     }
 
     private void installationsChanged() {
-        Platform.runLater(this.tableView::sort);
-        Platform.runLater(this.tableView::refresh);
+        Platform.runLater(() -> {
+            this.tableView.sort();
+            this.tableView.refresh();
+        });
     }
 
     private void migrateSources() {
@@ -276,9 +278,11 @@ public class InstallerMainPanelController {
     }
 
     private void sourcesChanged() {
-        this.tableView.getItems().setAll(this.modInstaller.getLatestVersions());
-        Platform.runLater(this.tableView::sort);
-        Platform.runLater(this.tableView::refresh);
+        Platform.runLater(() -> {
+            this.tableView.getItems().setAll(this.modInstaller.getLatestVersions());
+            this.tableView.sort();
+            this.tableView.refresh();
+        });
     }
 
     private void startUpdate() {
