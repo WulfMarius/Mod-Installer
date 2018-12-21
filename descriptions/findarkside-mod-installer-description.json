@@ -11,6 +11,7 @@
 			"description": "Enables the developer console, which can be opened by pressing F1\nType help for a list of commands and press TAB to autocomplete.",
 			"url": "https://github.com/FINDarkside/TLD-Developer-Console/releases/tag/1.1",
 			"changes": "- Scroll down when a command is submitted\n- Fixed save, currentSceneName (now called scene_name), and currentSceneIndex (now called scene_index\n- Added new pos command to get the current position\n- Added new tp command to teleport",
+			"compatibleWith": "V1.41",
 			"dependencies": [],
 			"assets": [
 				{
