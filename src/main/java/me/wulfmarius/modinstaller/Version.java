@@ -23,7 +23,6 @@ public class Version implements Comparable<Version> {
     private int minor;
     private int patch;
     private String prelease;
-
     private String special;
 
     public static int compare(Version v1, Version v2) {
@@ -50,6 +49,7 @@ public class Version implements Comparable<Version> {
 
             result.special = trimToEmpty(matcher.group(4));
             result.prelease = trimToEmpty(matcher.group(5));
+
             return result;
         }
 
@@ -140,6 +140,7 @@ public class Version implements Comparable<Version> {
         result.minor = 0;
         result.patch = 0;
         result.prelease = "";
+        result.special = "";
 
         return result;
     }

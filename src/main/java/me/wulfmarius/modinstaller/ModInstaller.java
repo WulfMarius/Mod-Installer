@@ -21,7 +21,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.6.1";
+    public static final String VERSION = "0.6.2";
 
     private final Path basePath;
 
