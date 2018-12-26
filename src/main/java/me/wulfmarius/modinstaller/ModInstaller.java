@@ -21,7 +21,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.6.2";
+    public static final String VERSION = "0.6.3";
 
     private final Path basePath;
 
@@ -228,7 +228,12 @@ public class ModInstaller {
         this.initializeInstallations();
         this.progressListeners.stepProgress(4, 4);
 
-        this.progressListeners.finished();
+        if (this.isSourceMigrationRequired()) {
+            this.invalidateSources();
+            this.refreshSources();
+        } else {
+            this.progressListeners.finished();
+        }
     }
 
     public void install(ModDefinition modDefinition) {

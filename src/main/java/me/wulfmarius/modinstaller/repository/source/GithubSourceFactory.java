@@ -104,7 +104,7 @@ public class GithubSourceFactory extends AbstractSourceFactory {
                 this.githubReleases = GithubSourceFactory.this.getGithubReleases(this.definition);
             }
 
-            return Arrays.stream(this.githubReleases).filter(release -> release.getName().equals(version)).findFirst();
+            return Arrays.stream(this.githubReleases).filter(release -> release.hasMatchingTag(version)).findFirst();
         }
     }
 }

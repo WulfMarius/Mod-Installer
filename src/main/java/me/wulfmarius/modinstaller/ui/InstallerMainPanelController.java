@@ -222,11 +222,6 @@ public class InstallerMainPanelController {
         });
     }
 
-    private void migrateSources() {
-        this.modInstaller.invalidateSources();
-        this.refreshSources();
-    }
-
     @FXML
     private void openLogFolder() {
         Path folder = Paths.get(System.getProperty("user.home"));
@@ -265,8 +260,6 @@ public class InstallerMainPanelController {
 
         if (this.modInstaller.getSources().isEmpty()) {
             this.askInstallDefaultSource();
-        } else if (this.modInstaller.isSourceMigrationRequired()) {
-            this.migrateSources();
         } else if (this.modInstaller.areSourcesOld()) {
             this.askRefreshSource();
         }

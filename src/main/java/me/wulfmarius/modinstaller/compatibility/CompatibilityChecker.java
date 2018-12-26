@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.http.ResponseEntity;
 
 import me.wulfmarius.modinstaller.*;
+import me.wulfmarius.modinstaller.repository.RateLimitException;
 import me.wulfmarius.modinstaller.rest.RestClient;
 import me.wulfmarius.modinstaller.utils.JsonUtils;
 
@@ -73,24 +74,37 @@ public class CompatibilityChecker {
     }
 
     private void fetchTldVersions() {
-        ResponseEntity<String> response = this.restClient.fetch(TLD_VERSIONS_URL, this.state.getEtag());
-        if (response.getStatusCode().is2xxSuccessful()) {
-            this.state.setCompatibilityVersions(this.restClient.deserialize(response, CompatibilityVersions.class, null));
-        }
+        try {
+            ResponseEntity<String> response = this.restClient.fetch(TLD_VERSIONS_URL, this.state.getEtag());
+            if (response.getStatusCode().is2xxSuccessful()) {
+                this.state.setCompatibilityVersions(this.restClient.deserialize(response, CompatibilityVersions.class, null));
+                this.state.setEtag(response.getHeaders().getETag());
+            }
 
-        this.state.setEtag(response.getHeaders().getETag());
-        this.state.setChecked(new Date());
+            this.state.setChecked(new Date());
+        } catch (RateLimitException e) {
+            // ignore
+        }
     }
 
     private Path getStatePath() {
         return this.basePath.resolve("compatibility-state.json");
     }
 
-    private void readCurrentVersion() {
-        Path path = this.basePath.resolveSibling("tld_Data").resolve("StreamingAssets").resolve("version.txt");
-        if (!Files.exists(path)) {
-            throw new ModInstallerException("Could not find TLD version file.");
+    private Optional<Path> getVersionFilePath() {
+        Optional<Path> optional = Optional.of(this.basePath.resolveSibling("tld_Data/StreamingAssets/version.txt"))
+                .filter(Files::exists);
+        if (optional.isPresent()) {
+            return optional;
         }
+
+        optional = Optional.of(this.basePath.resolveSibling("tld.app/Contents/Resources/Data/StreamingAssets/version.txt"))
+                .filter(Files::exists);
+        return optional;
+    }
+
+    private void readCurrentVersion() {
+        Path path = this.getVersionFilePath().orElseThrow(() -> new ModInstallerException("Could not find TLD version file."));
 
         try {
             List<String> lines = Files.readAllLines(path);

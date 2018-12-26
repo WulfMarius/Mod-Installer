@@ -4,10 +4,15 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.*;
 
+import me.wulfmarius.modinstaller.Version;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GithubRelease {
 
     private String name;
+
+    @JsonProperty("tag_name")
+    private String tag;
 
     @JsonProperty("html_url")
     private String url;
@@ -41,8 +46,28 @@ public class GithubRelease {
         return this.name;
     }
 
+    public String getTag() {
+        return this.tag;
+    }
+
     public String getUrl() {
         return this.url;
+    }
+
+    public boolean hasMatchingTag(String tagName) {
+        if (this.tag == null) {
+            return false;
+        }
+
+        if (this.tag.equalsIgnoreCase(tagName)) {
+            return true;
+        }
+
+        try {
+            return Version.parse(this.tag).equals(Version.parse(tagName));
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void setAssets(GithubAsset[] assets) {
@@ -63,6 +88,10 @@ public class GithubRelease {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public void setUrl(String url) {

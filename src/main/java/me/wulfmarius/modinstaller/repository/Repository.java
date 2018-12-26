@@ -218,6 +218,8 @@ public class Repository {
         for (int i = 0; i < total; i++) {
             try {
                 this.refreshSource(this.sources.getSources().get(i));
+            } catch (RateLimitException e) {
+                throw e;
             } catch (Exception e) {
                 this.progressListeners.error(e.getMessage());
             }
