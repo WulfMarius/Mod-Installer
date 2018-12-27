@@ -61,6 +61,7 @@ public class ProgressDialogController implements ProgressListener {
 
         this.progressBarStep.setProgress(1);
         this.buttonClose.setDisable(false);
+        this.buttonClose.requestFocus();
         this.clock.stop();
 
         if (this.autoCloseWithoutErrors && !this.hadError) {
@@ -154,8 +155,6 @@ public class ProgressDialogController implements ProgressListener {
     private void initialize() {
         this.modInstaller.addProgressListener(this);
         this.labelTime.textProperty().bind(this.clock.formattedTime);
-
-        this.buttonClose.requestFocus();
     }
 
     @FXML
