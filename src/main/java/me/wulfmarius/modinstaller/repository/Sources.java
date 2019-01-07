@@ -21,7 +21,7 @@ public class Sources implements Iterable<Source> {
     }
 
     public boolean contains(String definition) {
-        return this.sources.stream().anyMatch(source -> definition.equals(source.getDefinition()));
+        return this.sources.stream().anyMatch(source -> definition.equalsIgnoreCase(source.getDefinition()));
     }
 
     public Date getLastUpdate() {
