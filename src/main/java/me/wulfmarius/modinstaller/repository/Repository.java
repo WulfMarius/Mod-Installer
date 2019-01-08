@@ -1,12 +1,13 @@
 package me.wulfmarius.modinstaller.repository;
 
-import java.io.IOException;
+import static me.wulfmarius.modinstaller.repository.SourceFactory.PARAMETER_ETAG;
+
+import java.io.*;
 import java.nio.file.*;
-import java.time.ZoneId;
-import java.time.format.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import org.springframework.http.*;
 import org.springframework.util.StringUtils;
 
 import me.wulfmarius.modinstaller.*;
@@ -17,10 +18,12 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class Repository {
 
+    private static final String SNAPSHOT_URL = "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/src/main/resources/default-sources.json";
+
     private final Path basePath;
 
     private final Sources sources = new Sources();
-    private final List<SourceFactory> sourceFactories = new ArrayList<SourceFactory>();
+    private final List<SourceFactory> sourceFactories = new ArrayList<>();
     private final ProgressListeners progressListeners = new ProgressListeners();
     private final SourcesChangedListeners sourcesChangedListeners = new SourcesChangedListeners();
 
@@ -99,9 +102,8 @@ public class Repository {
     }
 
     public List<ModDefinition> getModDefinitions(String name) {
-        return this.sources.stream().flatMap(Source::getModDefinitionStream)
-                .filter(modDefinition -> modDefinition.getName().equals(name)).sorted(ModDefinition::compare)
-                .collect(Collectors.toList());
+        return this.sources.stream().flatMap(Source::getModDefinitionStream).filter(modDefinition -> modDefinition.getName().equals(name))
+                .sorted(ModDefinition::compare).collect(Collectors.toList());
     }
 
     public Sources getSources() {
@@ -116,6 +118,7 @@ public class Repository {
         if (!savedSources.isEmpty()) {
             this.sources.addSources(savedSources);
             this.sources.setLastUpdate(savedSources.getLastUpdate());
+            this.sources.setSnapshotETag(savedSources.getSnapshotETag());
             this.sourcesChangedListeners.changed();
         }
     }
@@ -124,6 +127,26 @@ public class Repository {
         for (Source eachSource : this.sources) {
             eachSource.removeParameter(SourceFactory.PARAMETER_ETAG);
         }
+    }
+
+    public void refreshSnapshot() {
+        ResponseEntity<String> response = RestClient.getInstance().fetch(SNAPSHOT_URL, this.sources.getSnapshotETag());
+
+        if (response.getStatusCode() == HttpStatus.NOT_MODIFIED) {
+            return;
+        }
+
+        if (!response.getStatusCode().is2xxSuccessful()) {
+            this.progressListeners.error("Could not find snapshot: " + SNAPSHOT_URL + " " + response.getStatusCodeValue() + "/"
+                    + response.getStatusCode().getReasonPhrase());
+            return;
+        }
+
+        Sources snapshot = RestClient.getInstance().deserialize(response, Sources.class, Sources::new);
+        this.applySnapshot(snapshot);
+
+        this.sources.setSnapshotETag(response.getHeaders().getETag());
+        this.writeSources();
     }
 
     public void refreshSources() {
@@ -144,9 +167,8 @@ public class Repository {
             } else {
                 changes = "\n\nNo changes found";
             }
-        } catch (RateLimitException e) {
-            this.progressListeners.error("RATE LIMIT REACHED. Please try again after "
-                    + DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).format(e.getReset().atZone(ZoneId.systemDefault())));
+        } catch (AbortException e) {
+            this.progressListeners.error(e.getMessage());
             this.progressListeners.detail("Aborting now.");
         } finally {
             this.writeSources();
@@ -158,9 +180,8 @@ public class Repository {
         try {
             this.progressListeners.started("Add " + definition);
             this.performRegisterSource(definition);
-        } catch (RateLimitException e) {
-            this.progressListeners.error("RATE LIMIT REACHED. Please try again after "
-                    + DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).format(e.getReset().atZone(ZoneId.systemDefault())));
+        } catch (AbortException e) {
+            this.progressListeners.error(e.getMessage());
             this.progressListeners.detail("Aborting now.");
         } finally {
             this.writeSources();
@@ -194,6 +215,25 @@ public class Repository {
         this.sources.addSource(source);
     }
 
+    private void applySnapshot(Sources snapshot) {
+        for (Source eachSnapshotSource : snapshot) {
+            if (!this.sources.contains(eachSnapshotSource.getDefinition())) {
+                this.progressListeners.detail("Adding " + eachSnapshotSource.getDefinition());
+                this.addSource(eachSnapshotSource);
+                continue;
+            }
+
+            Date now = new Date(0);
+            this.sources.stream().filter(eachSource -> eachSource.getDefinition().equals(eachSnapshotSource.getDefinition()))
+                    .filter(eachSource -> !eachSource.getParameter(PARAMETER_ETAG).equals(eachSnapshotSource.getParameter(PARAMETER_ETAG)))
+                    .filter(eachSource -> !eachSource.getLastUpdated().orElse(now).after(eachSnapshotSource.getLastUpdated().orElse(now)))
+                    .findFirst().ifPresent(eachSource -> {
+                        this.progressListeners.detail("Updating " + eachSource.getDefinition());
+                        eachSource.update(eachSnapshotSource);
+                    });
+        }
+    }
+
     private Source createSource(String sourceDefinition, Map<String, String> parameters) {
         for (SourceFactory eachSourceFactory : this.sourceFactories) {
             if (!eachSourceFactory.isSupportedSource(sourceDefinition)) {
@@ -218,7 +258,7 @@ public class Repository {
         for (int i = 0; i < total; i++) {
             try {
                 this.refreshSource(this.sources.getSources().get(i));
-            } catch (RateLimitException e) {
+            } catch (AbortException e) {
                 throw e;
             } catch (Exception e) {
                 this.progressListeners.error(e.getMessage());
@@ -239,7 +279,7 @@ public class Repository {
             Source source = this.createSource(definition, Collections.emptyMap());
             this.registerDefinitions(source);
             this.addSource(source);
-        } catch (RateLimitException e) {
+        } catch (AbortException e) {
             throw e;
         } catch (RuntimeException e) {
             this.progressListeners.detail("Could not register source: " + e);
@@ -254,6 +294,12 @@ public class Repository {
             }
         } catch (IOException e) {
             throw new RepositoryException("Failed to read sources.", e);
+        }
+
+        try (InputStream inputStream = this.getClass().getResourceAsStream("/default-sources.json")) {
+            return JsonUtils.deserialize(inputStream, Sources.class);
+        } catch (IOException e) {
+            // ignore
         }
 
         return new Sources();

@@ -1,0 +1,2826 @@
+{
+  "sources" : [ {
+    "definition" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+    "name" : "AlexTheRegent TLD-GameTweaks",
+    "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+    "description" : "The Long Dark: AlexTheRegent Game Tweaks",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"acc7dabba07835028b4ccbdad95a35dfb1433f77\""
+    },
+    "modDefinitions" : [ {
+      "name" : "CookingTweaks",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.5",
+      "description" : "Change time of food prerapation (cooking/burning) or water processing (melting/boiling/drying).\n\nWarning: it does not change displaying cooking time in cans/pots/etc, but it will change once you start cooking!\n\nImportant: Adjust values in CookingTweaks.xml!",
+      "changes" : "",
+      "releaseDate" : "2018-07-11T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.5/CookingTweaks.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "DetectionRange",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Change animals detection distance. No more wolves who see/hear/smell you from far distance.\n\nOr you can make game more challenging and make wolves to start looking for you if you leave your home ;)\n\nYou can also change detection range for rabbits, deers, bears, mooses.\n\nImportant: adjust values in DetectionRange.xml!",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/DetectionRange.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "FasterActionRedux",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Do all actions way faster (nearly instant). Be careful, you can die in blink of eye, if you choose action that is very long (such as harvesting meat from bear)!\n\nRedux of FasterActionMod by felipeds + fixed fishing.\n\nThis mod can cause visual bug \"item message stuck\" (very rare and I've probably fixed it, but who knows). This bug will disappear after change of location.\n\nAlso can cause old bug \"stuck with bare hands on pickup\" (I've probably fixed it too). This bug will disappear only after save restart.\n\nTo avoid bugs you can set action speed (container time works fine) to 0.5 (1.0 will be 100% safe) second in FasterActionRedux.xml. This will protect you from these very rare bugs (which I've probably fixed since I've didn't encounter them in 1h).\n\nI highly recommend you to try this mod despite possible bugs (very, very, very low possible bugs), it's pretty amazing and time saving. I can't play without this mod.",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/FasterActionRedux.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "MapTweaks",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Increase map reveal radius or enable automapping (no charcoal required)",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/MapTweaks.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "SkipIntroRedux",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Skip disclaimer (autoclick) and intro. Fading removal on main menu is broken, I'll probably fix it later.\n\nRedux of SkipIntro by ossian.\n\nYou can configure mod in SkipIntroRedux.xml.",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/SkipIntroRedux.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "StruggleTweaks",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Set chance to instantly kill wolf after struggle or change bleedout time for wolf. Also you can change tap power to save your mouse buttons :)",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/StruggleTweaks.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "TimeAccelerator",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Speed up everything in the world to travel faster or do something faster.\n\nImportant: adjust values in TimeAccelerator.xml!",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/TimeAccelerator.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "TweakRabbits",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Change duration of stun or kill rabbit instantly if hit with rock.\n\nYou can configure mod in TweakRabbits.xml.",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/TweakRabbits.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "WeaponCrosshair",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.4",
+      "description" : "Show crosshair when zooming with stone (enabled by default), bow (disabled by default), rifle (disabled by default).\n\nYou can configure settings in WeaponCrosshair.xml.",
+      "changes" : "",
+      "releaseDate" : "2018-07-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/WeaponCrosshair.zip"
+      } ],
+      "dependencies" : [ ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/alextheregent-mod-installer-description.json",
+    "name" : "AlexTheRegent Collection",
+    "url" : "https://github.com/AlexTheRegent",
+    "description" : "Mods of AlexTheRegent",
+    "definitions" : [ "https://github.com/AlexTheRegent/tld-GameTweaks" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"d27e7267c3415e9a75d56a4748fce8b82428c4a4\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/findarkside-mod-installer-description.json",
+    "name" : "FINDarkside Collection",
+    "url" : "https://github.com/FINDarkside",
+    "description" : "Mods of FINDarkside",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"74ff129bc4625920a6d4785b2f0143152ea8bbc1\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Developer-Console",
+      "url" : "https://github.com/FINDarkside/TLD-Developer-Console/releases/tag/1.1",
+      "author" : "FINDarkside",
+      "version" : "1.1",
+      "description" : "Enables the developer console, which can be opened by pressing F1\nType help for a list of commands and press TAB to autocomplete.",
+      "changes" : "- Scroll down when a command is submitted\n- Fixed save, currentSceneName (now called scene_name), and currentSceneIndex (now called scene_index\n- Added new pos command to get the current position\n- Added new tp command to teleport",
+      "releaseDate" : "2018-11-04T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:04.646+0000",
+      "assets" : [ {
+        "url" : "https://github.com/FINDarkside/TLD-Developer-Console/releases/download/1.1/DeveloperConsole.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "V1.41"
+    } ]
+  }, {
+    "definition" : "https://github.com/lucasio6/Flint",
+    "name" : "Flint",
+    "url" : "https://github.com/lucasio6/Flintt",
+    "description" : "Adds flint stones as a firestarter.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"e219c4b9120aac7d57d5ef6097582ca778efc14d\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Flint",
+      "url" : "https://github.com/lucasio6/Flint/releases/tag/1.0",
+      "author" : "lucasio6",
+      "version" : "1.0",
+      "description" : "Adds flint stones as a firestarter.",
+      "changes" : "First version",
+      "releaseDate" : "2018-11-13T17:15:09.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:10.534+0000",
+      "assets" : [ {
+        "url" : "https://github.com/lucasio6/Flint/releases/download/1.0/Flint-V1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/lucasio6/Lint",
+    "name" : "Lint",
+    "url" : "https://github.com/lucasio6/Lint",
+    "description" : "Adds a lint as an accelerant.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"f3d3ce0d9bcced6230756aae6ecf5a9d6d38c767\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Lint",
+      "url" : "https://github.com/lucasio6/Lint/releases/tag/1.0",
+      "author" : "lucasio6",
+      "version" : "1.0",
+      "description" : "Adds a lint as an accelerant.",
+      "changes" : "First version",
+      "releaseDate" : "2018-11-13T17:06:28.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:14.563+0000",
+      "assets" : [ {
+        "url" : "https://github.com/lucasio6/Lint/releases/download/1.0/Lint-V1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/lucasio6/Wolfhat",
+    "name" : "Wolfhat",
+    "url" : "https://github.com/lucasio6/Wolfhat",
+    "description" : "Adds a craftable hat.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"3ca39a435df015e9bf3e9857aec87da36e32fa75\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Wolfhat",
+      "url" : "https://github.com/lucasio6/WolfHat/releases/tag/1.2",
+      "author" : "lucasio6",
+      "version" : "1.2",
+      "description" : "Adds a craftable hat.",
+      "changes" : "added blueprint .JSON",
+      "releaseDate" : "2018-11-26T17:23:14.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:19.169+0000",
+      "assets" : [ {
+        "url" : "https://github.com/lucasio6/Wolfhat/releases/download/1.2/Wolfhat-V1.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/lucasio6-mod-installer-description.json",
+    "name" : "Lucasio6 Collection",
+    "url" : "https://github.com/lucasio6",
+    "description" : "Mods of Lucasio6",
+    "definitions" : [ "https://github.com/lucasio6/Flint", "https://github.com/lucasio6/Lint", "https://github.com/lucasio6/Wolfhat" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"eabb9c768667938b800458aa2e180d5f2b9f0a3d\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://github.com/MikeyPdog/TLD-Minimods",
+    "name" : "MikeyPdog TLD-Minimods",
+    "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+    "description" : "The Long Dark: Mikes Mini Mods",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"f173cb7cb808e4bcece1a34364fa2ec1df0f445f\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Faster Searching",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "Empty Containers are instant to search.\nNon-Empty containers are faster to search.",
+      "changes" : "",
+      "releaseDate" : "2018-06-10T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/FasterSearching.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Less Effective Repairs",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "Repairing clothing repairs half as much condition.",
+      "changes" : "",
+      "releaseDate" : "2018-06-10T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/LessEffectiveRepairs.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Sprint Costs Food",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "Sprinting uses 5x as much food as normal",
+      "changes" : "",
+      "releaseDate" : "2018-06-10T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/SprintCostsFood.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Starving Hurts",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "Starving (0 food) causes 5x more damage than normal.",
+      "changes" : "",
+      "releaseDate" : "2018-06-10T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/StarvingHurts.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Less Calories Needed",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "You use half as many calories as normal.",
+      "changes" : "",
+      "releaseDate" : "2018-06-10T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/LessCaloriesNeeded.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Frostbite Not Permanent",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "Frostbite is no longer permanent. Instead you take -20% condition immediately.",
+      "changes" : "",
+      "releaseDate" : "2018-06-27T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/FrostbiteNotPermanent.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Quicker Mapping",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.3",
+      "description" : "Mapping with charcoal takes 1 in-game minute rather than 15.",
+      "changes" : "",
+      "releaseDate" : "2018-06-27T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/QuickerMapping.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/mikeypdog-mod-installer-description.json",
+    "name" : "MikeyPdog Collection",
+    "url" : "https://github.com/MikeyPdog",
+    "description" : "Mods of MikeyPdog",
+    "definitions" : [ "https://github.com/MikeyPdog/TLD-Minimods" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"a5650a87c01750cd278ce0ffac9e247fd8d1c732\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://github.com/nbakulev/Deerskincoat",
+    "name" : "Deerskin coat",
+    "url" : "https://github.com/nbakulev/Deerskincoat",
+    "description" : "Mod add to TLD the craftable deerskin coat",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"39459923ec0e31abce91c52f7b342de233b0bd35\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Deerskin coat",
+      "url" : "https://github.com/nbakulev/Deerskincoat/releases/tag/1.1",
+      "author" : "nbakulev",
+      "version" : "1.1",
+      "description" : "Mod add to TLD the craftable deerskin coat",
+      "changes" : "",
+      "releaseDate" : "2018-12-25T15:47:26.000+0000",
+      "lastUpdated" : "2019-01-07T11:25:52.260+0000",
+      "assets" : [ {
+        "url" : "https://github.com/nbakulev/Deerskincoat/releases/download/1.1/deerskincoat.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.1"
+      } ]
+    }, {
+      "name" : "Deerskin coat",
+      "url" : "https://github.com/nbakulev/Deerskincoat/releases/tag/1.0",
+      "author" : "nbakulev",
+      "version" : "1.0",
+      "description" : "Mod add to TLD the craftable deerskin coat",
+      "changes" : "",
+      "releaseDate" : "2019-01-07T11:25:48.514+0000",
+      "lastUpdated" : "2019-01-07T11:25:52.260+0000",
+      "assets" : [ ]
+    } ]
+  }, {
+    "definition" : "https://github.com/nbakulev/Woodenstatuettes",
+    "name" : "Wooden sattuettes",
+    "url" : "https://github.com/nbakulev/Woodenstatuettes",
+    "description" : "Mini mods add 5 wooden statuettes to decorate you base",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"1d8384c637a37596925fb05255b4f75be9eb4cc6\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Wooden sattuettes",
+      "url" : "https://github.com/nbakulev/Woodenstatuettes/releases/tag/1.1",
+      "author" : "nbakulev",
+      "version" : "1.1",
+      "description" : "Mini mods add 5 wooden statuettes to decorate you base",
+      "changes" : "",
+      "releaseDate" : "2018-12-25T15:54:37.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:04.905+0000",
+      "assets" : [ {
+        "url" : "https://github.com/nbakulev/Woodenstatuettes/releases/download/1.1/woodenstatuettes.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.1"
+      } ]
+    }, {
+      "name" : "Wooden sattuettes",
+      "url" : "https://github.com/nbakulev/Woodenstatuettes/releases/tag/1.0",
+      "author" : "nbakulev",
+      "version" : "1.0",
+      "description" : "Mini mods add 5 wooden statuettes to decorate you base",
+      "changes" : "",
+      "releaseDate" : "2019-01-07T11:26:03.441+0000",
+      "lastUpdated" : "2019-01-07T11:26:04.905+0000",
+      "assets" : [ ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/nbakulev-mod-installer-description.json",
+    "name" : "nbakulev Collection",
+    "url" : "https://github.com/nbakulev",
+    "description" : "Mods of nbakulev",
+    "definitions" : [ "https://github.com/nbakulev/Deerskincoat", "https://github.com/nbakulev/Woodenstatuettes" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"333104cf0b30fa2bc2771a1e08afe0ed293b653e\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/shieldheart-mod-installer-description.json",
+    "name" : "ShieldHeart Collection",
+    "url" : "http://www.moddb.com/members/shieldhearttld",
+    "description" : "Mods of ShieldHeart",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"bced2cea06aa9ed9f5fd7b68bad7ac14772936bc\""
+    },
+    "modDefinitions" : [ {
+      "name" : "RelentlessNight",
+      "url" : "http://www.moddb.com/mods/relentlessnight/downloads/relentlessnight-v3-00",
+      "author" : "ShieldHeart",
+      "version" : "v3.00",
+      "description" : "Relentless Night is a gameplay mod for The Long Dark that introduces a new sandbox scenario where the spin of the Earth is slowing down. Slowly but surely, days and nights are getting longer over time, leading to a world with continuously changing temperatures, weather patterns, wildlife populations, and more.",
+      "changes" : "- (new) All mod gameplay features can now be customized or turned off individually through the custom game setup menu.\n- (new) Indoor environments will retain heat from fires much longer after the fire has burnt out. The hotter the fire, the longer it will keep the place warm. In enclosed buildings, fires will heat the whole house/space and better insulated environments will keep warm for longer.\n- (new) Temperature will now affect wildlife populations. Roaming wildlife will be less abundant and harder to find in extreme cold temperatures, but also more abundant in relatively warm temperatures.\n- (new) You can now adjust how long fuels will burn in a fire or how long lantern fuel will last while in use. All can be adjusted to provide up to 3 times their regular burn times.\n- (new) Fixed bug in vanilla game where loot inside of containers in custom games would generate incorrectly, causing things [like this](). The correct amount of loot will now generate for the associated difficulty chosen in custom mode.\n- (new) Fixed bug in vanilla game that prevented custom mode option \"Wake Up When Freezing\" from working. This feature is now functional and enabled in all Relentless Night games.\n- Days and nights get increasingly longer eventually ending in the tidal locking of the Earth and survival in perpetual darkness.\n- Temperatures become increasingly warmer/colder with duration of days/nights.\n- Indoor temperatures now have a slight correlation with outdoor temperature.\n- Blizzards and stronger winds become more frequent as days/nights become longer and weather becomes more extreme.\n- Roaming wildlife become increasingly scarce as outdoor conditions become more extreme and harsh.\n- Cabin fever affliction is disabled due to the eventuality of long nights and extreme outdoor temperatures.\n- Indoor environments can become slightly lit during nights depending on weather and available moonlight outdoors. During the brightest phases of the moon, crafting/breaking of items indoors can become available again.\n- Surveying is now possible at night, provided the weather is clear and enough light is present.\n- For every additional 1C below a feels-like temperature of -40C, the rate at which the player suffers freezing damage is increased. This effect can accumulate up to a maximum of 5x the original rate at a -100C feels-like temperature and below, do bring a jacket.\n- The mod scenario can be played in all sandbox difficulties and can be set up in its own sandbox page. The mod does not prevent playing regular sandbox or other vanilla modes. Relentless night saves are kept completely separate from other save data and cannot be played by regular sandbox mode and vice versa.\n- Note: Journal statistics and days survived are still tracked in regular 24-hour days, as if the player is still keeping track with a watch.\n",
+      "releaseDate" : "2018-03-25T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:05.236+0000",
+      "assets" : [ {
+        "url" : "https://www.moddb.com/downloads/mirror/135609/114/216ad7337ebffbc465a517399d7515cd",
+        "zipDirectory" : "ModFiles",
+        "type" : "zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "RelentlessNight",
+      "url" : "https://www.moddb.com/mods/relentlessnight/downloads/relentless-night-v301-133",
+      "author" : "ShieldHeart",
+      "version" : "v3.01",
+      "description" : "Relentless Night is a gameplay mod for The Long Dark that introduces a new sandbox scenario where the spin of the Earth is slowing down. Slowly but surely, days and nights are getting longer over time, leading to a world with continuously changing temperatures, weather patterns, wildlife populations, and more.",
+      "changes" : "- Updated all mod features to work with new Vigilant Flame update.\n- Coals can now be added to a fire without a waiting period (late-game balancing).\n- More fuel can be added to a fire even if the fire has reached its maximum duration, provided that the fuel can still increase the fire's current temperature. Although the duration of fire will not increase further, the heat bonus will still be applied. (late-game balancing)\n- The immediate area where an outdoor fire burned will also retain some heat a while longer after the fire's out, although of course the temperature bonus will drop and disappear much quicker compared to the heat from a fire inside an insulated building.\n- Fixed mod bug where failing to start a fire indoors could reset the residual heat bonus remaining inside back to zero in RN's heat retention feature.\n- Fixed mod bug where blizzard temperature drop didn't change temperature during blizzards in certain Relentless Night runs.\n- Fixed mod bug where the temperature of outdoors caves would sometimes get calculated incorrectly and were warmer than intended.\n- Fixed mod bug where custom mode option \"Day Length Multiplier\" would cause timing issues in RN runs if it was set above 1x. All values of this option can now be chosen for RN runs as well.\n- Should you need to correct something in the RN settings later into your game, you can now change specific setting values through new console commands. Loading the save you want to change and entering \"rn_help\" into the console will provide information on all RN commands needed to change each setting.",
+      "releaseDate" : "2018-06-19T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:05.236+0000",
+      "assets" : [ {
+        "url" : "https://www.moddb.com/downloads/mirror/138754/108/2616759aa426e06e45dc22e3a1bdee7f",
+        "zipDirectory" : "ModFiles",
+        "type" : "zip"
+      } ],
+      "dependencies" : [ ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/uberfox-mod-installer-description.json",
+    "name" : "UberFoX Collection",
+    "url" : "http://ubersoft.org/",
+    "description" : "Mods of UberFoX",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"2ea0dceb9da7d39709daf5c82f79e98431ea5a58\""
+    },
+    "modDefinitions" : [ {
+      "name" : "UModTld",
+      "url" : "http://ubersoft.org/umodtld/",
+      "author" : "UberFoX",
+      "version" : "1.7",
+      "description" : "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
+      "changes" : "Updated UModTld to fully support the new features of the December update so it can spawn mooses and heal broken ribs etc etc.\nAlso added a new command \"/custom\" that gives you the code for your current custom game just so you never lose it!.\n\nAdded various more things to the Config file such as jump settings, ability to show time of day on screen, hotkeys to spawn wildlife etc etc and all kinds of good stuff.",
+      "releaseDate" : "2017-12-12T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:14.332+0000",
+      "assets" : [ {
+        "url" : "http://ubersoft.org/download/UModTld17.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "UModTld",
+      "url" : "http://ubersoft.org/umodtld/",
+      "author" : "UberFoX",
+      "version" : "1.7a",
+      "description" : "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
+      "changes" : "Updated UModTld to newest Long Dark version and newest Mod Loader since it seems a lot of bullshit was changed.",
+      "releaseDate" : "2018-03-13T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:14.332+0000",
+      "assets" : [ {
+        "url" : "http://ubersoft.org/download/UModTld17a.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "UModTld",
+      "url" : "http://ubersoft.org/umodtld/",
+      "author" : "UberFoX",
+      "version" : "1.7b",
+      "description" : "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
+      "changes" : "Updated version probably has nothing new hard to remember but fixed a bug in newer versions of TLD",
+      "releaseDate" : "2018-06-25T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:14.332+0000",
+      "assets" : [ {
+        "url" : "http://ubersoft.org/download/UModTld17b.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "UModTld",
+      "url" : "http://ubersoft.org/umodtld/",
+      "author" : "UberFoX",
+      "version" : "1.8a",
+      "description" : "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
+      "changes" : "Just a quick update to UModTld this one allows other mod developers to add their own console commands to UModTld",
+      "releaseDate" : "2018-10-08T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:14.332+0000",
+      "assets" : [ {
+        "url" : "http://ubersoft.org/download/UModTld18a.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "UModTld",
+      "url" : "http://ubersoft.org/umodtld/",
+      "author" : "UberFoX",
+      "version" : "1.9",
+      "description" : "UMod TLD is the first mod for The Long Dark. Currently it has cheats and general gameplay improvements.",
+      "changes" : "Updated UModTld to work on newest version now that I'm back",
+      "releaseDate" : "2018-12-21T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:14.332+0000",
+      "assets" : [ {
+        "url" : "https://www.moddb.com/downloads/mirror/172406/115/c68a2d3c87d4393cff25becaec41eedb",
+        "type" : "zip"
+      } ],
+      "dependencies" : [ ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Ankle-Support",
+    "name" : "Ankle-Support",
+    "url" : "https://github.com/WulfMarius/Ankle-Support",
+    "description" : "All types of shoes and boots help prevent sprained ankles from falling and moving on uneven terrain.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"45077aec5b5df260b81014c74e4e7423f9dc93ef\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Ankle-Support",
+      "url" : "https://github.com/WulfMarius/Ankle-Support/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "All types of shoes and boots help prevent sprained ankles from falling and moving on uneven terrain.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:09.001+0000",
+      "lastUpdated" : "2019-01-07T11:26:22.630+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Ankle-Support/releases/download/2.0.0-main/Ankle-Support-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Ankle-Support",
+      "url" : "https://github.com/WulfMarius/Ankle-Support/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "All types of shoes and boots help prevent sprained ankles from falling and moving on uneven terrain.",
+      "changes" : "Updated to work with TLD v1.41",
+      "releaseDate" : "2018-12-19T13:32:53.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:22.630+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Ankle-Support/releases/download/3.0.0/Ankle-Support-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/AssetLoader",
+    "name" : "AssetLoader",
+    "url" : "https://github.com/WulfMarius/AssetLoader",
+    "description" : "Library for loading external assets into TLD.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"280baab6c18ff848a57095ef48cd0930a7ec9352\""
+    },
+    "modDefinitions" : [ {
+      "name" : "AssetLoader",
+      "url" : "https://github.com/WulfMarius/AssetLoader/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Library for loading external assets into TLD.",
+      "changes" : "updated to work with TLD V1.27\npatched some additional occurrences of resource loading to support more use cases\nadded support for providing new instances of UIAtlas and automatically re-configuring UISprites as needed (this is all related to TLD's ui framework NGUI)",
+      "releaseDate" : "2019-01-07T11:26:32.843+0000",
+      "lastUpdated" : "2019-01-07T11:26:32.844+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/AssetLoader/releases/download/2.0.0-main/AssetLoader-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "AssetLoader",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "Library for loading external assets into TLD.",
+      "changes" : "support prefabs in subdirectories",
+      "releaseDate" : "2018-03-25T19:09:50.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:32.844+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/AssetLoader/releases/download/2.0.1/AssetLoader-V2.0.1.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "AssetLoader",
+      "url" : "https://github.com/WulfMarius/AssetLoader/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Library for loading external assets into TLD.",
+      "changes" : "Also intercept calls to load resources directly from asset bundles, since Hinterland started using those a while back.",
+      "releaseDate" : "2018-09-14T17:29:31.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:32.844+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/AssetLoader/releases/download/2.1.0/AssetLoader-V2.1.0.zip"
+      } ]
+    }, {
+      "name" : "AssetLoader",
+      "url" : "https://github.com/WulfMarius/AssetLoader/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Library for loading external assets into TLD.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T17:22:56.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:32.844+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/AssetLoader/releases/download/3.0.0/AssetLoader-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Better-Fuel-Management",
+    "name" : "Better-Fuel-Management",
+    "url" : "https://github.com/WulfMarius/Better-Fuel-Management",
+    "description" : "Fuels contains don't vanish or appear as needed, but must be managed by the player. Also allows to transfer fuel directly between containers, draining the storm lantern.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"ea3bab0a4e3da4ae0191709f3230084a4dcf4914\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Better-Fuel-Management",
+      "url" : "https://github.com/WulfMarius/Better-Fuel-Management/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Fuels contains don't vanish or appear as needed, but must be managed by the player. Also allows to transfer fuel directly between containers, draining the storm lantern.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:33.260+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.260+0000",
+      "assets" : [ ]
+    }, {
+      "name" : "Better-Fuel-Management",
+      "url" : "https://github.com/WulfMarius/Better-Fuel-Management/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Fuels contains don't vanish or appear as needed, but must be managed by the player. Also allows to transfer fuel directly between containers, draining the storm lantern.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-23T16:50:37.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.260+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Fuel-Management/releases/download/3.0.0/Better-Fuel-Management-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Better-Night-Sky",
+    "name" : "Better-Night-Sky",
+    "url" : "https://github.com/WulfMarius/Better-Night-Sky",
+    "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"a72aaf06a59656018f92c6b232df43d1157f16a6\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Better-Night-Sky",
+      "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:33.595+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.596+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/download/2.0.0-main/Better-Night-Sky-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Better-Night-Sky",
+      "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+      "changes" : "Updated sky geometry and star texture.",
+      "releaseDate" : "2018-10-27T17:39:21.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.596+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/download/2.1.0/Better-Night-Sky-V2.1.0.zip"
+      } ]
+    }, {
+      "name" : "Better-Night-Sky",
+      "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/tag/2.1.1",
+      "author" : "WulfMarius",
+      "version" : "2.1.1",
+      "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+      "changes" : "Fixed issue with auroras",
+      "releaseDate" : "2018-11-02T15:20:44.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.596+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/download/2.1.1/Better-Night-Sky-V2.1.1.zip"
+      } ]
+    }, {
+      "name" : "Better-Night-Sky",
+      "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/tag/2.1.2",
+      "author" : "WulfMarius",
+      "version" : "2.1.2",
+      "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+      "changes" : "fixed an issue where the moon would intersect the clouds on larger scenes",
+      "releaseDate" : "2018-11-25T20:11:01.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.596+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/download/2.1.2/Better-Night-Sky-V2.1.2.zip"
+      } ]
+    }, {
+      "name" : "Better-Night-Sky",
+      "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T16:32:04.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.596+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/download/3.0.0/Better-Night-Sky-V3.0.0.zip"
+      } ]
+    }, {
+      "name" : "Better-Night-Sky",
+      "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/tag/3.1.0",
+      "author" : "WulfMarius",
+      "version" : "3.1.0",
+      "description" : "Replaces the moon and stars with a more detailed representation. Has no effect on the weather or aurora.",
+      "changes" : "- Added shooting stars\r\n- Introduced options for shooting star frequency and using the original sky",
+      "releaseDate" : "2019-01-03T10:17:36.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:33.596+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Night-Sky/releases/download/3.1.0/Better-Night-Sky-V3.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Better-Placing",
+    "name" : "Better-Placing",
+    "url" : "https://github.com/WulfMarius/Better-Placing",
+    "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"3514ad5a39d6bcdeb2b167db996e902b69ed8ab8\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-08T10:08:16.072+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.0.0-main/Better-Placing-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "",
+      "releaseDate" : "2018-06-20T16:50:37.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.0/Better-Placing-V2.1.0.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.1",
+      "author" : "WulfMarius",
+      "version" : "2.1.1",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Fixed issue with falling through the world because the coordinates of a furniture's parent were modified",
+      "releaseDate" : "2018-06-22T15:53:33.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.1/Better-Placing-V2.1.1.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.2",
+      "author" : "WulfMarius",
+      "version" : "2.1.2",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Fixed issue with replacing child meshes too",
+      "releaseDate" : "2018-06-24T08:10:07.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.2/Better-Placing-V2.1.2.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.3",
+      "author" : "WulfMarius",
+      "version" : "2.1.3",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Fixed issue where stacked items would 'fall down' after reloading",
+      "releaseDate" : "2018-10-14T18:55:49.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.3/Better-Placing-V2.1.3.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.4",
+      "author" : "WulfMarius",
+      "version" : "2.1.4",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Controller support for rotating items",
+      "releaseDate" : "2018-10-15T18:18:07.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.4/Better-Placing-V2.1.4.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.5",
+      "author" : "WulfMarius",
+      "version" : "2.1.5",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Fixed issue with GearItems without BoxCollider",
+      "releaseDate" : "2018-10-20T19:43:42.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.5/Better-Placing-V2.1.5.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/2.1.6",
+      "author" : "WulfMarius",
+      "version" : "2.1.6",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Updated for TLD V1.37",
+      "releaseDate" : "2018-11-13T21:39:34.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.6/Better-Placing-V2.1.6.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-23T18:27:54.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/3.0.0/Better-Placing-V3.0.0.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/3.0.1",
+      "author" : "WulfMarius",
+      "version" : "3.0.1",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "Fixed potential issue while rotation items.",
+      "releaseDate" : "2019-01-07T16:46:18.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/3.0.1/Better-Placing-V3.0.1.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Better-Stacking",
+    "name" : "Better-Stacking",
+    "url" : "https://github.com/WulfMarius/Better-Stacking",
+    "description" : "Makes more items stackable in the inventory.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"6b6b0ee0c62875d4e77d77b49cb4bd680ca1e480\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Better-Stacking",
+      "url" : "https://github.com/WulfMarius/Better-Stacking/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Makes more items stackable in the inventory.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:34.412+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.413+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Stacking/releases/download/2.0.0-main/Better-Stacking-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Better-Stacking",
+      "url" : "https://github.com/WulfMarius/Better-Stacking/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "Makes more items stackable in the inventory.",
+      "changes" : "Made whetstone stackable",
+      "releaseDate" : "2018-05-28T16:41:43.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.413+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Stacking/releases/download/2.0.1/Better-Stacking-V2.0.1.zip"
+      } ]
+    }, {
+      "name" : "Better-Stacking",
+      "url" : "https://github.com/WulfMarius/Better-Stacking/releases/tag/2.0.2",
+      "author" : "WulfMarius",
+      "version" : "2.0.2",
+      "description" : "Makes more items stackable in the inventory.",
+      "changes" : "Fixed issue with duplicating items when merging stacks.",
+      "releaseDate" : "2018-09-12T17:18:46.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.413+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Stacking/releases/download/2.0.2/Better-Stacking-V2.0.2.zip"
+      } ]
+    }, {
+      "name" : "Better-Stacking",
+      "url" : "https://github.com/WulfMarius/Better-Stacking/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Makes more items stackable in the inventory.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T14:50:45.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.413+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Stacking/releases/download/3.0.0/Better-Stacking-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Better-Water-Management",
+    "name" : "Better-Water-Management",
+    "url" : "https://github.com/WulfMarius/Better-Water-Management",
+    "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"dbfb3e0897e57206b592cc29e72290585b6853fb\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:34.918+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.0.0-main/Better-Water-Management-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "- added craftable Waterskin\r\n- added Turkish translation from @UtkuxGARIP",
+      "releaseDate" : "2018-04-26T17:43:11.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.1.0/Better-Water-Management-V2.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.1.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.1.1",
+      "author" : "WulfMarius",
+      "version" : "2.1.1",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Changes:\r\n- fixed a bug that would allow drinking without losing water\r\n- fixed size of waterskin model\r\n- tuning for sound effects",
+      "releaseDate" : "2018-04-27T18:10:11.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.1.1/Better-Water-Management-V2.1.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.1.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.2.0",
+      "author" : "WulfMarius",
+      "version" : "2.2.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "- updated to work with TLD V1.35\r\n\r\n- cooking pots can be removed from a fire without removing the water\r\n- actually taking the water from a cooking pot will only take as much as the player has empty capacity; the remaining water will be lost\r\n- added \"Metal Cup\" that can be used like the \"Recycled Can\"\r\n- added the \"Metal Cup\" to several loot tables",
+      "releaseDate" : "2018-06-30T19:04:34.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.0/Better-Water-Management-V2.2.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.3.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.2.1",
+      "author" : "WulfMarius",
+      "version" : "2.2.1",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "removed obsolete patch for V1.35",
+      "releaseDate" : "2018-06-30T20:50:35.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.1/Better-Water-Management-V2.2.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.3.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.2.2",
+      "author" : "WulfMarius",
+      "version" : "2.2.2",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Fixed bug where the remaining water in a pot would vanish after drinking from it (reported by @d33rgod)",
+      "releaseDate" : "2018-07-13T18:53:43.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.2/Better-Water-Management-V2.2.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.3.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.2.3",
+      "author" : "WulfMarius",
+      "version" : "2.2.3",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Fixed issue with not consuming water when cooking items.",
+      "releaseDate" : "2018-09-17T16:50:20.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.3/Better-Water-Management-V2.2.3.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.3.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.3.0",
+      "author" : "WulfMarius",
+      "version" : "2.3.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Allow cooking food without having water and instead take additional time for melting snow",
+      "releaseDate" : "2018-10-29T18:52:20.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.3.0/Better-Water-Management-V2.3.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.3.1",
+      "author" : "WulfMarius",
+      "version" : "2.3.1",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Fixed issue with showing incorrect weight for boiling water",
+      "releaseDate" : "2018-11-11T08:07:51.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.3.1/Better-Water-Management-V2.3.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.4.0",
+      "author" : "WulfMarius",
+      "version" : "2.4.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Drink directly from water sources.",
+      "releaseDate" : "2018-11-19T20:56:05.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.4.0/Better-Water-Management-V2.4.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.4.1",
+      "author" : "WulfMarius",
+      "version" : "2.4.1",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "fixed issue with missing gear item name",
+      "releaseDate" : "2018-11-22T20:47:54.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.4.1/Better-Water-Management-V2.4.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.5.0",
+      "author" : "WulfMarius",
+      "version" : "2.5.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "- fixed issue with not converting water when purifying\r\n- fixed issue with converting water after moving it off a fire\r\n- fixed issue with continued boiling animation\r\n- added warmth bonus when drinking water that is still hot",
+      "releaseDate" : "2018-11-24T19:57:59.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.5.0/Better-Water-Management-V2.5.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/2.5.1",
+      "author" : "WulfMarius",
+      "version" : "2.5.1",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "- fixed issue with water disappearing when putting it back on a burnt out fire",
+      "releaseDate" : "2018-11-26T21:21:37.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.5.1/Better-Water-Management-V2.5.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.5.1"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Updated for TLD 1.44",
+      "releaseDate" : "2018-12-23T17:45:30.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.0/Better-Water-Management-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Binoculars",
+    "name" : "Binoculars",
+    "url" : "https://github.com/WulfMarius/Binoculars",
+    "description" : "Adds fully functional binoculars.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"70613652ec2d70095ca2ab5bd68bbf29d8be39c5\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Binoculars",
+      "url" : "https://github.com/WulfMarius/Binoculars/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Adds fully functional binoculars.",
+      "changes" : "",
+      "releaseDate" : "2019-01-07T11:26:35.275+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.275+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Binoculars/releases/download/2.0.0/Binoculars-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Binoculars",
+      "url" : "https://github.com/WulfMarius/Binoculars/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "Adds fully functional binoculars.",
+      "changes" : "Changes:\r\n- added Turkish translations from @UtkuxGARIP\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-03-28T06:32:33.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.275+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Binoculars/releases/download/2.0.1/Binoculars-V2.0.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "Binoculars",
+      "url" : "https://github.com/WulfMarius/Binoculars/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Adds fully functional binoculars.",
+      "changes" : "Updated to ModComponent 3.0.0 (TLD V1.44)",
+      "releaseDate" : "2018-12-22T17:58:22.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.275+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Binoculars/releases/download/3.0.0/Binoculars-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Clothing-Pack",
+    "name" : "Clothing-Pack",
+    "url" : "https://github.com/WulfMarius/Clothing-Pack",
+    "description" : "New clothing items.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"c64afd27aa5dc830558181c0a47707f773c6e594\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Clothing-Pack",
+      "url" : "https://github.com/WulfMarius/Clothing-Pack/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "New clothing items.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:35.643+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.643+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Clothing-Pack/releases/download/2.0.0-main/Clothing-Pack-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Clothing-Pack",
+      "url" : "https://github.com/WulfMarius/Clothing-Pack/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "New clothing items.",
+      "changes" : "added Turkish translations from @utkuxgarip\nfixed a typo in German translations",
+      "releaseDate" : "2018-03-27T05:57:05.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.643+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Clothing-Pack/releases/download/2.0.1/Clothing-Pack-V2.0.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Clothing-Pack",
+      "url" : "https://github.com/WulfMarius/Clothing-Pack/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "New clothing items.",
+      "changes" : "Updated to ModComponent 3.0.0 (TLD V1.44)",
+      "releaseDate" : "2018-12-22T18:55:18.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.643+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Clothing-Pack/releases/download/3.0.0/Clothing-Pack-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Coordinates-Grabber",
+    "name" : "Coordinates-Grabber",
+    "url" : "https://github.com/WulfMarius/Coordinates-Grabber",
+    "description" : "Utility mod for grabbing item coordinates and scene and loottable information. Main purpose is for creating spawn configurations for ModComponent.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"c0ded92ba0bbbbc10ccad93dd5b87485a22738c8\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Coordinates-Grabber",
+      "url" : "https://github.com/WulfMarius/Coordinates-Grabber/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Utility mod for grabbing item coordinates and scene and loottable information. Main purpose is for creating spawn configurations for ModComponent.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:35.973+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.974+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Coordinates-Grabber/releases/download/2.0.0-main/Coordinates-Grabber-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Coordinates-Grabber",
+      "url" : "https://github.com/WulfMarius/Coordinates-Grabber/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Utility mod for grabbing item coordinates and scene and loottable information. Main purpose is for creating spawn configurations for ModComponent.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-23T17:53:15.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:35.974+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Coordinates-Grabber/releases/download/3.0.0/Coordinates-Grabber-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Disable-Cabin-Fever",
+    "name" : "Disable-Cabin-Fever",
+    "url" : "https://github.com/WulfMarius/Disable-Cabin-Fever",
+    "description" : "Completely disables cabin fever in all experience modes. Works on existing games.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"604fe0279215aacb130e6633bbef5e1d1e8eb516\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Disable-Cabin-Fever",
+      "url" : "https://github.com/WulfMarius/Disable-Cabin-Fever/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Completely disables cabin fever in all experience modes. Works on existing games.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:36.295+0000",
+      "lastUpdated" : "2019-01-07T11:26:36.295+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Disable-Cabin-Fever/releases/download/2.0.0-main/Disable-Cabin-Fever-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Disable-Cabin-Fever",
+      "url" : "https://github.com/WulfMarius/Disable-Cabin-Fever/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Completely disables cabin fever in all experience modes. Works on existing games.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-23T08:36:43.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:36.295+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Disable-Cabin-Fever/releases/download/3.0.0/Disable-Cabin-Fever-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Disable-Chromatic-Aberration",
+    "name" : "Disable-Chromatic-Aberration",
+    "url" : "https://github.com/WulfMarius/Disable-Chromatic-Aberration",
+    "description" : "Completely disables chromatic aberration for all quality modes. Works with existing games.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"0b45af20257b51fad0ff807317867f4476698eb6\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Disable-Chromatic-Aberration",
+      "url" : "https://github.com/WulfMarius/Disable-Chromatic-Aberration/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Completely disables chromatic aberration for all quality modes. Works with existing games.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:36.625+0000",
+      "lastUpdated" : "2019-01-07T11:26:36.625+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Disable-Chromatic-Aberration/releases/download/2.0.0-main/Disable-Chromatic-Aberration-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Disable-Chromatic-Aberration",
+      "url" : "https://github.com/WulfMarius/Disable-Chromatic-Aberration/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Completely disables chromatic aberration for all quality modes. Works with existing games.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T15:58:01.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:36.625+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Disable-Chromatic-Aberration/releases/download/3.0.0/Disable-Chromatic-Aberration-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Durable-Whetstone",
+    "name" : "Durable-Whetstone",
+    "url" : "https://github.com/WulfMarius/Durable-Whetstone",
+    "description" : "Greatly increases the durability of the whetstone.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"f7d6aeedd440ccca1ca53e5b16056109ef0e20cf\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Durable-Whetstone",
+      "url" : "https://github.com/WulfMarius/Durable-Whetstone/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Greatly increases the durability of the whetstone.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2018-03-21T18:52:15.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:36.929+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Durable-Whetstone/releases/download/2.0.0/Durable-Whetstone-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Durable-Whetstone",
+      "url" : "https://github.com/WulfMarius/Durable-Whetstone/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Greatly increases the durability of the whetstone.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-23T16:34:01.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:36.929+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Durable-Whetstone/releases/download/3.0.0/Durable-Whetstone-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Food-Pack",
+    "name" : "Food-Pack",
+    "url" : "https://github.com/WulfMarius/Food-Pack",
+    "description" : "Adds new food and drink items.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"1ea395ffc89391eaccc743d7ca36ea8c49d67ff6\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Food-Pack",
+      "url" : "https://github.com/WulfMarius/Food-Pack/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Adds new food and drink items.",
+      "changes" : "updated to work with TLD V1.27\nupdated some textures (provided by TheRiddlerRUS)\nadded Maple Syrup and added it to loot tables",
+      "releaseDate" : "2019-01-07T11:26:37.281+0000",
+      "lastUpdated" : "2019-01-07T11:26:37.281+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Food-Pack/releases/download/2.0.0-main/Food-Pack-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Food-Pack",
+      "url" : "https://github.com/WulfMarius/Food-Pack/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Adds new food and drink items.",
+      "changes" : "",
+      "releaseDate" : "2018-06-15T16:42:07.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:37.281+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Food-Pack/releases/download/2.1.0/Food-Pack-V2.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.2.0"
+      } ]
+    }, {
+      "name" : "Food-Pack",
+      "url" : "https://github.com/WulfMarius/Food-Pack/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Adds new food and drink items.",
+      "changes" : "Updated to ModComponent 3.0.0 (TLD V1.44)",
+      "releaseDate" : "2018-12-23T08:51:53.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:37.281+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Food-Pack/releases/download/3.0.0/Food-Pack-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Free-Look-In-Cars",
+    "name" : "Free-Look-In-Cars",
+    "url" : "https://github.com/WulfMarius/Free-Look-In-Cars",
+    "description" : "Allows to look out the back window in cars",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"7c2f18f955796d1044d4ff29f1ea899e2a564a38\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Free-Look-In-Cars",
+      "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Allows to look out the back window in cars",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2018-03-21T18:47:59.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:37.594+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/download/2.0.0/Free-Look-In-Cars-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Free-Look-In-Cars",
+      "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Allows to look out the back window in cars",
+      "changes" : "Updated to work with TLD v1.41",
+      "releaseDate" : "2018-12-19T13:58:45.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:37.594+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/download/3.0.0/Free-Look-In-Cars-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Home-Improvement",
+    "name" : "Home-Improvement",
+    "url" : "https://github.com/WulfMarius/Home-Improvement",
+    "description" : "Improve your home by performing repairs and cleaning up.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"ce55b24ec7526d7f3d89c04df4322ceb184cd14e\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "repair pulled out wooden drawers and use them as containers.",
+      "releaseDate" : "2018-03-29T17:57:45.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.0/Home-Improvement-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "- Containers that have been repaired with the previous version will return to their unrepaired status and need to be repaired again. Items stored in those containers will be moved to the player's position.\n- Repair drawers that have been pulled out\n- Repair wooden cabinet doors, including those that have been torn off\n- Repairing requires light\n- Repairing cabinet doors requires tools (simple or quality)\n- Repairing now takes 5 in-game minutes",
+      "releaseDate" : "2018-03-30T16:18:48.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.1/Home-Improvement-V2.0.1.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.0.2",
+      "author" : "WulfMarius",
+      "version" : "2.0.2",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "- configured more repairable drawers and cabinet doors\n- allow many paper items to be broken down to \"Crumpled Paper\"\n- added a blueprint to make tinder from crumpled paper",
+      "releaseDate" : "2018-04-03T18:02:34.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.2/Home-Improvement-V2.0.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.0.3",
+      "author" : "WulfMarius",
+      "version" : "2.0.3",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "Changes:\r\n\r\n- prevent moose scratches from being recognized as harvestable paper\r\n- added Russian translation by TheRiddlerRUS",
+      "releaseDate" : "2018-04-21T16:24:43.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.3/Home-Improvement-V2.0.3.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.0.4",
+      "author" : "WulfMarius",
+      "version" : "2.0.4",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "improved detection of removable paper, eliminating a lot of false positive matches",
+      "releaseDate" : "2018-06-30T17:37:33.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.4/Home-Improvement-V2.0.4.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "Allow removing corpses with a right click. This feature can be disabled in the mod settings.",
+      "releaseDate" : "2018-09-22T16:13:06.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.1.0/Home-Improvement-V2.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.4.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.2"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.1.1",
+      "author" : "WulfMarius",
+      "version" : "2.1.1",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "Fixed issue with certain corpses not being removable.",
+      "releaseDate" : "2018-09-26T17:39:14.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.1.1/Home-Improvement-V2.1.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.4.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.2"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/2.1.2",
+      "author" : "WulfMarius",
+      "version" : "2.1.2",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "Fixed issue with reappearing cleanables",
+      "releaseDate" : "2018-09-28T09:51:36.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.1.2/Home-Improvement-V2.1.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.4.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.2"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "- Updated to ModComponent 3.0.0 (TLD V1.44)\r\n- Integrated Remove-Campfire (which is now discontinued)",
+      "releaseDate" : "2018-12-23T10:04:54.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/3.0.0/Home-Improvement-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/3.1.0",
+      "author" : "WulfMarius",
+      "version" : "3.1.0",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "changed to ModComponent's 'SceneReady' event to catch additional items",
+      "releaseDate" : "2019-01-07T19:04:39.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/3.1.0/Home-Improvement-V3.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.1.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Instrument-Pack",
+    "name" : "Instrument-Pack",
+    "url" : "https://github.com/WulfMarius/Instrument-Pack",
+    "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"e0b4098ec9028e9b8ea95aa6ddc03e70eaca0112\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Initial Version:\r\n- works with TLD V1.27\r\n- added a playable guitar\r\n- added two likely spawns for guitars\r\n- added two guitar sample songs from Free Music Archive\r\n- users can provide their own preferred music by adding mp3 files\r\n\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-03-23T19:20:48.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.0/Instrument-Pack-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Changes:\r\n- fixed a bug that would make the guitar unplayable\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-04-03T17:49:23.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.1/Instrument-Pack-V2.0.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.2",
+      "author" : "WulfMarius",
+      "version" : "2.0.2",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Changes:\r\n- fixed mipmap setting for inventory icon\r\n- updated dependency to NAudio-Unity to 2.0.0\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-04-08T07:57:48.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.2/Instrument-Pack-V2.0.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.3",
+      "author" : "WulfMarius",
+      "version" : "2.0.3",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Changes:\r\n\r\n- allowed walking (slowly) while playing the guitar\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-04-25T05:00:58.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.3/Instrument-Pack-V2.0.3.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.0.4",
+      "author" : "WulfMarius",
+      "version" : "2.0.4",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Changes:\r\n\r\n- fixed a critical issue\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-04-25T16:59:18.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.4/Instrument-Pack-V2.0.4.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.1"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Added harmonica",
+      "releaseDate" : "2018-09-16T18:15:50.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.1.0/Instrument-Pack-V2.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.3.0"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Update ModComponent 3.0.0 (TLD V1.44)",
+      "releaseDate" : "2018-12-23T15:49:35.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/3.0.0/Instrument-Pack-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Lonely-Orca",
+    "name" : "Lonely-Orca",
+    "url" : "https://github.com/WulfMarius/Lonely-Orca",
+    "description" : "A lonely orca is living in Desolation Point.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"49739c71bca070077f7f4333e7cf410e6acec517\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Lonely-Orca",
+      "url" : "https://github.com/WulfMarius/Lonely-Orca/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "A lonely orca is living in Desolation Point.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2019-01-07T11:26:38.620+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.620+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Lonely-Orca/releases/download/2.0.0-main/Lonely-Orca-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Lonely-Orca",
+      "url" : "https://github.com/WulfMarius/Lonely-Orca/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "A lonely orca is living in Desolation Point.",
+      "changes" : "Updated to ModComponent 3.0.0 (TLD V1.44)",
+      "releaseDate" : "2018-12-23T16:24:35.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.620+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Lonely-Orca/releases/download/3.0.0/Lonely-Orca-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Map-Maker-Tools",
+    "name" : "Map-Maker-Tools",
+    "url" : "https://github.com/WulfMarius/Map-Maker-Tools",
+    "description" : "Utility mod for changing various settings about the terrain. Made for /u/bradburyman to help him make highly quality topographic maps.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"34e2c4da30a41833fcf63db284ca6a7effb760ad\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Map-Maker-Tools",
+      "url" : "https://github.com/WulfMarius/Map-Maker-Tools/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Utility mod for changing various settings about the terrain. Made for /u/bradburyman to help him make highly quality topographic maps.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2018-03-21T18:43:01.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.939+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Map-Maker-Tools/releases/download/2.0.0/Map-Maker-Tools-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Map-Maker-Tools",
+      "url" : "https://github.com/WulfMarius/Map-Maker-Tools/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Utility mod for changing various settings about the terrain. Made for /u/bradburyman to help him make highly quality topographic maps.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-23T18:37:27.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:38.939+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Map-Maker-Tools/releases/download/3.0.0/MapMakerTools-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/ModComponent",
+    "name" : "ModComponent",
+    "url" : "https://github.com/WulfMarius/ModComponent",
+    "description" : "Library for creating new items and integrating elements into TLD.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"aee812aac2a1356cdaedf8328f874ed729f7c1ff\""
+    },
+    "modDefinitions" : [ {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.0.0-main",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "updated to work with TLD V1.27\nintegrated pull request from felipeds, adding support for fire starters, accelerants and blueprint definitions\nadded support for generic items (like tinder, cloth, etc)\nadded support for adding items to the radial\nadded support for new skills (still somewhat rudimental)\nadded support for reading blueprint definitions from JSON files (similar to gear-spawns)\nincreased maximum number of servings per food item from 10 to 50\nupdated template unity project\nremoved some resource loading patches because that is now handled by AssetLoader",
+      "releaseDate" : "2019-01-08T10:08:19.507+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.0.0-main/ModComponent-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.0.1",
+      "author" : "WulfMarius",
+      "version" : "2.0.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "added support for stackable items\nadded support for burnable items\nadded early validation of blueprints, so problems occur before the main menu and not in the game\nfixed issue with unequipping items during a struggle\nfixed issue with gamma value initialization",
+      "releaseDate" : "2018-04-03T17:44:38.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.0.1/ModComponent-V2.0.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Changes:\r\n\r\n- fixed scrolling issue in the blueprint list\r\n- added support for LiquidItem (water/fuel containers)\r\n- fixed issue with redirecting assembly loading\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-04-26T06:01:39.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.1.0/ModComponent-V2.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.1.1",
+      "author" : "WulfMarius",
+      "version" : "2.1.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "- added support for custom inventory categories for items\r\n- set the default category for LiquidItems containing water to \"Food\"\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
+      "releaseDate" : "2018-04-27T17:16:34.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.1.1/ModComponent-V2.1.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.2.0",
+      "author" : "WulfMarius",
+      "version" : "2.2.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "- updated for TLD 1.33\r\n- added support for additional cooking times ('burnt minutes')\r\n- canned foods will yield a 'Recycled Can' when opened properly\r\n- minimal support for new cooking assets",
+      "releaseDate" : "2018-06-15T16:38:25.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.2.0/ModComponent-V2.2.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.2.1",
+      "author" : "WulfMarius",
+      "version" : "2.2.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "fixed 'm_WarmUpNearFireRange' so cans won't be opened when dropped far away from a fire",
+      "releaseDate" : "2018-06-20T05:38:15.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.2.1/ModComponent-V2.2.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.2.2",
+      "author" : "WulfMarius",
+      "version" : "2.2.2",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "updated for TLD V1.34",
+      "releaseDate" : "2018-06-21T16:49:31.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.2.2/ModComponent-V2.2.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.3.0",
+      "author" : "WulfMarius",
+      "version" : "2.3.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "- added support for CookingPotItem\r\n- fixed shader issue in inspect mode",
+      "releaseDate" : "2018-06-30T17:27:03.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.3.0/ModComponent-V2.3.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.0.1"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.4.0",
+      "author" : "WulfMarius",
+      "version" : "2.4.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Added AlternativeAction (binding a right click to interactive objects)",
+      "releaseDate" : "2018-09-21T15:33:30.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.4.0/ModComponent-V2.4.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.1.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.5.0",
+      "author" : "WulfMarius",
+      "version" : "2.5.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Integrated contributions from nbakulev and Mackenzie21 to support new item types Bed, First Aid, Tool and new behaviours Sharpenable and Evolve.\r\nAdded support for saving item-specific data.",
+      "releaseDate" : "2018-10-14T17:42:24.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.5.0/ModComponent-V2.5.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.1.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.5.1",
+      "author" : "WulfMarius",
+      "version" : "2.5.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "* fixed mapping issue with FirstAidItem\r\n* make patches for custom save data last to ensure items are set up properly\r\n* don't try to spawn gear for the main menu",
+      "releaseDate" : "2018-10-29T07:24:18.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.5.1/ModComponent-V2.5.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.1.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.6.0",
+      "author" : "WulfMarius",
+      "version" : "2.6.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Added support for alternative inspect mode models.",
+      "releaseDate" : "2018-11-28T18:47:45.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.6.0/ModComponent-V2.6.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.1.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/2.6.1",
+      "author" : "WulfMarius",
+      "version" : "2.6.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "- fixed issue with damage blend texture\r\n- fixed issue in vanilla game where harvesting could only yield 2 materials\r\n- fixed issue with showing the \"Equip\" button for tools without a corresponding model",
+      "releaseDate" : "2018-12-06T18:51:32.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.6.1/ModComponent-V2.6.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^2.1.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T17:42:40.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.0.0/ModComponent-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^3.0.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/3.0.1",
+      "author" : "WulfMarius",
+      "version" : "3.0.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "- fixed issue with scrolling on blueprint page\r\n- fixed issue with ammo/duration display for modded tool items",
+      "releaseDate" : "2018-12-23T20:33:55.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.0.1/ModComponent-V3.0.1.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^3.0.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/3.0.2",
+      "author" : "WulfMarius",
+      "version" : "3.0.2",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Fixed issue with re-equipping the wrong item after interactions.",
+      "releaseDate" : "2018-12-27T11:45:38.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.0.2/ModComponent-V3.0.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^3.0.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/3.1.0",
+      "author" : "WulfMarius",
+      "version" : "3.1.0",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "- introduced event 'SceneReady' for performing post-scene load operations\r\n- fixed handling for freezing and unfreezing the player (would sometimes get stuck inside cars)",
+      "releaseDate" : "2019-01-07T17:16:28.000+0000",
+      "lastUpdated" : "2019-01-08T10:08:19.515+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.1.0/ModComponent-V3.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^3.0.0"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/NAudio-Unity",
+    "name" : "NAudio-Unity",
+    "url" : "https://github.com/WulfMarius/NAudio-Unity",
+    "description" : "Port of NAudio to the Mono subset used by Unity3D",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"65a3e6e9e187c442c56c5803840b638060b0889e\""
+    },
+    "modDefinitions" : [ {
+      "name" : "NAudio-Unity",
+      "url" : "https://github.com/WulfMarius/NAudio-Unity/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Port of NAudio to the Mono subset used by Unity3D",
+      "changes" : "first own release with new major version",
+      "releaseDate" : "2018-04-08T07:45:37.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:39.912+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/NAudio-Unity/releases/download/2.0.0/NAudio-Unity-V2.0.0.zip"
+      } ],
+      "compatibleWith" : "V1.41"
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon",
+    "name" : "Preselect-Struggle-Weapon",
+    "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon",
+    "description" : "Decide which weapon you will use in a wolf struggle in the comfort of your cabin.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"6fe2055c683afbb65d877f0b2d96c9336bb7c028\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Preselect-Struggle-Weapon",
+      "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Decide which weapon you will use in a wolf struggle in the comfort of your cabin.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2018-03-21T18:36:41.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:40.234+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon/releases/download/2.0.0/Preselect-Struggle-Weapon-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Preselect-Struggle-Weapon",
+      "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon/releases/tag/2.1.0",
+      "author" : "WulfMarius",
+      "version" : "2.1.0",
+      "description" : "Decide which weapon you will use in a wolf struggle in the comfort of your cabin.",
+      "changes" : "Updated for TLD V1.34",
+      "releaseDate" : "2018-06-24T07:29:28.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:40.234+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon/releases/download/2.1.0/Preselect-Struggle-Weapon-V2.1.0.zip"
+      } ]
+    }, {
+      "name" : "Preselect-Struggle-Weapon",
+      "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Decide which weapon you will use in a wolf struggle in the comfort of your cabin.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T15:11:31.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:40.234+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Preselect-Struggle-Weapon/releases/download/3.0.0/Preselect-Struggle-Weapon-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Remove-Campfire",
+    "name" : "Remove-Campfire",
+    "url" : "https://github.com/WulfMarius/Remove-Campfire",
+    "description" : "Taking charcoal will also remove the campfire.\n\nDISCONTINUED.\nThe feature is now part of Home-Improvement.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"374d6c8c8e7a840f74793c8c605bbd569b1c274c\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Remove-Campfire",
+      "url" : "https://github.com/WulfMarius/Remove-Campfire/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Taking charcoal will also remove the campfire.\n\nDISCONTINUED.\nThe feature is now part of Home-Improvement.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2018-03-21T18:30:48.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:40.574+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Remove-Campfire/releases/download/2.0.0/Remove-Campfire-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Silent-Aurora",
+    "name" : "Silent-Aurora",
+    "url" : "https://github.com/WulfMarius/Silent-Aurora",
+    "description" : "Removes the aurora music",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"e6b5d0dcbb524f38746282b9855e465b8b91ff9d\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Silent-Aurora",
+      "url" : "https://github.com/WulfMarius/Silent-Aurora/releases/tag/1.0.0",
+      "author" : "WulfMarius",
+      "version" : "1.0.0",
+      "description" : "Removes the aurora music",
+      "changes" : "Initial version",
+      "releaseDate" : "2018-11-13T21:56:13.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:40.897+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Silent-Aurora/releases/download/1.0.0/Silent-Aurora-V1.0.0.zip"
+      } ]
+    }, {
+      "name" : "Silent-Aurora",
+      "url" : "https://github.com/WulfMarius/Silent-Aurora/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Removes the aurora music",
+      "changes" : "Updated to work with TLD V1.43",
+      "releaseDate" : "2018-12-21T16:16:07.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:40.897+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Silent-Aurora/releases/download/2.0.0/Silent-Aurora-V2.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Show-Map-Location",
+    "name" : "Show-Map-Location",
+    "url" : "https://github.com/WulfMarius/Show-Map-Location",
+    "description" : "Marks your current location on the region map.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"dea0f0e0e123a54839861967b10e776af7c88861\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Show-Map-Location",
+      "url" : "https://github.com/WulfMarius/Show-Map-Location/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Marks your current location on the region map.",
+      "changes" : "updated to work with TLD V1.27",
+      "releaseDate" : "2018-02-22T19:05:13.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.233+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Show-Map-Location/releases/download/2.0.0/Show-Map-Location-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "Show-Map-Location",
+      "url" : "https://github.com/WulfMarius/Show-Map-Location/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Marks your current location on the region map.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T11:59:42.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.233+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Show-Map-Location/releases/download/3.0.0/Show-Map-Location-V3.0.0.zip"
+      } ]
+    }, {
+      "name" : "Show-Map-Location",
+      "url" : "https://github.com/WulfMarius/Show-Map-Location/releases/tag/3.1.0",
+      "author" : "WulfMarius",
+      "version" : "3.1.0",
+      "description" : "Marks your current location on the region map.",
+      "changes" : "Use the location marker from story mode",
+      "releaseDate" : "2018-12-26T21:19:35.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.233+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Show-Map-Location/releases/download/3.1.0/Show-Map-Location-V3.1.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Solstice",
+    "name" : "Solstice",
+    "url" : "https://github.com/WulfMarius/Solstice",
+    "description" : "The length of the day, as well as the temperature and brightness, will change over time.\n\nSolstice is only available in custom mode.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"5085f8954f17f551d1d7102554bc8d4f4829b370\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Solstice",
+      "url" : "https://github.com/WulfMarius/Solstice/releases/tag/1.0.0",
+      "author" : "WulfMarius",
+      "version" : "1.0.0",
+      "description" : "The length of the day, as well as the temperature and brightness, will change over time.\n\nSolstice is only available in custom mode.",
+      "changes" : "Initial version",
+      "releaseDate" : "2018-11-14T18:40:49.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.592+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Solstice/releases/download/1.0.0/Solstice-V1.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.2"
+      } ]
+    }, {
+      "name" : "Solstice",
+      "url" : "https://github.com/WulfMarius/Solstice/releases/tag/1.1.0",
+      "author" : "WulfMarius",
+      "version" : "1.1.0",
+      "description" : "The length of the day, as well as the temperature and brightness, will change over time.\n\nSolstice is only available in custom mode.",
+      "changes" : "The time widget will adjust to the changes in sunrise and sunset",
+      "releaseDate" : "2018-11-22T16:44:23.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.592+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Solstice/releases/download/1.1.0/Solstice-V1.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.2"
+      } ]
+    }, {
+      "name" : "Solstice",
+      "url" : "https://github.com/WulfMarius/Solstice/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "The length of the day, as well as the temperature and brightness, will change over time.\n\nSolstice is only available in custom mode.",
+      "changes" : "Updated for TLD V1.44",
+      "releaseDate" : "2018-12-22T11:44:26.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.592+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Solstice/releases/download/2.0.0/Solstice-V2.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Sort-Fire-Starters",
+    "name" : "Sort-Fire-Starters",
+    "url" : "https://github.com/WulfMarius/Sort-Fire-Starters",
+    "description" : "Provides a more practical sort order for fire starters when building a fire.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"ea5158194acb00f31de4f044adeabf60bfdaae15\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Sort-Fire-Starters",
+      "url" : "https://github.com/WulfMarius/Sort-Fire-Starters/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "Provides a more practical sort order for fire starters when building a fire.",
+      "changes" : "Sort fire starters first by type (currently burning, normal, requiring sunlight), then by chance to succeed (highest first), then by name.",
+      "releaseDate" : "2018-05-02T16:37:30.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.962+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Sort-Fire-Starters/releases/download/2.0.0/Sort-Fire-Starters-V2.0.0.zip"
+      } ]
+    }, {
+      "name" : "Sort-Fire-Starters",
+      "url" : "https://github.com/WulfMarius/Sort-Fire-Starters/releases/tag/3.0.0",
+      "author" : "WulfMarius",
+      "version" : "3.0.0",
+      "description" : "Provides a more practical sort order for fire starters when building a fire.",
+      "changes" : "Updated to work with TLD v1.41",
+      "releaseDate" : "2018-12-19T13:43:33.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:41.962+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Sort-Fire-Starters/releases/download/3.0.0/Sort-Fire-Starters-V3.0.0.zip"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Toggle-HUD",
+    "name" : "Toggle-HUD",
+    "url" : "https://github.com/WulfMarius/Toggle-HUD",
+    "description" : "The HUD will not disappear automatically after some time, but stay until you disable it again.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"f2d8ef4b83bdcdabaf61b74f45d3ba43da01ca33\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Toggle-HUD",
+      "url" : "https://github.com/WulfMarius/Toggle-HUD/releases/tag/2.0.0",
+      "author" : "WulfMarius",
+      "version" : "2.0.0",
+      "description" : "The HUD will not disappear automatically after some time, but stay until you disable it again.",
+      "changes" : "the HUD will not disappear after time and re-appear when it was closed by other UI elements",
+      "releaseDate" : "2018-02-28T07:02:50.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:42.341+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Toggle-HUD/releases/download/2.0.0/Toggle-HUD-V2.0.0.zip"
+      } ],
+      "dependencies" : [ ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/wulfmarius-mod-installer-description.json",
+    "name" : "Wulf Marius Collection",
+    "url" : "https://github.com/WulfMarius",
+    "description" : "Mods of Wulf Marius",
+    "definitions" : [ "https://github.com/WulfMarius/Ankle-Support", "https://github.com/WulfMarius/AssetLoader", "https://github.com/WulfMarius/Better-Fuel-Management", "https://github.com/WulfMarius/Better-Night-Sky", "https://github.com/WulfMarius/Better-Placing", "https://github.com/WulfMarius/Better-Stacking", "https://github.com/WulfMarius/Better-Water-Management", "https://github.com/WulfMarius/Binoculars", "https://github.com/WulfMarius/Clothing-Pack", "https://github.com/WulfMarius/Coordinates-Grabber", "https://github.com/WulfMarius/Disable-Cabin-Fever", "https://github.com/WulfMarius/Disable-Chromatic-Aberration", "https://github.com/WulfMarius/Durable-Whetstone", "https://github.com/WulfMarius/Food-Pack", "https://github.com/WulfMarius/Free-Look-In-Cars", "https://github.com/WulfMarius/Home-Improvement", "https://github.com/WulfMarius/Instrument-Pack", "https://github.com/WulfMarius/Lonely-Orca", "https://github.com/WulfMarius/Map-Maker-Tools", "https://github.com/WulfMarius/ModComponent", "https://github.com/WulfMarius/NAudio-Unity", "https://github.com/WulfMarius/Preselect-Struggle-Weapon", "https://github.com/WulfMarius/Remove-Campfire", "https://github.com/WulfMarius/Silent-Aurora", "https://github.com/WulfMarius/Show-Map-Location", "https://github.com/WulfMarius/Solstice", "https://github.com/WulfMarius/Sort-Fire-Starters", "https://github.com/WulfMarius/Toggle-HUD" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"1aa9d5382e28e4e30058b631bc43feb84e411e73\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://github.com/Xpazeman/Mod-Installer-Description",
+    "name" : "Xpazeman Collection",
+    "url" : "https://github.com/xpazeman",
+    "description" : "Mods for TheLongDark by Xpazeman",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"9ec5efcc8722da0d5a812bbe9b072a70acc1c5ef\""
+    },
+    "modDefinitions" : [ {
+      "name" : "AmbientLights",
+      "url" : "https://github.com/Xpazeman/tld-ambient-lights",
+      "author" : "Xpazeman",
+      "version" : "v0.9.7",
+      "description" : "Ambient Lights is a mod intended to make interiors in the game brighter and more reflective of what's going on outside.",
+      "changes" : "Updated to work on TLD 1.42, also adjusted daytime brightness of lights to compensate for changes made to the interior lighting.",
+      "releaseDate" : "2018-12-21T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "assets" : [ {
+        "url" : "https://github.com/Xpazeman/tld-ambient-lights/releases/download/v0.9.7-beta/AmbientLights_v0.9.7.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "GearDecayModifier",
+      "url" : "https://github.com/Xpazeman/tld-gear-decay-modifier",
+      "author" : "Xpazeman",
+      "version" : "v1.2",
+      "description" : "Mod for The Long Dark to modify decay rates of gear.",
+      "changes" : "Updated to work with The Long Dark v1.42",
+      "releaseDate" : "2018-12-21T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "assets" : [ {
+        "url" : "https://github.com/Xpazeman/tld-gear-decay-modifier/releases/download/v1.2/GearDecayModifier_v1.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "KeroseneLampTweaks",
+      "url" : "https://github.com/Xpazeman/tld-kerosene-lamp-tweaks",
+      "author" : "Xpazeman",
+      "version" : "v1.2",
+      "description" : "Mod for The Long Dark that tweak kerosene lamps consumption.",
+      "changes" : "Updated to work with The Long Dark v1.42",
+      "releaseDate" : "2018-12-21T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "assets" : [ {
+        "url" : "https://github.com/Xpazeman/tld-kerosene-lamp-tweaks/releases/download/v1.2/KeroseneLampTweaks_v1.2.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "WeightTweaks",
+      "url" : "https://github.com/Xpazeman/tld-weight-tweaks",
+      "author" : "Xpazeman",
+      "version" : "v1.0",
+      "description" : "Mod for The Long Dark to modify item weights and carry capacity.",
+      "changes" : "Initial Release",
+      "releaseDate" : "2018-12-27T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "assets" : [ {
+        "url" : "https://github.com/Xpazeman/tld-weight-tweaks/releases/download/v1.0/WeightTweaks_v1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/xpazeman-mod-installer-description.json",
+    "name" : "Xpazeman Collection",
+    "url" : "https://github.com/Xpazeman",
+    "description" : "Mods from xpazeman",
+    "definitions" : [ "https://github.com/Xpazeman/Mod-Installer-Description" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"8ba54ab6f67c56ab12fced0b01bea19662bc1b20\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://github.com/zeobviouslyfakeacc/Mod-Installer-Description",
+    "name" : "zeobviouslyfakeacc Collection",
+    "url" : "https://github.com/zeobviouslyfakeacc",
+    "description" : "Mods of zeobviouslyfakeacc",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"ad92a6ad9947830b7963b332c5b7bd0b39edcf3a\""
+    },
+    "modDefinitions" : [ {
+      "name" : "BreakDownCans",
+      "url" : "https://github.com/zeobviouslyfakeacc/BreakDownCans",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.1",
+      "description" : "A tiny mod that lets your break down a recycled can for a single piece of scrap metal.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/BreakDownCans/releases/download/v1.1/BreakDownCans.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "CacheControl",
+      "url" : "https://github.com/zeobviouslyfakeacc/CacheControl",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.3",
+      "description" : "Lets you decide how many Prepper Caches should spawn in custom mode games.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/CacheControl/releases/download/v1.3/CacheControl.dll"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "Change-FPS-Limit",
+      "url" : "https://github.com/zeobviouslyfakeacc/Change-FPS-Limit",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.0",
+      "description" : "Lets you change the game's FPS limit, which is usually locked at 120 FPS.",
+      "changes" : "",
+      "releaseDate" : "2018-12-26T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/Change-FPS-Limit/releases/download/v1.0/Change-FPS-Limit.dll"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "DisableBreathEffect",
+      "url" : "https://github.com/zeobviouslyfakeacc/DisableBreathEffect",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.2",
+      "description" : "Removes the annoying 2D breath cloud that appears every few seconds when it's cold.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/DisableBreathEffect/releases/download/v1.2/DisableBreathEffect.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "EnableFeatProgressInCustomMode",
+      "url" : "https://github.com/zeobviouslyfakeacc/EnableFeatProgressInCustomMode",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.1",
+      "description" : "The v1.29 update turned off feat progress in custom mode games - this mod turns it back on.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/EnableFeatProgressInCustomMode/releases/download/v1.1/EnableFeatProgressInCustomMode.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "EnableStatusBarPercentages",
+      "url" : "https://github.com/zeobviouslyfakeacc/EnableStatusBarPercentages",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.3",
+      "description" : "This mod re-enables some labels in the status / first aid screen that show a percentage value of how full the warmth, fatigue, thirst, hunger, and health status bars are.",
+      "changes" : "Fix condition label position when well fed buff is active",
+      "releaseDate" : "2018-12-23T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/EnableStatusBarPercentages/releases/download/v1.3/EnableStatusBarPercentages.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "HungerRevamped",
+      "url" : "https://github.com/zeobviouslyfakeacc/HungerRevamped",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.4",
+      "description" : "Improves the hunger system by separating hunger and stored calories.",
+      "changes" : "Updated for TLD v1.41, added incubation period to food poisoning, integrated Well Fed bonus",
+      "releaseDate" : "2019-01-05T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/HungerRevamped/releases/download/v1.4/HungerRevamped.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "InterloperRegionSelection",
+      "url" : "https://github.com/zeobviouslyfakeacc/InterloperRegionSelection",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.2",
+      "description" : "Lets you select the spawn region in Interloper mode.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/InterloperRegionSelection/releases/download/v1.2/InterloperRegionSelection.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "ModSettings",
+      "url" : "https://github.com/zeobviouslyfakeacc/ModSettings",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.4",
+      "description" : "Lets other mods display their settings in-game. This mod doesn't do anything on its own and should only be used as a dependency for other mods.",
+      "changes" : "Update for TLD v1.41, confirm button now confirms all changed mods, removed obsolete ModSettingsBase#RequiresConfirmation",
+      "releaseDate" : "2018-12-21T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/ModSettings/releases/download/v1.4/ModSettings.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "RememberBreakDownItem",
+      "url" : "https://github.com/zeobviouslyfakeacc/RememberBreakDownItem",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.2",
+      "description" : "This mod remembers the tool you last used to break down furniture. That way, you no longer need to constantly switch from \"using a knife\" to \"no tool\" when breaking down branches or curtains.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/RememberBreakDownItem/releases/download/v1.2/RememberBreakDownItem.dll"
+      } ],
+      "dependencies" : [ ]
+    }, {
+      "name" : "ShorterReadingIntervals",
+      "url" : "https://github.com/zeobviouslyfakeacc/ShorterReadingIntervals",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.1",
+      "description" : "A mod that lets you research for shorter amounts of time and lets you interrupt research at any time without losing progress.",
+      "changes" : "Updated for TLD v1.41",
+      "releaseDate" : "2018-12-22T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/ShorterReadingIntervals/releases/download/v1.1/ShorterReadingIntervals.dll"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "WildlifeBegone",
+      "url" : "https://github.com/zeobviouslyfakeacc/WildlifeBegone",
+      "author" : "zeobviouslyfakeacc",
+      "version" : "v1.3.1",
+      "description" : "This mod removes most of the animals that would usually roam the world and greatly increases their respawn times, thus making you play The Long Dark quite a bit differently.",
+      "changes" : "Added setting to enable WildlifeBegone in story mode, bug fixes",
+      "releaseDate" : "2018-12-29T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "assets" : [ {
+        "url" : "https://github.com/zeobviouslyfakeacc/WildlifeBegone/releases/download/v1.3.1/WildlifeBegone.dll"
+      }, {
+        "url" : "https://github.com/zeobviouslyfakeacc/WildlifeBegone/releases/download/v1.3.1/WildlifeBegoneConfig.json"
+      } ],
+      "dependencies" : [ ]
+    } ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/zeobviouslyfakeacc-mod-installer-description.json",
+    "name" : "zeobviouslyfakeacc Collection",
+    "url" : "https://github.com/zeobviouslyfakeacc",
+    "description" : "Mods of zeobviouslyfakeacc",
+    "definitions" : [ "https://github.com/zeobviouslyfakeacc/Mod-Installer-Description" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"56ab224a4fb36f8513d73d1c75ad72907344242b\""
+    },
+    "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json",
+    "name" : "Default Collection",
+    "url" : "https://github.com/WulfMarius/Mod-Installer/tree/master/descriptions",
+    "description" : "Default Mod Collection",
+    "definitions" : [ "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/alextheregent-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/findarkside-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/lucasio6-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/mikeypdog-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/nbakulev-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/shieldheart-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/uberfox-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/wulfmarius-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/xpazeman-mod-installer-description.json", "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/zeobviouslyfakeacc-mod-installer-description.json" ],
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"7eae4de2d1de8698cb39f1e4a827e384b4467328\""
+    },
+    "modDefinitions" : [ ]
+  } ],
+  "lastUpdate" : "2019-01-08T10:08:25.862+0000",
+  "snapshotETag" : "\"b175391aa058a237467a592eb78168b8baed0dc0\""
+}

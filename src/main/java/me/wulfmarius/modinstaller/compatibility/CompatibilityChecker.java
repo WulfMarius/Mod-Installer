@@ -1,6 +1,6 @@
 package me.wulfmarius.modinstaller.compatibility;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.http.ResponseEntity;
 
 import me.wulfmarius.modinstaller.*;
-import me.wulfmarius.modinstaller.repository.RateLimitException;
 import me.wulfmarius.modinstaller.rest.RestClient;
 import me.wulfmarius.modinstaller.utils.JsonUtils;
 
@@ -47,10 +46,8 @@ public class CompatibilityChecker {
     }
 
     public void initialize() {
-        this.fetchTldVersions();
         this.readCurrentVersion();
-
-        this.writeState();
+        this.fetchTldVersions();
     }
 
     public void invalidate() {
@@ -79,10 +76,12 @@ public class CompatibilityChecker {
             if (response.getStatusCode().is2xxSuccessful()) {
                 this.state.setCompatibilityVersions(this.restClient.deserialize(response, CompatibilityVersions.class, null));
                 this.state.setEtag(response.getHeaders().getETag());
+                this.currentCompatibilityVersion = this.state.getCompatibilityVersions().floor(this.parsedCurrentVersion);
             }
 
             this.state.setChecked(new Date());
-        } catch (RateLimitException e) {
+            this.writeState();
+        } catch (AbortException e) {
             // ignore
         }
     }
@@ -115,7 +114,7 @@ public class CompatibilityChecker {
             this.currentVersion = lines.get(0).split("\\s")[0];
             this.parsedCurrentVersion = Version.parse(this.currentVersion);
             this.currentCompatibilityVersion = this.state.getCompatibilityVersions().floor(this.parsedCurrentVersion);
-            this.invalidate();
+            this.writeState();
         } catch (IllegalArgumentException | IOException e) {
             throw new ModInstallerException("Could not read TLD version.", e);
         }
@@ -129,6 +128,12 @@ public class CompatibilityChecker {
             }
         } catch (IOException e) {
             // ignore
+        }
+
+        try (InputStream inputStream = this.getClass().getResourceAsStream("/default-compatibility-state.json")) {
+            return JsonUtils.deserialize(inputStream, CompatibilityState.class);
+        } catch (IOException e) {
+            // ignore;
         }
 
         return new CompatibilityState();

@@ -8,7 +8,9 @@ import me.wulfmarius.modinstaller.ModDefinition;
 public class Sources implements Iterable<Source> {
 
     private List<Source> sources = new ArrayList<>();
+
     private Date lastUpdate;
+    private String snapshotETag;
 
     public void addSource(Source source) {
         this.sources.add(source);
@@ -26,6 +28,10 @@ public class Sources implements Iterable<Source> {
 
     public Date getLastUpdate() {
         return this.lastUpdate;
+    }
+
+    public String getSnapshotETag() {
+        return this.snapshotETag;
     }
 
     public List<Source> getSources() {
@@ -52,6 +58,10 @@ public class Sources implements Iterable<Source> {
 
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public void setSnapshotETag(String snapshotETag) {
+        this.snapshotETag = snapshotETag;
     }
 
     public void setSources(List<Source> sources) {

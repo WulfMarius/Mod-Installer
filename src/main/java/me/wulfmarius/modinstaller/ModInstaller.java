@@ -21,7 +21,7 @@ import me.wulfmarius.modinstaller.utils.JsonUtils;
 
 public class ModInstaller {
 
-    public static final String VERSION = "0.6.3";
+    public static final String VERSION = "0.7.0";
 
     private final Path basePath;
 
@@ -150,7 +150,7 @@ public class ModInstaller {
     }
 
     public List<ModDefinition> getRequired(ModDefinition modDefinition, Installations presentInstallations) {
-        List<ModDefinition> result = new ArrayList<ModDefinition>();
+        List<ModDefinition> result = new ArrayList<>();
 
         ModDefinitions installed = new ModDefinitions();
         presentInstallations.stream().map(installation -> this.getModDefinition(installation.getName(), installation.getVersion()))
@@ -217,23 +217,21 @@ public class ModInstaller {
         this.progressListeners.stepStarted("Mod-Installer", StepType.INITIALIZE);
 
         this.initializeUpdateChecker();
-        this.progressListeners.stepProgress(1, 4);
+        this.progressListeners.stepProgress(1, 5);
 
         this.initializeCompatibilityChecker();
-        this.progressListeners.stepProgress(2, 4);
+        this.progressListeners.stepProgress(2, 5);
 
         this.initializeRepository();
-        this.progressListeners.stepProgress(3, 4);
+        this.progressListeners.stepProgress(3, 5);
 
         this.initializeInstallations();
-        this.progressListeners.stepProgress(4, 4);
+        this.progressListeners.stepProgress(4, 5);
 
-        if (this.isSourceMigrationRequired()) {
-            this.invalidateSources();
-            this.refreshSources();
-        } else {
-            this.progressListeners.finished();
-        }
+        this.initializeSnapshot();
+        this.progressListeners.stepProgress(5, 5);
+
+        this.progressListeners.finished();
     }
 
     public void install(ModDefinition modDefinition) {
@@ -437,6 +435,8 @@ public class ModInstaller {
             this.compatibilityChecker.initialize();
         } catch (Exception e) {
             this.progressListeners.error(e.toString());
+        } finally {
+            this.compatibilityChecker.invalidate();
         }
     }
 
@@ -462,10 +462,24 @@ public class ModInstaller {
         }
     }
 
+    private void initializeSnapshot() {
+        try {
+            this.progressListeners.stepStarted("Snapshot", StepType.REFRESH);
+            this.repository.refreshSnapshot();
+            this.compatibilityChecker.invalidate();
+        } catch (AbortException e) {
+            this.progressListeners.error(e.getMessage());
+        } catch (Exception e) {
+            this.progressListeners.error(e.toString());
+        }
+    }
+
     private void initializeUpdateChecker() {
         try {
             this.progressListeners.detail("Updates");
             this.updateChecker.initialize();
+        } catch (AbortException e) {
+            this.progressListeners.error(e.getMessage());
         } catch (Exception e) {
             this.progressListeners.error(e.toString());
         }

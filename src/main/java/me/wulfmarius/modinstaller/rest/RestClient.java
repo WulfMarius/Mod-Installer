@@ -1,15 +1,19 @@
 package me.wulfmarius.modinstaller.rest;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.UnknownHostException;
+import java.nio.charset.*;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.function.Supplier;
+import java.util.zip.GZIPInputStream;
 
+import org.springframework.core.NestedRuntimeException;
 import org.springframework.http.*;
 import org.springframework.http.client.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.util.StringUtils;
+import org.springframework.util.*;
 import org.springframework.web.client.*;
 
 import me.wulfmarius.modinstaller.ProgressListener.StepType;
@@ -79,19 +83,23 @@ public class RestClient {
             throw new RateLimitException(this.rateLimitReset);
         }
 
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.setIfNoneMatch(etag);
-
         try {
-            ResponseEntity<String> responseEntity = this.restTemplate.exchange(url, HttpMethod.GET,
-                    new HttpEntity<Object>(requestHeaders), String.class);
+            ResponseEntity<String> responseEntity = this.restTemplate.execute(url, HttpMethod.GET, new GZipRequestCallback(etag),
+                    new GzipResponseExtractor());
+
             this.handleRateLimit(responseEntity.getHeaders());
             return responseEntity;
         } catch (HttpClientErrorException e) {
             this.handleRateLimit(e.getResponseHeaders());
-            return new ResponseEntity<>(e.getStatusText(), e.getStatusCode());
+            return ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders()).body(e.getStatusText());
+        } catch (NestedRuntimeException e) {
+            Throwable mostSpecificCause = e.getMostSpecificCause();
+            if (mostSpecificCause instanceof UnknownHostException) {
+                throw new HostUnreachableException(mostSpecificCause.getMessage());
+            }
+            throw new RestClientException("Could not fetch from " + url + ": " + mostSpecificCause.getMessage(), mostSpecificCause);
         } catch (Exception e) {
-            throw new SourceException("Could not fetch from " + url + ": " + e.getMessage(), e);
+            throw new RestClientException("Could not fetch from " + url + ": " + e.getMessage(), e);
         }
     }
 
@@ -124,5 +132,50 @@ public class RestClient {
 
     private void prepareRequest(@SuppressWarnings("unused") ClientHttpRequest request) {
         // nothing to do
+    }
+
+    protected static class GZipRequestCallback implements RequestCallback {
+
+        private final String etag;
+
+        public GZipRequestCallback(String etag) {
+            super();
+            this.etag = etag;
+        }
+
+        @Override
+        public void doWithRequest(ClientHttpRequest request) throws IOException {
+            request.getHeaders().setIfNoneMatch(this.etag);
+            request.getHeaders().add("Accept-Encoding", "application/gzip");
+        }
+    }
+
+    protected static class GzipResponseExtractor implements ResponseExtractor<ResponseEntity<String>> {
+
+        private static Charset getCharset(ClientHttpResponse response) {
+            try {
+                String charsetName = response.getHeaders().getContentType().getParameter("charset");
+                if (charsetName != null) {
+                    return Charset.forName(charsetName);
+                }
+            } catch (Exception e) {
+                // ignore
+            }
+
+            return StandardCharsets.ISO_8859_1;
+        }
+
+        @Override
+        public ResponseEntity<String> extractData(ClientHttpResponse response) throws IOException {
+            InputStream inputStream = response.getBody();
+            if ("gzip".equalsIgnoreCase(response.getHeaders().getFirst("Content-Encoding"))) {
+                inputStream = new GZIPInputStream(inputStream);
+            }
+
+            Charset charset = getCharset(response);
+            String body = StreamUtils.copyToString(inputStream, charset);
+
+            return ResponseEntity.status(response.getStatusCode()).headers(response.getHeaders()).body(body);
+        }
     }
 }

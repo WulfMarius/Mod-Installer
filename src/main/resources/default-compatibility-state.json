@@ -1,0 +1,11 @@
+{
+  "compatibilityVersions" : {
+    "versions" : [ {
+      "version" : "v1.41",
+      "date" : "2018-12-17T00:00:00.000+0000"
+    }, {
+      "version" : "v1.27",
+      "date" : "2018-03-21T00:00:00.000+0000"
+    } ]
+  }
+}

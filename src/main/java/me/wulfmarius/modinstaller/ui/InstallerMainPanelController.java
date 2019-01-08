@@ -35,8 +35,6 @@ public class InstallerMainPanelController {
     protected static final PseudoClass PSEUDO_CLASS_REQUIRED = PseudoClass.getPseudoClass("required");
     protected static final PseudoClass PSEUDO_CLASS_INCOMPATIBLE = PseudoClass.getPseudoClass("incompatible");
 
-    private static final String DEFAULT_SOURCE_DEFINITION = "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/default-mod-installer-description.json";
-
     private final ModInstaller modInstaller;
 
     @FXML
@@ -159,12 +157,6 @@ public class InstallerMainPanelController {
         });
     }
 
-    private void askInstallDefaultSource() {
-        ModInstallerUI.showYesNoChoice("No Sources Found",
-                "It looks like you don't have any sources yet.\n\nWould you like to import the default source now?",
-                () -> this.addSource(DEFAULT_SOURCE_DEFINITION));
-    }
-
     private void askRefreshSource() {
         ModInstallerUI.showYesNoChoice("Refresh Sources?",
                 "It looks like you haven't refreshed your sources in quite some time.\n\nWould you like to search for updates now?",
@@ -258,9 +250,7 @@ public class InstallerMainPanelController {
             this.askDeleteOtherVersions();
         }
 
-        if (this.modInstaller.getSources().isEmpty()) {
-            this.askInstallDefaultSource();
-        } else if (this.modInstaller.areSourcesOld()) {
+        if (this.modInstaller.areSourcesOld()) {
             this.askRefreshSource();
         }
     }

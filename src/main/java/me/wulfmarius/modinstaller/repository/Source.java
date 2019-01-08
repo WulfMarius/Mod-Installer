@@ -47,6 +47,10 @@ public class Source {
         return this.description;
     }
 
+    public Optional<Date> getLastUpdated() {
+        return this.getModDefinitionStream().map(ModDefinition::getLastUpdated).max(Date::compareTo);
+    }
+
     public Stream<ModDefinition> getLatestVersions() {
         Map<String, Optional<ModDefinition>> collect = this.modDefinitions.stream()
                 .collect(Collectors.groupingBy(ModDefinition::getName, Collectors.minBy(ModDefinition::compare)));
