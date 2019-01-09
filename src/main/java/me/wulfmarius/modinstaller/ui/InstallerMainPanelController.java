@@ -93,7 +93,7 @@ public class InstallerMainPanelController {
     }
 
     protected boolean isNotInstalled(ModDefinition modDefinition) {
-        return !this.modInstaller.isAnyVersionInstalled(modDefinition);
+        return this.modInstaller.isNoVersionInstalled(modDefinition);
     }
 
     protected boolean isRequired(ModDefinition modDefinition) {
@@ -101,7 +101,7 @@ public class InstallerMainPanelController {
     }
 
     protected boolean isUpdateAvailable(ModDefinition modDefinition) {
-        return this.modInstaller.isOtherVersionInstalled(modDefinition);
+        return this.modInstaller.isOlderVersionInstalled(modDefinition);
     }
 
     @FXML
@@ -141,8 +141,7 @@ public class InstallerMainPanelController {
 
         String message;
         if (updateState.hasAsset()) {
-            message = "Version " + updateState.getLatestVersion()
-                    + " is available for download.\n\nWould you like to download it now?";
+            message = "Version " + updateState.getLatestVersion() + " is available for download.\n\nWould you like to download it now?";
         } else {
             message = "Version " + updateState.getLatestVersion()
                     + " is available for download.\n\nWould you like to go to the download page?";
@@ -203,8 +202,7 @@ public class InstallerMainPanelController {
     }
 
     private void initializeModInstaller() {
-        ModInstallerUI.startAutoCloseProgressDialog("Initializing", this.detailsPane, this.modInstaller::initialize,
-                this::postInitialize);
+        ModInstallerUI.startAutoCloseProgressDialog("Initializing", this.detailsPane, this.modInstaller::initialize, this::postInitialize);
     }
 
     private void installationsChanged() {
@@ -239,8 +237,7 @@ public class InstallerMainPanelController {
             return;
         }
 
-        ModInstallerUI
-                .setTitle("TLD Mod-Installer " + ModInstaller.VERSION + " (TLD Version: " + this.modInstaller.getTldVersion() + ")");
+        ModInstallerUI.setTitle("TLD Mod-Installer " + ModInstaller.VERSION + " (TLD Version: " + this.modInstaller.getTldVersion() + ")");
 
         if (this.modInstaller.isNewVersionAvailable()) {
             this.askDownloadNewVersion();

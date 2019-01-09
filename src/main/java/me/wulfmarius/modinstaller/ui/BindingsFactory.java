@@ -38,7 +38,7 @@ public class BindingsFactory {
 
     public static ObservableValue<Boolean> createModDefinitionUpdateBinding(Property<ModDefinition> property,
             ModInstaller modInstaller) {
-        return Bindings.createBooleanBinding(() -> get(property, modInstaller::isOtherVersionInstalled, false), property);
+        return Bindings.createBooleanBinding(() -> get(property, modInstaller::isOlderVersionInstalled, false), property);
     }
 
     public static ObservableValue<String> createModDefinitionURLBinding(Property<ModDefinition> property) {

@@ -175,8 +175,9 @@ public class ModInstaller {
                 }
 
                 if (resolution.getBestMatch() == null) {
-                    throw new MissingDependencyException("Could not resolve dependency to " + eachEntry.getKey()
-                            + ". No available version satisfies all dependencies.", resolution.getRequested());
+                    throw new MissingDependencyException(
+                            "Could not resolve dependency to " + eachEntry.getKey() + ". No available version satisfies all dependencies.",
+                            resolution.getRequested());
                 }
 
                 result.add(resolution.getBestMatch());
@@ -252,7 +253,7 @@ public class ModInstaller {
     }
 
     public boolean isAnyVersionInstalled(ModDefinition modDefinition) {
-        return !this.installations.getInstallations(modDefinition.getName()).isEmpty();
+        return !this.isNoVersionInstalled(modDefinition);
     }
 
     public boolean isExactVersionInstalled(ModDefinition modDefinition) {
@@ -267,8 +268,17 @@ public class ModInstaller {
         return this.installations.getInstallations(modDefinition.getName()).isEmpty();
     }
 
-    public boolean isOtherVersionInstalled(ModDefinition modDefinition) {
-        return this.isAnyVersionInstalled(modDefinition) && !this.isExactVersionInstalled(modDefinition);
+    public boolean isOlderVersionInstalled(ModDefinition modDefinition) {
+        Version modVersion = Version.parse(modDefinition.getVersion());
+
+        List<Installation> installed = this.installations.getInstallations(modDefinition.getName());
+        for (Installation eachInstalled : installed) {
+            if (Version.parse(eachInstalled.getVersion()).compareTo(modVersion) < 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public boolean isRequiredByInstallation(ModDefinition modDefinition) {
@@ -276,8 +286,7 @@ public class ModInstaller {
     }
 
     public boolean isSourceMigrationRequired() {
-        return this.getSources().stream()
-                .anyMatch(source -> !source.hasParameterValue(SourceFactory.PARAMETER_VERSION, Source.VERSION));
+        return this.getSources().stream().anyMatch(source -> !source.hasParameterValue(SourceFactory.PARAMETER_VERSION, Source.VERSION));
 
     }
 
