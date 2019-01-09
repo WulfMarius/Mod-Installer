@@ -12,6 +12,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.css.PseudoClass;
@@ -196,7 +197,7 @@ public class InstallerMainPanelController {
         this.tableView.setRowFactory(this::createTableRow);
         this.tableView.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
-        // this.tableView.boundsInLocalProperty().addListener((obs, oldValue, newValue) -> Platform.runLater(this.tableView::refresh));
+        this.tableView.getColumns().addListener((InvalidationListener) observable -> this.installationsChanged());
 
         this.tableView.getSortOrder().add(this.columnName);
     }
