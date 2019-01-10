@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 import javafx.application.Platform;
@@ -21,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import me.wulfmarius.modinstaller.*;
@@ -46,6 +47,9 @@ public class InstallerMainPanelController {
 
     @FXML
     private TableView<ModDefinition> tableView;
+
+    @FXML
+    private ComboBox<ModDefinitionFilter> comboBoxFilter;
 
     @FXML
     private TableColumn<ModDefinition, String> columnName;
@@ -89,8 +93,16 @@ public class InstallerMainPanelController {
                 && this.isNotInstalled(modDefinition);
     }
 
+    protected List<ModDefinition> getModDefinitions(ModDefinitionFilter filter) {
+        return this.modInstaller.getLatestVersions().stream().filter(filter).collect(Collectors.toList());
+    }
+
     protected boolean isIncompatible(ModDefinition modDefinition) {
         return this.modInstaller.getCompatibility(modDefinition) != Compatibility.OK;
+    }
+
+    protected boolean isInstalled(ModDefinition modDefinition) {
+        return this.modInstaller.isAnyVersionInstalled(modDefinition);
     }
 
     protected boolean isNotInstalled(ModDefinition modDefinition) {
@@ -178,8 +190,8 @@ public class InstallerMainPanelController {
     @FXML
     private void initialize() throws IOException {
         WindowBecameVisibleHandler.install(this.root, this::initializeModInstaller);
-        this.modInstaller.addInstallationsChangedListener(this::installationsChanged);
-        this.modInstaller.addSourcesChangedListener(this::sourcesChanged);
+        this.modInstaller.addInstallationsChangedListener(this::updateModDefinitions);
+        this.modInstaller.addSourcesChangedListener(this::updateModDefinitions);
 
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("ModDetailsPanel.fxml"));
         fxmlLoader.setControllerFactory(CONTROLLER_FACTORY);
@@ -197,20 +209,24 @@ public class InstallerMainPanelController {
         this.tableView.setRowFactory(this::createTableRow);
         this.tableView.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
-        this.tableView.getColumns().addListener((InvalidationListener) observable -> this.installationsChanged());
+        this.tableView.getColumns().addListener((InvalidationListener) observable -> this.updateModDefinitions());
 
         this.tableView.getSortOrder().add(this.columnName);
+
+        this.comboBoxFilter.setButtonCell(new ModDefinitionFilterListCell());
+        this.comboBoxFilter.valueProperty().addListener((observable, oldValue, newValue) -> this.updateModDefinitions());
+
+        this.comboBoxFilter.getItems().clear();
+        this.comboBoxFilter.getItems().add(new ModDefinitionFilter("All", definition -> true));
+        this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Compatible", definition -> !this.isIncompatible(definition)));
+        this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Installed", definition -> this.isInstalled(definition)));
+        this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Updateable", definition -> this.isUpdateAvailable(definition)));
+        this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Incompatible", definition -> this.isIncompatible(definition)));
+        this.comboBoxFilter.setValue(this.comboBoxFilter.getItems().get(1));
     }
 
     private void initializeModInstaller() {
         ModInstallerUI.startAutoCloseProgressDialog("Initializing", this.detailsPane, this.modInstaller::initialize, this::postInitialize);
-    }
-
-    private void installationsChanged() {
-        Platform.runLater(() -> {
-            this.tableView.sort();
-            this.tableView.refresh();
-        });
     }
 
     @FXML
@@ -258,14 +274,6 @@ public class InstallerMainPanelController {
         ModInstallerUI.startProgressDialog("Refreshing Sources", this.detailsPane, () -> this.modInstaller.refreshSources());
     }
 
-    private void sourcesChanged() {
-        Platform.runLater(() -> {
-            this.tableView.getItems().setAll(this.modInstaller.getLatestVersions());
-            this.tableView.sort();
-            this.tableView.refresh();
-        });
-    }
-
     private void startUpdate() {
         if (!this.modInstaller.hasDownloadedNewVersion()) {
             return;
@@ -277,6 +285,37 @@ public class InstallerMainPanelController {
         } catch (Exception e) {
             showError("Could Not Start",
                     "The downloaded version could not be started: " + e.getMessage() + "\n\nYou should try to start it manually.");
+        }
+    }
+
+    private void updateModDefinitions() {
+        Platform.runLater(() -> {
+            this.tableView.getItems().setAll(this.getModDefinitions(this.comboBoxFilter.getValue()));
+            this.tableView.sort();
+            this.tableView.refresh();
+
+            this.comboBoxFilter.getItems().forEach(ModDefinitionFilter::updateCount);
+            ((ModDefinitionFilterListCell) this.comboBoxFilter.getButtonCell()).update();
+        });
+    }
+
+    protected class ModDefinitionFilterListCell extends ListCell<ModDefinitionFilter> {
+
+        public ModDefinitionFilterListCell() {
+            this.setGraphic(new ImageView(new Image(this.getClass().getResourceAsStream("/baseline_filter_list_black_24x24.png"))));
+        }
+
+        public void update() {
+            this.updateItem(this.getItem(), this.isEmpty());
+        }
+
+        @Override
+        protected void updateItem(ModDefinitionFilter item, boolean empty) {
+            super.updateItem(item, empty);
+
+            if (!empty) {
+                this.setText(item.toString());
+            }
         }
     }
 
@@ -338,6 +377,41 @@ public class InstallerMainPanelController {
             if (!empty) {
                 this.pseudoClassStateChanged(PSEUDO_CLASS_NOT_INSTALLED, InstallerMainPanelController.this.isNotInstalled(item));
             }
+        }
+    }
+
+    private class ModDefinitionFilter implements Predicate<ModDefinition> {
+
+        private final String name;
+        private final Predicate<ModDefinition> predicate;
+        private int count;
+
+        public ModDefinitionFilter(String name, Predicate<ModDefinition> predicate) {
+            super();
+            this.name = name;
+            this.predicate = predicate;
+        }
+
+        public int getCount() {
+            return this.count;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        @Override
+        public boolean test(ModDefinition t) {
+            return this.predicate.test(t);
+        }
+
+        @Override
+        public String toString() {
+            return this.name + " (" + this.count + ")";
+        }
+
+        public void updateCount() {
+            this.count = InstallerMainPanelController.this.getModDefinitions(this).size();
         }
     }
 }

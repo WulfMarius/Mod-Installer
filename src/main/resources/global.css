@@ -3,6 +3,12 @@
     -fx-wrap-text: true;
 }
 
+.combo-box .list-cell 
+{
+    -fx-padding: 3 0 3 3;
+}
+
+
 .uninstall.button .text {
 	-fx-fill: RED; 
 }
