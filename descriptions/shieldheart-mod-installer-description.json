@@ -34,6 +34,26 @@
 					"type": "zip"
 				}
 			]
+		}, {
+			"name": "RelentlessNight",
+			"version": "v3.02",
+			"releaseDate": "2019-01-06",
+			"description": "Relentless Night is a gameplay mod for The Long Dark that introduces a new sandbox scenario where the spin of the Earth is slowing down. Slowly but surely, days and nights are getting longer over time, leading to a world with continuously changing temperatures, weather patterns, wildlife populations, and more.",
+			"url": "https://github.com/Shield-Heart/RelentlessNight",
+			"changes": "Bugfix update for v3.01 to work with the TLD v1.41 Redux update",
+			"dependencies": [
+				{
+					"name": "ModSettings",
+					"version": "^v1.4"
+				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/Shield-Heart/RelentlessNight/releases/download/v3.02/RelentlessNight_v302.zip",
+					"zipDirectory": "ModFiles",
+					"type": "zip"
+				}
+			]
 		}
 	]
 }
