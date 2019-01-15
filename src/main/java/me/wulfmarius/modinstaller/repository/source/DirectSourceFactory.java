@@ -12,7 +12,7 @@ public class DirectSourceFactory extends AbstractSourceFactory {
 
     @Override
     public boolean isSupportedSource(String definition) {
-        return true;
+        return definition.startsWith("http://") || definition.startsWith("https://");
     }
 
     @Override

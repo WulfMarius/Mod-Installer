@@ -53,12 +53,16 @@ public class Source {
 
     public Stream<ModDefinition> getLatestVersions() {
         Map<String, Optional<ModDefinition>> collect = this.modDefinitions.stream()
-                .collect(Collectors.groupingBy(ModDefinition::getName, Collectors.minBy(ModDefinition::compare)));
+                .collect(Collectors.groupingBy(ModDefinition::getName, Collectors.minBy(ModDefinition::latest)));
         return collect.values().stream().map(Optional::get);
     }
 
+    public ModDefinitions getMatchingDefinitions(ModDependency dependency) {
+        return this.modDefinitions.getMatchingDefinitions(dependency);
+    }
+
     public Optional<ModDefinition> getModDefinition(String modDefinitionName, String modDefinitionVersion) {
-        return this.modDefinitions.getDefinition(modDefinitionName, modDefinitionVersion);
+        return this.modDefinitions.getModDefinition(modDefinitionName, modDefinitionVersion);
     }
 
     public ModDefinitions getModDefinitions() {

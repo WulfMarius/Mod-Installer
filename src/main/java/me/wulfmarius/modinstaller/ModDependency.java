@@ -21,11 +21,12 @@ public class ModDependency {
         }
 
         ModDependency other = (ModDependency) obj;
+
         if (!this.name.equals(other.name)) {
             return false;
         }
 
-        if (this.version.equals(other.version)) {
+        if (!this.version.equals(other.version)) {
             return false;
         }
 
@@ -69,8 +70,8 @@ public class ModDependency {
         this.name = name;
     }
 
-    public void setVersion(String versionRange) {
-        this.version = versionRange;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     @Override

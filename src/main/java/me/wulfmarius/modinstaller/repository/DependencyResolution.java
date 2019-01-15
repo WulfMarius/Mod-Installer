@@ -6,7 +6,7 @@ import me.wulfmarius.modinstaller.*;
 
 public class DependencyResolution {
 
-    private List<ModDependency> dependencies = new ArrayList<>();
+    private ModDependencies requested;
     private ModDefinition bestMatch;
     private Set<ModDefinition> available = new HashSet<>();
 
@@ -18,8 +18,12 @@ public class DependencyResolution {
         return this.bestMatch;
     }
 
-    public List<ModDependency> getRequested() {
-        return this.dependencies;
+    public ModDependencies getRequested() {
+        return this.requested;
+    }
+
+    public boolean isEmpty() {
+        return this.available == null || this.available.isEmpty();
     }
 
     public boolean isResolved() {
@@ -34,7 +38,7 @@ public class DependencyResolution {
         this.bestMatch = bestMatch;
     }
 
-    public void setDependencies(List<ModDependency> dependencies) {
-        this.dependencies = dependencies;
+    public void setRequested(ModDependencies requested) {
+        this.requested = requested;
     }
 }

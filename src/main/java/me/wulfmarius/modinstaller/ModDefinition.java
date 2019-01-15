@@ -27,7 +27,7 @@ public class ModDefinition {
     @JsonIgnore
     private transient Version parsedCompatibleWith;
 
-    public static int compare(ModDefinition m1, ModDefinition m2) {
+    public static int latest(ModDefinition m1, ModDefinition m2) {
         return -Version.compare(m1.getParsedVersion(), m2.getParsedVersion());
     }
 

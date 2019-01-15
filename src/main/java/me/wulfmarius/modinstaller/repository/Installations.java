@@ -9,6 +9,31 @@ public class Installations implements Iterable<Installation> {
 
     private List<Installation> installations = new ArrayList<>();
 
+    public static Installations create(Installation... installation) {
+        Installations result = new Installations();
+
+        if (installation != null) {
+            for (Installation eachInstallation : installation) {
+                result.addInstallation(eachInstallation);
+            }
+        }
+
+        return result;
+    }
+
+    public static Installations merge(Installations definitions1, Installations definitions2) {
+        Installations result = new Installations();
+
+        result.addInstallations(definitions1);
+        result.addInstallations(definitions2);
+
+        return result;
+    }
+
+    private static Collector<Installation, ?, Installations> toInstallations() {
+        return Collectors.reducing(new Installations(), Installations::create, Installations::merge);
+    }
+
     public void addInstallation(Installation installation) {
         this.installations.add(installation);
     }
@@ -31,12 +56,20 @@ public class Installations implements Iterable<Installation> {
         return this.installations;
     }
 
-    public List<Installation> getInstallations(String name) {
-        return this.installations.stream().filter(installation -> installation.getName().equals(name)).collect(Collectors.toList());
+    public Installations getInstallations(String name) {
+        return this.installations.stream().filter(installation -> installation.getName().equals(name)).collect(toInstallations());
     }
 
-    public List<Installation> getInstallationsWithAsset(String asset) {
-        return this.installations.stream().filter(installation -> installation.isAssetReferenced(asset)).collect(Collectors.toList());
+    public Installations getInstallationsWithAsset(String asset) {
+        return this.installations.stream().filter(installation -> installation.isAssetReferenced(asset)).collect(toInstallations());
+    }
+
+    public int getSize() {
+        if (this.installations == null) {
+            return 0;
+        }
+
+        return this.installations.size();
     }
 
     public boolean isEmpty() {
@@ -50,6 +83,10 @@ public class Installations implements Iterable<Installation> {
 
     public void remove(Installation installation) {
         this.installations.remove(installation);
+    }
+
+    public void remove(ModDefinition modDefinition) {
+        this.installations.removeIf(installation -> installation.matches(modDefinition));
     }
 
     public void setInstallations(List<Installation> installations) {

@@ -3,8 +3,6 @@ package me.wulfmarius.modinstaller.repository;
 import java.util.*;
 import java.util.stream.Stream;
 
-import me.wulfmarius.modinstaller.ModDefinition;
-
 public class Sources implements Iterable<Source> {
 
     private List<Source> sources = new ArrayList<>();
@@ -49,11 +47,6 @@ public class Sources implements Iterable<Source> {
 
     public void removeSource(Source source) {
         this.sources.remove(source);
-    }
-
-    public Optional<ModDefinition> resolve(String name, String version) {
-        return this.sources.stream().map(source -> source.getModDefinition(name, version)).filter(Optional::isPresent)
-                .map(Optional::get).findFirst();
     }
 
     public void setLastUpdate(Date lastUpdate) {

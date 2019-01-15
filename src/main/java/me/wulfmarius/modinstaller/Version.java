@@ -14,8 +14,9 @@ public class Version implements Comparable<Version> {
     // an extension to the semver.org pattern to accomodate UModTld
     private static final Pattern VERSION_PATTERN = Pattern.compile("(\\d+)(?:\\.(\\d+)(?:\\.(\\d+))?)?(\\w+)?(?:-(\\w+))?");
 
-    private static final Comparator<Version> COMPARATOR = Comparator.comparingInt(Version::getMajor)
-            .thenComparingInt(Version::getMinor).thenComparingInt(Version::getPatch)
+    public static final Comparator<Version> COMPARATOR = Comparator.comparingInt(Version::getMajor)
+            .thenComparingInt(Version::getMinor)
+            .thenComparingInt(Version::getPatch)
             .thenComparing(Version::getSpecial, Version::compareSpecial)
             .thenComparing(Version::getPrelease, Version::comparePrerelease);
 
@@ -93,6 +94,20 @@ public class Version implements Comparable<Version> {
         return compare(this, other);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Version)) {
+            return false;
+        }
+
+        Version other = (Version) obj;
+        return compare(this, other) == 0;
+    }
+
     public int getMajor() {
         return this.major;
     }
@@ -111,6 +126,18 @@ public class Version implements Comparable<Version> {
 
     public String getSpecial() {
         return this.special;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + this.major;
+        result = prime * result + this.minor;
+        result = prime * result + this.patch;
+        result = prime * result + (this.prelease == null ? 0 : this.prelease.hashCode());
+        result = prime * result + (this.special == null ? 0 : this.special.hashCode());
+        return result;
     }
 
     public boolean hasSameMajor(Version other) {

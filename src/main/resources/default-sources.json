@@ -373,37 +373,51 @@
     "definition" : "https://github.com/nbakulev/Deerskincoat",
     "name" : "Deerskin coat",
     "url" : "https://github.com/nbakulev/Deerskincoat",
-    "description" : "Mod add to TLD the craftable deerskin coat",
+    "description" : "A mod for The Long Dark adding new craftadle clothing items. Dear skin coat and wolf skin hat.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"39459923ec0e31abce91c52f7b342de233b0bd35\""
+      "etag" : "\"3ab8e12c9915dd98d1d9d7e2fea9a1bd43a4a361\""
     },
     "modDefinitions" : [ {
+      "name" : "Deerskin coat",
+      "url" : "https://github.com/nbakulev/Deerskincoat/releases/tag/1.2",
+      "author" : "nbakulev",
+      "version" : "1.2",
+      "description" : "A mod for The Long Dark adding new craftadle clothing items. Dear skin coat and wolf skin hat.",
+      "changes" : "new craftable wolfskin hat",
+      "releaseDate" : "2019-01-10T20:39:07.000+0000",
+      "lastUpdated" : "2019-01-15T17:59:48.091+0000",
+      "assets" : [ {
+        "url" : "https://github.com/nbakulev/Deerskincoat/releases/download/1.2/deerskincoat.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.2.0"
+      } ]
+    }, {
       "name" : "Deerskin coat",
       "url" : "https://github.com/nbakulev/Deerskincoat/releases/tag/1.1",
       "author" : "nbakulev",
       "version" : "1.1",
-      "description" : "Mod add to TLD the craftable deerskin coat",
+      "description" : "A mod for The Long Dark adding new craftadle clothing items. Dear skin coat and wolf skin hat.",
       "changes" : "",
       "releaseDate" : "2018-12-25T15:47:26.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:52.260+0000",
+      "lastUpdated" : "2019-01-15T17:59:48.091+0000",
       "assets" : [ {
-        "url" : "https://github.com/nbakulev/Deerskincoat/releases/download/1.1/deerskincoat.zip"
-      } ],
-      "dependencies" : [ {
-        "name" : "ModComponent",
-        "version" : "^3.0.1"
+        "url" : "https://github.com/nbakulev/Deerskincoat/releases/download/1.1/Deerskincoat.zip"
       } ]
     }, {
       "name" : "Deerskin coat",
-      "url" : "https://github.com/nbakulev/Deerskincoat/releases/tag/1.0",
+      "url" : "https://github.com/nbakulev/Deerskincoat/releases/tag/v1.0",
       "author" : "nbakulev",
       "version" : "1.0",
-      "description" : "Mod add to TLD the craftable deerskin coat",
+      "description" : "A mod for The Long Dark adding new craftadle clothing items. Dear skin coat and wolf skin hat.",
       "changes" : "",
-      "releaseDate" : "2019-01-07T11:25:48.514+0000",
-      "lastUpdated" : "2019-01-07T11:25:52.260+0000",
-      "assets" : [ ]
+      "releaseDate" : "2018-12-06T09:58:08.000+0000",
+      "lastUpdated" : "2019-01-15T17:59:48.091+0000",
+      "assets" : [ {
+        "url" : "https://github.com/nbakulev/Deerskincoat/releases/download/v1.0/deerskincoat.zip"
+      } ]
     } ]
   }, {
     "definition" : "https://github.com/nbakulev/Woodenstatuettes",
@@ -1523,7 +1537,7 @@
     "description" : "Allows to look out the back window in cars",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"7c2f18f955796d1044d4ff29f1ea899e2a564a38\""
+      "etag" : "\"c0b777738ff2a54801c60d44373a60de933fc789\""
     },
     "modDefinitions" : [ {
       "name" : "Free-Look-In-Cars",
@@ -1533,7 +1547,7 @@
       "description" : "Allows to look out the back window in cars",
       "changes" : "updated to work with TLD V1.27",
       "releaseDate" : "2018-03-21T18:47:59.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:37.594+0000",
+      "lastUpdated" : "2019-01-15T17:59:48.770+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/download/2.0.0/Free-Look-In-Cars-V2.0.0.zip"
       } ],
@@ -1546,9 +1560,21 @@
       "description" : "Allows to look out the back window in cars",
       "changes" : "Updated to work with TLD v1.41",
       "releaseDate" : "2018-12-19T13:58:45.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:37.594+0000",
+      "lastUpdated" : "2019-01-15T17:59:48.770+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/download/3.0.0/Free-Look-In-Cars-V3.0.0.zip"
+      } ]
+    }, {
+      "name" : "Free-Look-In-Cars",
+      "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/tag/3.0.1",
+      "author" : "WulfMarius",
+      "version" : "3.0.1",
+      "description" : "Allows to look out the back window in cars",
+      "changes" : "Addressed issue causing crashes on linux.",
+      "releaseDate" : "2019-01-14T05:44:02.000+0000",
+      "lastUpdated" : "2019-01-15T17:59:48.770+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Free-Look-In-Cars/releases/download/3.0.1/Free-Look-In-Cars-V3.0.1.zip"
       } ]
     } ]
   }, {
@@ -1737,7 +1763,7 @@
     "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"e0b4098ec9028e9b8ea95aa6ddc03e70eaca0112\""
+      "etag" : "\"ceabbc9fb278018345f205c67b05b40cd5cadde4\""
     },
     "modDefinitions" : [ {
       "name" : "Instrument-Pack",
@@ -1747,7 +1773,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Initial Version:\r\n- works with TLD V1.27\r\n- added a playable guitar\r\n- added two likely spawns for guitars\r\n- added two guitar sample songs from Free Music Archive\r\n- users can provide their own preferred music by adding mp3 files\r\n\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-03-23T19:20:48.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.0/Instrument-Pack-V2.0.0.zip"
       } ],
@@ -1766,7 +1792,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Changes:\r\n- fixed a bug that would make the guitar unplayable\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-04-03T17:49:23.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.1/Instrument-Pack-V2.0.1.zip"
       } ],
@@ -1785,7 +1811,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Changes:\r\n- fixed mipmap setting for inventory icon\r\n- updated dependency to NAudio-Unity to 2.0.0\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-04-08T07:57:48.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.2/Instrument-Pack-V2.0.2.zip"
       } ],
@@ -1804,7 +1830,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Changes:\r\n\r\n- allowed walking (slowly) while playing the guitar\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-04-25T05:00:58.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.3/Instrument-Pack-V2.0.3.zip"
       } ],
@@ -1823,7 +1849,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Changes:\r\n\r\n- fixed a critical issue\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-04-25T16:59:18.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.0.4/Instrument-Pack-V2.0.4.zip"
       } ],
@@ -1842,7 +1868,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Added harmonica",
       "releaseDate" : "2018-09-16T18:15:50.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/2.1.0/Instrument-Pack-V2.1.0.zip"
       } ],
@@ -1861,7 +1887,7 @@
       "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
       "changes" : "Update ModComponent 3.0.0 (TLD V1.44)",
       "releaseDate" : "2018-12-23T15:49:35.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:38.310+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/3.0.0/Instrument-Pack-V3.0.0.zip"
       } ],
@@ -1871,6 +1897,28 @@
       }, {
         "name" : "NAudio-Unity",
         "version" : "^2.0.0"
+      } ]
+    }, {
+      "name" : "Instrument-Pack",
+      "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/tag/3.1.0",
+      "author" : "WulfMarius",
+      "version" : "3.1.0",
+      "description" : "Adds playable instruments and the skills required to play them. Additional songs can be provided as mp3 files.",
+      "changes" : "Introduced an option for disabling mistakes while playing.",
+      "releaseDate" : "2019-01-10T19:25:27.000+0000",
+      "lastUpdated" : "2019-01-15T17:59:49.357+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Instrument-Pack/releases/download/3.1.0/Instrument-Pack-V3.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      }, {
+        "name" : "NAudio-Unity",
+        "version" : "^2.0.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
       } ]
     } ]
   }, {
@@ -2555,7 +2603,7 @@
     "description" : "Mods for TheLongDark by Xpazeman",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"9ec5efcc8722da0d5a812bbe9b072a70acc1c5ef\""
+      "etag" : "\"21586865e101b82f1ba37faacc8950f6c5c5fa59\""
     },
     "modDefinitions" : [ {
       "name" : "AmbientLights",
@@ -2565,7 +2613,7 @@
       "description" : "Ambient Lights is a mod intended to make interiors in the game brighter and more reflective of what's going on outside.",
       "changes" : "Updated to work on TLD 1.42, also adjusted daytime brightness of lights to compensate for changes made to the interior lighting.",
       "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
       "assets" : [ {
         "url" : "https://github.com/Xpazeman/tld-ambient-lights/releases/download/v0.9.7-beta/AmbientLights_v0.9.7.zip"
       } ],
@@ -2581,7 +2629,7 @@
       "description" : "Mod for The Long Dark to modify decay rates of gear.",
       "changes" : "Updated to work with The Long Dark v1.42",
       "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
       "assets" : [ {
         "url" : "https://github.com/Xpazeman/tld-gear-decay-modifier/releases/download/v1.2/GearDecayModifier_v1.2.zip"
       } ],
@@ -2597,7 +2645,7 @@
       "description" : "Mod for The Long Dark that tweak kerosene lamps consumption.",
       "changes" : "Updated to work with The Long Dark v1.42",
       "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
       "assets" : [ {
         "url" : "https://github.com/Xpazeman/tld-kerosene-lamp-tweaks/releases/download/v1.2/KeroseneLampTweaks_v1.2.zip"
       } ],
@@ -2609,13 +2657,13 @@
       "name" : "WeightTweaks",
       "url" : "https://github.com/Xpazeman/tld-weight-tweaks",
       "author" : "Xpazeman",
-      "version" : "v1.0",
+      "version" : "v1.1",
       "description" : "Mod for The Long Dark to modify item weights and carry capacity.",
-      "changes" : "Initial Release",
-      "releaseDate" : "2018-12-27T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:42.901+0000",
+      "changes" : "Removed leftover Debug.Log",
+      "releaseDate" : "2019-01-12T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
       "assets" : [ {
-        "url" : "https://github.com/Xpazeman/tld-weight-tweaks/releases/download/v1.0/WeightTweaks_v1.0.zip"
+        "url" : "https://github.com/Xpazeman/tld-weight-tweaks/releases/download/v1.1/WeightTweaks_v1.1.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModSettings",
@@ -2833,6 +2881,6 @@
     },
     "modDefinitions" : [ ]
   } ],
-  "lastUpdate" : "2019-01-10T18:50:59.990+0000",
-  "snapshotETag" : "\"d6e503dcd2a8cf7d893598a2634d3a359e9873c3\""
+  "lastUpdate" : "2019-01-15T17:59:53.117+0000",
+  "snapshotETag" : "\"c3c62768cd25879d51a7150298eee9a0829ee913\""
 }

@@ -2,10 +2,7 @@ package me.wulfmarius.modinstaller;
 
 import java.io.*;
 import java.nio.file.*;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.stream.*;
 import java.util.zip.*;
 
@@ -103,15 +100,6 @@ public class ModInstaller {
         return this.updateChecker.areOtherVersionsPresent();
     }
 
-    public boolean areSourcesOld() {
-        Date lastUpdate = this.getSources().getLastUpdate();
-        if (lastUpdate == null) {
-            return true;
-        }
-
-        return ChronoUnit.DAYS.between(lastUpdate.toInstant(), Instant.now()) > 30;
-    }
-
     public Compatibility getCompatibility(ModDefinition modDefinition) {
         return this.compatibilityChecker.getCompatibility(modDefinition);
     }
@@ -125,7 +113,7 @@ public class ModInstaller {
     }
 
     public String getInstalledVersion(String name) {
-        List<Installation> modInstallations = this.installations.getInstallations(name);
+        Installations modInstallations = this.installations.getInstallations(name);
         if (modInstallations.isEmpty()) {
             return null;
         }
@@ -149,52 +137,14 @@ public class ModInstaller {
         return this.updateChecker.getOtherVersions();
     }
 
-    public List<ModDefinition> getRequired(ModDefinition modDefinition, Installations presentInstallations) {
-        List<ModDefinition> result = new ArrayList<>();
-
-        ModDefinitions installed = new ModDefinitions();
-        presentInstallations.stream().map(installation -> this.getModDefinition(installation.getName(), installation.getVersion()))
-                .filter(Optional::isPresent).map(Optional::get).forEach(installed::addModDefinition);
-
-        installed.addModDefinition(modDefinition);
-
-        while (true) {
-            Map<String, List<ModDependency>> missingDependencies = installed.getMissingDependencies();
-            if (missingDependencies.isEmpty()) {
-                break;
-            }
-
-            for (Entry<String, List<ModDependency>> eachEntry : missingDependencies.entrySet()) {
-                List<ModDependency> value = eachEntry.getValue();
-
-                DependencyResolution resolution = this.resolve(value);
-                if (resolution.getAvailable().isEmpty()) {
-                    throw new MissingDependencyException(
-                            "Could not resolve dependency to " + eachEntry.getKey() + ". No matching version found.",
-                            resolution.getRequested());
-                }
-
-                if (resolution.getBestMatch() == null) {
-                    throw new MissingDependencyException(
-                            "Could not resolve dependency to " + eachEntry.getKey() + ". No available version satisfies all dependencies.",
-                            resolution.getRequested());
-                }
-
-                result.add(resolution.getBestMatch());
-                installed.addModDefinition(resolution.getBestMatch());
-            }
-        }
-
-        return result;
+    public ModDefinitions getRequiredBy(ModDefinition modDefinition) {
+        return this.repository.getLatestVersions().stream().filter(definition -> definition.dependsOn(modDefinition.getName())).collect(
+                ModDefinitions.toModDefinitions());
     }
 
-    public List<ModDefinition> getRequiredBy(ModDefinition modDefinition) {
-        return this.getSources().stream().flatMap(Source::getLatestVersions)
-                .filter(modDependency -> modDependency.dependsOn(modDefinition.getName())).collect(Collectors.toList());
-    }
-
-    public List<ModDefinition> getRequires(ModDefinition modDefinition) {
-        return this.getRequired(modDefinition, new Installations());
+    public ModDefinitions getRequires(ModDefinition modDefinition) {
+        return this.repository.getLatestVersions().stream().filter(definition -> modDefinition.dependsOn(definition.getName())).collect(
+                ModDefinitions.toModDefinitions());
     }
 
     public Sources getSources() {
@@ -271,7 +221,7 @@ public class ModInstaller {
     public boolean isOlderVersionInstalled(ModDefinition modDefinition) {
         Version modVersion = Version.parse(modDefinition.getVersion());
 
-        List<Installation> installed = this.installations.getInstallations(modDefinition.getName());
+        Installations installed = this.installations.getInstallations(modDefinition.getName());
         for (Installation eachInstalled : installed) {
             if (Version.parse(eachInstalled.getVersion()).compareTo(modVersion) < 0) {
                 return true;
@@ -287,7 +237,6 @@ public class ModInstaller {
 
     public boolean isSourceMigrationRequired() {
         return this.getSources().stream().anyMatch(source -> !source.hasParameterValue(SourceFactory.PARAMETER_VERSION, Source.VERSION));
-
     }
 
     public void prepareUpdate() {
@@ -324,6 +273,12 @@ public class ModInstaller {
         this.repository.removeProgressListener(listener);
     }
 
+    public Resolution resolveInstallation(ModDefinition modDefinition) {
+        DependencyResolver dependencyResolver = new DependencyResolver(this.repository, this.installations);
+
+        return dependencyResolver.resolve(modDefinition);
+    }
+
     public void startUpdate() throws IOException {
         this.updateChecker.startNewVersion();
     }
@@ -340,7 +295,7 @@ public class ModInstaller {
     }
 
     private boolean canBeDeleted(Path path, String asset) {
-        if (this.installations.getInstallationsWithAsset(asset).size() > 1) {
+        if (!this.installations.getInstallationsWithAsset(asset).isEmpty()) {
             return false;
         }
 
@@ -561,22 +516,28 @@ public class ModInstaller {
     }
 
     private void performInstall(ModDefinition modDefinition) {
-        if (this.installations.contains(modDefinition)) {
-            return;
+        Resolution resolution = this.resolveInstallation(modDefinition);
+        if (resolution.hasMissingDependencies()) {
+            throw new MissingDependencyException(
+                    "Could not resolve dependency to " + resolution.getMissingDependencies() + ". No matching version found.",
+                    resolution.getMissingDependencies());
         }
 
-        List<ModDefinition> required = this.getRequired(modDefinition, this.installations);
-        for (ModDefinition eachRequired : required) {
-            this.performInstall(eachRequired);
+        if (resolution.hasUnresolvableDependencies()) {
+            throw new MissingDependencyException(
+                    "Could not resolve dependency to " + resolution.getUnresolvableDependencies()
+                            + ". No version satisfies all dependencies.",
+                    resolution.getUnresolvableDependencies());
         }
 
-        List<Installation> installedVersions = this.installations.getInstallations(modDefinition.getName());
-        for (Installation eachInstalledVersion : installedVersions) {
-            this.uninstall(eachInstalledVersion);
+        for (Installation eachUninstall : resolution.getUninstall()) {
+            this.uninstall(eachUninstall);
         }
 
-        Installation installation = this.installAssets(modDefinition);
-        this.installations.addInstallation(installation);
+        for (ModDefinition eachModDefinition : resolution.getInstall()) {
+            Installation installation = this.installAssets(eachModDefinition);
+            this.installations.addInstallation(installation);
+        }
     }
 
     private Installations readInstallations() {
@@ -592,19 +553,14 @@ public class ModInstaller {
         return new Installations();
     }
 
-    private DependencyResolution resolve(List<ModDependency> dependencies) {
-        return this.repository.resolve(dependencies);
-    }
-
     private void uninstall(Installation installation) {
         if (!this.installations.contains(installation)) {
             throw new ModInstallerException("Requested mod is not installed.");
         }
 
         this.progressListeners.stepStarted(installation.getDisplayName(), StepType.UNINSTALL);
-        this.deleteAssets(installation.getAssets(), this.getModsDirectory());
-
         this.installations.remove(installation);
+        this.deleteAssets(installation.getAssets(), this.getModsDirectory());
     }
 
     private void writeInstallations() {

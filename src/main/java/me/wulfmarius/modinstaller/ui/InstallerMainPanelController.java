@@ -129,14 +129,16 @@ public class InstallerMainPanelController {
     }
 
     private void addSource(String sourceDefinition) {
-        startProgressDialog("Adding Source " + sourceDefinition, this.detailsPane,
+        startProgressDialog("Adding Source " + sourceDefinition,
+                this.detailsPane,
                 () -> this.modInstaller.registerSource(sourceDefinition));
     }
 
     private void askDeleteOtherVersions() {
         Path[] otherVersions = this.modInstaller.getOtherVersions();
         String message = Arrays.stream(otherVersions).map(Path::getFileName).map(Path::toString).collect(Collectors.joining("\n",
-                "The following other versions of Mod-Installer are still present:\n", "\n\nDo you want to delete them now?"));
+                "The following other versions of Mod-Installer are still present:\n",
+                "\n\nDo you want to delete them now?"));
 
         ModInstallerUI.showYesNoChoice("Other Versions Present", message, () -> {
             for (Path eachOldVersion : otherVersions) {
@@ -167,12 +169,6 @@ public class InstallerMainPanelController {
                 openURL(updateState.getReleaseUrl());
             }
         });
-    }
-
-    private void askRefreshSource() {
-        ModInstallerUI.showYesNoChoice("Refresh Sources?",
-                "It looks like you haven't refreshed your sources in quite some time.\n\nWould you like to search for updates now?",
-                () -> this.refreshSources());
     }
 
     private TableCell<ModDefinition, String> createTableCell(@SuppressWarnings("unused") TableColumn<ModDefinition, String> column) {
@@ -207,14 +203,12 @@ public class InstallerMainPanelController {
         this.columnReleaseDate.setCellFactory(getFormattedCell(ModInstallerUI::formatReleaseDate));
 
         this.tableView.setRowFactory(this::createTableRow);
-        this.tableView.getSelectionModel().selectedItemProperty()
-                .addListener((observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
+        this.tableView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> detailsPanel.fireEvent(ModInstallerEvent.modSelected(newValue)));
         this.tableView.getColumns().addListener((InvalidationListener) observable -> this.updateModDefinitions());
-
         this.tableView.getSortOrder().add(this.columnName);
 
         this.comboBoxFilter.setButtonCell(new ModDefinitionFilterListCell());
-        this.comboBoxFilter.valueProperty().addListener((observable, oldValue, newValue) -> this.updateModDefinitions());
 
         this.comboBoxFilter.getItems().clear();
         this.comboBoxFilter.getItems().add(new ModDefinitionFilter("All", definition -> true));
@@ -222,6 +216,8 @@ public class InstallerMainPanelController {
         this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Installed", definition -> this.isInstalled(definition)));
         this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Updateable", definition -> this.isUpdateAvailable(definition)));
         this.comboBoxFilter.getItems().add(new ModDefinitionFilter("Incompatible", definition -> this.isIncompatible(definition)));
+
+        this.comboBoxFilter.valueProperty().addListener((InvalidationListener) observable -> this.updateModDefinitions());
         this.comboBoxFilter.setValue(this.comboBoxFilter.getItems().get(1));
     }
 
@@ -263,10 +259,6 @@ public class InstallerMainPanelController {
         if (this.modInstaller.areOtherVersionsPresent()) {
             this.askDeleteOtherVersions();
         }
-
-        if (this.modInstaller.areSourcesOld()) {
-            this.askRefreshSource();
-        }
     }
 
     @FXML
@@ -294,8 +286,11 @@ public class InstallerMainPanelController {
             this.tableView.sort();
             this.tableView.refresh();
 
-            this.comboBoxFilter.getItems().forEach(ModDefinitionFilter::updateCount);
-            ((ModDefinitionFilterListCell) this.comboBoxFilter.getButtonCell()).update();
+            for (int i = 0; i < this.comboBoxFilter.getItems().size(); i++) {
+                ModDefinitionFilter element = this.comboBoxFilter.getItems().get(i);
+                element.updateCount();
+                this.comboBoxFilter.getItems().set(i, element);
+            }
         });
     }
 
@@ -390,14 +385,6 @@ public class InstallerMainPanelController {
             super();
             this.name = name;
             this.predicate = predicate;
-        }
-
-        public int getCount() {
-            return this.count;
-        }
-
-        public String getName() {
-            return this.name;
         }
 
         @Override

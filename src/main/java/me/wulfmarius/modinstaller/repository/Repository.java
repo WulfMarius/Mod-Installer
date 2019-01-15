@@ -90,6 +90,16 @@ public class Repository {
         return this.getSources().stream().flatMap(Source::getLatestVersions).collect(Collectors.toList());
     }
 
+    public ModDefinitions getMatching(ModDependency modDependency) {
+        ModDefinitions result = new ModDefinitions();
+
+        for (Source eachSource : this.sources) {
+            result.addModDefinitions(eachSource.getMatchingDefinitions(modDependency));
+        }
+
+        return result;
+    }
+
     public Optional<ModDefinition> getModDefinition(String name, String version) {
         for (Source eachSource : this.sources) {
             Optional<ModDefinition> modDefinition = eachSource.getModDefinition(name, version);
@@ -102,8 +112,11 @@ public class Repository {
     }
 
     public List<ModDefinition> getModDefinitions(String name) {
-        return this.sources.stream().flatMap(Source::getModDefinitionStream).filter(modDefinition -> modDefinition.getName().equals(name))
-                .sorted(ModDefinition::compare).collect(Collectors.toList());
+        return this.sources.stream()
+                .flatMap(Source::getModDefinitionStream)
+                .filter(modDefinition -> modDefinition.getName().equals(name))
+                .sorted(ModDefinition::latest)
+                .collect(Collectors.toList());
     }
 
     public Sources getSources() {
@@ -113,6 +126,7 @@ public class Repository {
     public void initialize() {
         this.sourceFactories.add(new GithubSourceFactory(RestClient.getInstance()));
         this.sourceFactories.add(new DirectSourceFactory(RestClient.getInstance()));
+        this.sourceFactories.add(new FileSourceFactory());
 
         Sources savedSources = this.readSources();
         if (!savedSources.isEmpty()) {
@@ -162,8 +176,8 @@ public class Repository {
             List<ModDefinition> currentLatestVersions = this.getLatestVersions();
             currentLatestVersions.removeAll(previousLatestVersions);
             if (!currentLatestVersions.isEmpty()) {
-                changes = currentLatestVersions.stream().map(ModDefinition::getName)
-                        .collect(Collectors.joining("\n\t", "\n\nThe following mods were added/updated:\n\t", "\n"));
+                changes = currentLatestVersions.stream().map(ModDefinition::getName).collect(
+                        Collectors.joining("\n\t", "\n\nThe following mods were added/updated:\n\t", "\n"));
             } else {
                 changes = "\n\nNo changes found";
             }
@@ -198,19 +212,6 @@ public class Repository {
         this.sourcesChangedListeners.removeListener(listener);
     }
 
-    public DependencyResolution resolve(List<ModDependency> dependencies) {
-        for (Source eachSource : this.sources) {
-            DependencyResolution resolution = eachSource.getModDefinitions().resolve(dependencies);
-            if (resolution.isResolved()) {
-                return resolution;
-            }
-        }
-
-        DependencyResolution result = new DependencyResolution();
-        result.setDependencies(dependencies);
-        return result;
-    }
-
     private void addSource(Source source) {
         this.sources.addSource(source);
     }
@@ -224,10 +225,12 @@ public class Repository {
             }
 
             Date now = new Date(0);
-            this.sources.stream().filter(eachSource -> eachSource.getDefinition().equals(eachSnapshotSource.getDefinition()))
+            this.sources.stream()
+                    .filter(eachSource -> eachSource.getDefinition().equals(eachSnapshotSource.getDefinition()))
                     .filter(eachSource -> !eachSource.getParameter(PARAMETER_ETAG).equals(eachSnapshotSource.getParameter(PARAMETER_ETAG)))
                     .filter(eachSource -> !eachSource.getLastUpdated().orElse(now).after(eachSnapshotSource.getLastUpdated().orElse(now)))
-                    .findFirst().ifPresent(eachSource -> {
+                    .findFirst()
+                    .ifPresent(eachSource -> {
                         this.progressListeners.detail("Updating " + eachSource.getDefinition());
                         eachSource.update(eachSnapshotSource);
                     });

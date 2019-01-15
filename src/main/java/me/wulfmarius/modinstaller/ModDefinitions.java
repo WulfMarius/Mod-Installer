@@ -5,19 +5,17 @@ import java.util.stream.*;
 
 import com.fasterxml.jackson.annotation.*;
 
-import me.wulfmarius.modinstaller.repository.DependencyResolution;
-
 public class ModDefinitions implements Iterable<ModDefinition> {
 
     @JsonValue
     private List<ModDefinition> modDefinitions = new ArrayList<>();
 
     @JsonCreator
-    public static ModDefinitions create(ModDefinition[] modDefinitions) {
+    public static ModDefinitions create(ModDefinition... modDefinition) {
         ModDefinitions result = new ModDefinitions();
 
-        if (modDefinitions != null) {
-            for (ModDefinition eachModDefinition : modDefinitions) {
+        if (modDefinition != null) {
+            for (ModDefinition eachModDefinition : modDefinition) {
                 result.addModDefinition(eachModDefinition);
             }
         }
@@ -25,30 +23,37 @@ public class ModDefinitions implements Iterable<ModDefinition> {
         return result;
     }
 
-    private static <T> List<T> createList(T value) {
-        ArrayList<T> result = new ArrayList<>();
-        result.add(value);
+    public static ModDefinitions intersect(ModDefinitions definitions1, ModDefinitions definitions2) {
+        if (definitions1 == null) {
+            return definitions2;
+        }
+
+        if (definitions2 == null) {
+            return definitions1;
+        }
+
+        ModDefinitions result = new ModDefinitions();
+
+        for (ModDefinition eachDefinition : definitions1) {
+            if (definitions2.contains(eachDefinition)) {
+                result.addModDefinition(eachDefinition);
+            }
+        }
+
         return result;
     }
 
-    private static <T> List<T> mergeLists(List<T> list1, List<T> list2) {
-        List<T> result = new ArrayList<>();
-        result.addAll(list1);
-        result.addAll(list2);
+    public static ModDefinitions merge(ModDefinitions definitions1, ModDefinitions definitions2) {
+        ModDefinitions result = new ModDefinitions();
+
+        result.addModDefinitions(definitions1);
+        result.addModDefinitions(definitions2);
+
         return result;
     }
 
-    private static <T> List<T> retain(List<T> list1, List<T> list2) {
-        if (list1 == null) {
-            return new ArrayList<>(list2);
-        }
-
-        if (list2 == null) {
-            return new ArrayList<>(list1);
-        }
-
-        list1.retainAll(list2);
-        return list1;
+    public static Collector<ModDefinition, ?, ModDefinitions> toModDefinitions() {
+        return Collectors.reducing(new ModDefinitions(), ModDefinitions::create, ModDefinitions::merge);
     }
 
     public void addModDefinition(ModDefinition definition) {
@@ -57,39 +62,47 @@ public class ModDefinitions implements Iterable<ModDefinition> {
         }
     }
 
+    public void addModDefinitions(Iterable<ModDefinition> definitions) {
+        definitions.forEach(this::addModDefinition);
+    }
+
     public boolean contains(ModDefinition definition) {
         return this.modDefinitions.contains(definition);
     }
 
-    public ModDefinitions getCopy() {
-        ModDefinitions result = new ModDefinitions();
-
-        result.modDefinitions.addAll(this.modDefinitions);
-
-        return result;
+    public Map<String, ModDependencies> getAllDependencies() {
+        return this.modDefinitions.stream().flatMap(ModDefinition::getDependenciesStream).collect(
+                Collectors.toMap(ModDependency::getName, ModDependencies::create, ModDependencies::merge));
     }
 
-    public List<ModDefinition> getDefinition(String name) {
-        return this.modDefinitions.stream().filter(modDefinition -> modDefinition.getName().equals(name)).collect(Collectors.toList());
+    public ModDefinitions getMatchingDefinitions(ModDependency dependency) {
+        return this.modDefinitions.stream().filter(definition -> definition.satisfies(dependency)).collect(toModDefinitions());
     }
 
-    public Optional<ModDefinition> getDefinition(String name, String version) {
+    public Optional<ModDefinition> getMin(Comparator<? super ModDefinition> comparator) {
+        return this.modDefinitions.stream().min(comparator);
+    }
+
+    public Optional<ModDefinition> getModDefinition(String name, String version) {
         return this.modDefinitions.stream()
-                .filter(definition -> definition.getName().equals(name) && definition.getVersion().equals(version)).findFirst();
+                .filter(definition -> definition.getName().equals(name) && definition.getVersion().equals(version))
+                .findFirst();
     }
 
-    public List<ModDefinition> getMatchingDefinitions(ModDependency dependency) {
-        return this.modDefinitions.stream().filter(definition -> definition.satisfies(dependency)).collect(Collectors.toList());
+    public ModDefinitions getModDefinitions(String name) {
+        return this.modDefinitions.stream().filter(modDefinition -> modDefinition.getName().equals(name)).collect(toModDefinitions());
     }
 
-    public Map<String, List<ModDependency>> getMissingDependencies() {
-        return this.modDefinitions.stream().flatMap(ModDefinition::getDependenciesStream)
-                .filter(dependency -> !this.satisfies(dependency))
-                .collect(Collectors.toMap(ModDependency::getName, ModDefinitions::createList, ModDefinitions::mergeLists));
+    public int getSize() {
+        if (this.modDefinitions.isEmpty()) {
+            return 0;
+        }
+
+        return this.modDefinitions.size();
     }
 
-    public List<ModDefinition> getModDefinitions() {
-        return this.modDefinitions;
+    public boolean isEmpty() {
+        return this.modDefinitions == null || this.modDefinitions.isEmpty();
     }
 
     @Override
@@ -109,30 +122,12 @@ public class ModDefinitions implements Iterable<ModDefinition> {
         this.modDefinitions.removeIf(modDefinition -> name.equals(modDefinition.getName()));
     }
 
-    public DependencyResolution resolve(List<ModDependency> dependencies) {
-        DependencyResolution result = new DependencyResolution();
-        result.setDependencies(dependencies);
-
-        List<List<ModDefinition>> matchingDependencies = dependencies.stream().map(this::getMatchingDefinitions)
-                .collect(Collectors.toList());
-
-        result.setAvailable(matchingDependencies.stream().flatMap(List::stream).collect(Collectors.toSet()));
-
-        List<ModDefinition> candidates = matchingDependencies.stream().reduce(null, ModDefinitions::retain);
-        candidates.sort(ModDefinition::compare);
-        if (!candidates.isEmpty()) {
-            result.setBestMatch(candidates.get(0));
-        }
-
-        return result;
+    public void reverse() {
+        Collections.reverse(this.modDefinitions);
     }
 
     public boolean satisfies(ModDependency modDependency) {
         return this.modDefinitions.stream().anyMatch(modDefinition -> modDefinition.satisfies(modDependency));
-    }
-
-    public void setModDefinitions(List<ModDefinition> modDefinitions) {
-        this.modDefinitions = modDefinitions;
     }
 
     public Stream<ModDefinition> stream() {

@@ -3,7 +3,6 @@ package me.wulfmarius.modinstaller.ui;
 import static me.wulfmarius.modinstaller.ui.BindingsFactory.*;
 import static me.wulfmarius.modinstaller.ui.ModInstallerUI.startProgressDialog;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 import javafx.beans.binding.Bindings;
@@ -105,18 +104,15 @@ public class ModDetailsPanelController {
 
         this.buttonInstall.visibleProperty().bind(createModDefinitionInstallBinding(this.modDefinitionProperty, this.modInstaller));
         this.buttonInstall.disableProperty().bind(this.installForbiddenProperty);
-        this.infoInstallForbidden.visibleProperty()
-                .bind(Bindings.and(this.buttonInstall.visibleProperty(), this.installForbiddenProperty));
+        this.infoInstallForbidden.visibleProperty().bind(Bindings.and(this.buttonInstall.visibleProperty(), this.installForbiddenProperty));
         this.infoInstallForbidden.tooltipProperty().bind(this.installTooltipProperty);
 
         this.buttonUpdate.visibleProperty().bind(createModDefinitionUpdateBinding(this.modDefinitionProperty, this.modInstaller));
         this.buttonUpdate.disableProperty().bind(this.installForbiddenProperty);
-        this.infoUpdateForbidden.visibleProperty()
-                .bind(Bindings.and(this.buttonUpdate.visibleProperty(), this.installForbiddenProperty));
+        this.infoUpdateForbidden.visibleProperty().bind(Bindings.and(this.buttonUpdate.visibleProperty(), this.installForbiddenProperty));
         this.infoUpdateForbidden.tooltipProperty().bind(this.installTooltipProperty);
 
-        this.buttonUninstall.visibleProperty()
-                .bind(createModDefinitionUninstallBinding(this.modDefinitionProperty, this.modInstaller));
+        this.buttonUninstall.visibleProperty().bind(createModDefinitionUninstallBinding(this.modDefinitionProperty, this.modInstaller));
         this.buttonUninstall.disableProperty().bind(this.uninstallForbiddenProperty);
         this.infoUninstallForbidden.visibleProperty().bind(this.uninstallForbiddenProperty);
         this.infoUninstallForbidden.tooltipProperty().bind(this.uninstallTooltipProperty);
@@ -130,7 +126,8 @@ public class ModDetailsPanelController {
     }
 
     private void installMod(ModDefinition modDefinition) {
-        startProgressDialog("Installing " + modDefinition.getDisplayName(), this.anchorPane,
+        startProgressDialog("Installing " + modDefinition.getDisplayName(),
+                this.anchorPane,
                 () -> this.modInstaller.install(modDefinition));
     }
 
@@ -166,26 +163,18 @@ public class ModDetailsPanelController {
             return;
         }
 
-        try {
-            List<ModDefinition> requires = this.modInstaller.getRequires(modDefinition);
-            this.requiresProperty.setValue(requires.stream().map(ModDefinition::getName).collect(Collectors.joining(", ")));
-            this.installForbiddenProperty.setValue(false);
-        } catch (MissingDependencyException e) {
-            String message = e.getDependencies().stream().map(ModDependency::getDisplayName)
-                    .collect(Collectors.joining(", ", "Requires missing dependencies: ", ""));
-            this.requiresProperty.setValue(message);
-            this.installForbiddenProperty.setValue(true);
-            this.installTooltipProperty.setValue(new Tooltip(message));
-        }
+        this.updateDependencyResolution(modDefinition);
 
-        List<ModDefinition> requiredBy = this.modInstaller.getRequiredBy(modDefinition);
+        this.requiresProperty.setValue(modDefinition.getDependenciesStream().map(ModDependency::getName).collect(Collectors.joining(", ")));
+
+        ModDefinitions requiredBy = this.modInstaller.getRequiredBy(modDefinition);
         this.requiredByProperty.setValue(requiredBy.stream().map(ModDefinition::getName).collect(Collectors.joining(", ")));
 
-        List<ModDefinition> installedRequiredBy = requiredBy.stream().filter(this.modInstaller::isAnyVersionInstalled)
-                .collect(Collectors.toList());
+        ModDefinitions installedRequiredBy = requiredBy.stream().filter(this.modInstaller::isAnyVersionInstalled).collect(
+                ModDefinitions.toModDefinitions());
         this.uninstallForbiddenProperty.setValue(!installedRequiredBy.isEmpty());
-        this.uninstallTooltipProperty.setValue(new Tooltip(installedRequiredBy.stream().map(ModDefinition::getName)
-                .collect(Collectors.joining(", ", "Required by installed mods: ", ""))));
+        this.uninstallTooltipProperty.setValue(new Tooltip(installedRequiredBy.stream().map(ModDefinition::getName).collect(
+                Collectors.joining(", ", "Required by installed mods: ", ""))));
 
         Compatibility compatibility = this.modInstaller.getCompatibility(modDefinition);
         this.compatibilityOldProperty.setValue(compatibility == Compatibility.OLD);
@@ -199,7 +188,8 @@ public class ModDetailsPanelController {
             return;
         }
 
-        startProgressDialog("Uninstalling " + modDefinition.getDisplayName(), this.anchorPane,
+        startProgressDialog("Uninstalling " + modDefinition.getDisplayName(),
+                this.anchorPane,
                 () -> this.modInstaller.uninstallAll(modDefinition.getName()));
     }
 
@@ -211,5 +201,24 @@ public class ModDetailsPanelController {
     @FXML
     private void showChangelog() {
         ModInstallerUI.startChangeLogViewer(this.anchorPane, this.modDefinitionProperty.get());
+    }
+
+    private void updateDependencyResolution(ModDefinition modDefinition) {
+        Resolution resolution = this.modInstaller.resolveInstallation(modDefinition);
+        if (resolution.hasMissingDependencies()) {
+            String message = resolution.getMissingDependencies().stream().map(ModDependency::getDisplayName).collect(
+                    Collectors.joining(", ", "Requires missing dependencies: ", ""));
+            this.requiresProperty.setValue(message);
+            this.installForbiddenProperty.set(true);
+            this.installTooltipProperty.setValue(new Tooltip(message));
+        } else if (resolution.hasUnresolvableDependencies()) {
+            String message = resolution.getUnresolvableDependencies().stream().map(ModDependency::getDisplayName).collect(
+                    Collectors.joining(", ", "Causes version conflict: ", ""));
+            this.requiresProperty.setValue(message);
+            this.installForbiddenProperty.set(true);
+            this.installTooltipProperty.setValue(new Tooltip(message));
+        } else {
+            this.installForbiddenProperty.set(false);
+        }
     }
 }
