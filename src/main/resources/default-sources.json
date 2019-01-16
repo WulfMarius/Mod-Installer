@@ -2005,7 +2005,7 @@
     "description" : "Library for creating new items and integrating elements into TLD.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"db3db25c5aea4d13ee719485e50c171eab66cfe8\""
+      "etag" : "\"843fb84498ca97cdce9dbb54db2f687128e4419a\""
     },
     "modDefinitions" : [ {
       "name" : "ModComponent",
@@ -2015,7 +2015,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "updated to work with TLD V1.27\nintegrated pull request from felipeds, adding support for fire starters, accelerants and blueprint definitions\nadded support for generic items (like tinder, cloth, etc)\nadded support for adding items to the radial\nadded support for new skills (still somewhat rudimental)\nadded support for reading blueprint definitions from JSON files (similar to gear-spawns)\nincreased maximum number of servings per food item from 10 to 50\nupdated template unity project\nremoved some resource loading patches because that is now handled by AssetLoader",
       "releaseDate" : "2018-03-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.0.0-main/ModComponent-V2.0.0.zip"
       } ],
@@ -2031,7 +2031,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "added support for stackable items\nadded support for burnable items\nadded early validation of blueprints, so problems occur before the main menu and not in the game\nfixed issue with unequipping items during a struggle\nfixed issue with gamma value initialization",
       "releaseDate" : "2018-04-03T17:44:38.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.0.1/ModComponent-V2.0.1.zip"
       } ],
@@ -2047,7 +2047,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Changes:\r\n\r\n- fixed scrolling issue in the blueprint list\r\n- added support for LiquidItem (water/fuel containers)\r\n- fixed issue with redirecting assembly loading\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-04-26T06:01:39.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.1.0/ModComponent-V2.1.0.zip"
       } ],
@@ -2063,7 +2063,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "- added support for custom inventory categories for items\r\n- set the default category for LiquidItems containing water to \"Food\"\r\n\r\n\r\n> Extract the contents of the zip into the mods folder.\r\n> For more help, see [Installing-a-Mod](https://github.com/WulfMarius/ModComponent/wiki/Installing-a-Mod)",
       "releaseDate" : "2018-04-27T17:16:34.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.1.1/ModComponent-V2.1.1.zip"
       } ],
@@ -2079,7 +2079,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "- updated for TLD 1.33\r\n- added support for additional cooking times ('burnt minutes')\r\n- canned foods will yield a 'Recycled Can' when opened properly\r\n- minimal support for new cooking assets",
       "releaseDate" : "2018-06-15T16:38:25.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.2.0/ModComponent-V2.2.0.zip"
       } ],
@@ -2095,7 +2095,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "fixed 'm_WarmUpNearFireRange' so cans won't be opened when dropped far away from a fire",
       "releaseDate" : "2018-06-20T05:38:15.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.2.1/ModComponent-V2.2.1.zip"
       } ],
@@ -2111,7 +2111,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "updated for TLD V1.34",
       "releaseDate" : "2018-06-21T16:49:31.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.2.2/ModComponent-V2.2.2.zip"
       } ],
@@ -2127,7 +2127,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "- added support for CookingPotItem\r\n- fixed shader issue in inspect mode",
       "releaseDate" : "2018-06-30T17:27:03.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.3.0/ModComponent-V2.3.0.zip"
       } ],
@@ -2143,7 +2143,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Added AlternativeAction (binding a right click to interactive objects)",
       "releaseDate" : "2018-09-21T15:33:30.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.4.0/ModComponent-V2.4.0.zip"
       } ],
@@ -2159,7 +2159,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Integrated contributions from nbakulev and Mackenzie21 to support new item types Bed, First Aid, Tool and new behaviours Sharpenable and Evolve.\r\nAdded support for saving item-specific data.",
       "releaseDate" : "2018-10-14T17:42:24.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.5.0/ModComponent-V2.5.0.zip"
       } ],
@@ -2175,7 +2175,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "* fixed mapping issue with FirstAidItem\r\n* make patches for custom save data last to ensure items are set up properly\r\n* don't try to spawn gear for the main menu",
       "releaseDate" : "2018-10-29T07:24:18.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.5.1/ModComponent-V2.5.1.zip"
       } ],
@@ -2191,7 +2191,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Added support for alternative inspect mode models.",
       "releaseDate" : "2018-11-28T18:47:45.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.6.0/ModComponent-V2.6.0.zip"
       } ],
@@ -2207,7 +2207,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "- fixed issue with damage blend texture\r\n- fixed issue in vanilla game where harvesting could only yield 2 materials\r\n- fixed issue with showing the \"Equip\" button for tools without a corresponding model",
       "releaseDate" : "2018-12-06T18:51:32.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/2.6.1/ModComponent-V2.6.1.zip"
       } ],
@@ -2223,7 +2223,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Updated for TLD V1.44",
       "releaseDate" : "2018-12-22T17:42:40.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.0.0/ModComponent-V3.0.0.zip"
       } ],
@@ -2239,7 +2239,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "- fixed issue with scrolling on blueprint page\r\n- fixed issue with ammo/duration display for modded tool items",
       "releaseDate" : "2018-12-23T20:33:55.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.0.1/ModComponent-V3.0.1.zip"
       } ],
@@ -2255,7 +2255,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Fixed issue with re-equipping the wrong item after interactions.",
       "releaseDate" : "2018-12-27T11:45:38.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.0.2/ModComponent-V3.0.2.zip"
       } ],
@@ -2271,7 +2271,7 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "- introduced event 'SceneReady' for performing post-scene load operations\r\n- fixed handling for freezing and unfreezing the player (would sometimes get stuck inside cars)",
       "releaseDate" : "2019-01-07T17:16:28.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.1.0/ModComponent-V3.1.0.zip"
       } ],
@@ -2287,9 +2287,25 @@
       "description" : "Library for creating new items and integrating elements into TLD.",
       "changes" : "Added support for wolf intimidation buff on clothing.",
       "releaseDate" : "2019-01-09T18:33:06.000+0000",
-      "lastUpdated" : "2019-01-10T18:50:57.366+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.2.0/ModComponent-V3.2.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "AssetLoader",
+        "version" : "^3.0.0"
+      } ]
+    }, {
+      "name" : "ModComponent",
+      "url" : "https://github.com/WulfMarius/ModComponent/releases/tag/3.2.1",
+      "author" : "WulfMarius",
+      "version" : "3.2.1",
+      "description" : "Library for creating new items and integrating elements into TLD.",
+      "changes" : "Added missing display name for beds.",
+      "releaseDate" : "2019-01-15T18:08:10.000+0000",
+      "lastUpdated" : "2019-01-16T17:54:47.179+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/ModComponent/releases/download/3.2.1/ModComponent-V3.2.1.zip"
       } ],
       "dependencies" : [ {
         "name" : "AssetLoader",
@@ -2881,6 +2897,6 @@
     },
     "modDefinitions" : [ ]
   } ],
-  "lastUpdate" : "2019-01-15T17:59:53.117+0000",
-  "snapshotETag" : "\"c3c62768cd25879d51a7150298eee9a0829ee913\""
+  "lastUpdate" : "2019-01-16T17:54:49.635+0000",
+  "snapshotETag" : "\"bae78c53cd5f6ad3741fed881239b4f63f4f72cb\""
 }
