@@ -2704,7 +2704,7 @@
     "description" : "Mods of zeobviouslyfakeacc",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"ad92a6ad9947830b7963b332c5b7bd0b39edcf3a\""
+      "etag" : "\"3e9a0e230e157bfa771efb8cff1b46232f74ce34\""
     },
     "modDefinitions" : [ {
       "name" : "BreakDownCans",
@@ -2714,7 +2714,7 @@
       "description" : "A tiny mod that lets your break down a recycled can for a single piece of scrap metal.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/BreakDownCans/releases/download/v1.1/BreakDownCans.dll"
       } ],
@@ -2727,7 +2727,7 @@
       "description" : "Lets you decide how many Prepper Caches should spawn in custom mode games.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/CacheControl/releases/download/v1.3/CacheControl.dll"
       } ],
@@ -2743,7 +2743,7 @@
       "description" : "Lets you change the game's FPS limit, which is usually locked at 120 FPS.",
       "changes" : "",
       "releaseDate" : "2018-12-26T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/Change-FPS-Limit/releases/download/v1.0/Change-FPS-Limit.dll"
       } ],
@@ -2759,7 +2759,7 @@
       "description" : "Removes the annoying 2D breath cloud that appears every few seconds when it's cold.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/DisableBreathEffect/releases/download/v1.2/DisableBreathEffect.dll"
       } ],
@@ -2772,7 +2772,7 @@
       "description" : "The v1.29 update turned off feat progress in custom mode games - this mod turns it back on.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/EnableFeatProgressInCustomMode/releases/download/v1.1/EnableFeatProgressInCustomMode.dll"
       } ],
@@ -2785,7 +2785,7 @@
       "description" : "This mod re-enables some labels in the status / first aid screen that show a percentage value of how full the warmth, fatigue, thirst, hunger, and health status bars are.",
       "changes" : "Fix condition label position when well fed buff is active",
       "releaseDate" : "2018-12-23T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/EnableStatusBarPercentages/releases/download/v1.3/EnableStatusBarPercentages.dll"
       } ],
@@ -2798,7 +2798,7 @@
       "description" : "Improves the hunger system by separating hunger and stored calories.",
       "changes" : "Updated for TLD v1.41, added incubation period to food poisoning, integrated Well Fed bonus",
       "releaseDate" : "2019-01-05T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/HungerRevamped/releases/download/v1.4/HungerRevamped.dll"
       } ],
@@ -2811,7 +2811,7 @@
       "description" : "Lets you select the spawn region in Interloper mode.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/InterloperRegionSelection/releases/download/v1.2/InterloperRegionSelection.dll"
       } ],
@@ -2820,13 +2820,13 @@
       "name" : "ModSettings",
       "url" : "https://github.com/zeobviouslyfakeacc/ModSettings",
       "author" : "zeobviouslyfakeacc",
-      "version" : "v1.4",
+      "version" : "v1.5",
       "description" : "Lets other mods display their settings in-game. This mod doesn't do anything on its own and should only be used as a dependency for other mods.",
-      "changes" : "Update for TLD v1.41, confirm button now confirms all changed mods, removed obsolete ModSettingsBase#RequiresConfirmation",
-      "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "changes" : "Added RefreshGUI method, sort mod settings tabs alphabetically, more and better organized examples",
+      "releaseDate" : "2019-01-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
-        "url" : "https://github.com/zeobviouslyfakeacc/ModSettings/releases/download/v1.4/ModSettings.dll"
+        "url" : "https://github.com/zeobviouslyfakeacc/ModSettings/releases/download/v1.5/ModSettings.dll"
       } ],
       "dependencies" : [ ]
     }, {
@@ -2837,7 +2837,7 @@
       "description" : "This mod remembers the tool you last used to break down furniture. That way, you no longer need to constantly switch from \"using a knife\" to \"no tool\" when breaking down branches or curtains.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/RememberBreakDownItem/releases/download/v1.2/RememberBreakDownItem.dll"
       } ],
@@ -2850,7 +2850,7 @@
       "description" : "A mod that lets you research for shorter amounts of time and lets you interrupt research at any time without losing progress.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/ShorterReadingIntervals/releases/download/v1.1/ShorterReadingIntervals.dll"
       } ],
@@ -2866,7 +2866,7 @@
       "description" : "This mod removes most of the animals that would usually roam the world and greatly increases their respawn times, thus making you play The Long Dark quite a bit differently.",
       "changes" : "Added setting to enable WildlifeBegone in story mode, bug fixes",
       "releaseDate" : "2018-12-29T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:43.364+0000",
+      "lastUpdated" : "2019-01-16T18:22:49.974+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/WildlifeBegone/releases/download/v1.3.1/WildlifeBegone.dll"
       }, {
@@ -2897,6 +2897,6 @@
     },
     "modDefinitions" : [ ]
   } ],
-  "lastUpdate" : "2019-01-16T17:54:49.635+0000",
-  "snapshotETag" : "\"bae78c53cd5f6ad3741fed881239b4f63f4f72cb\""
+  "lastUpdate" : "2019-01-16T18:47:36.940+0000",
+  "snapshotETag" : "\"d2f4b374dddb114d9faca551f00f929b434633c0\""
 }
