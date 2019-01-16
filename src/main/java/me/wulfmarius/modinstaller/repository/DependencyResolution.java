@@ -10,6 +10,10 @@ public class DependencyResolution {
     private ModDefinition bestMatch;
     private Set<ModDefinition> available = new HashSet<>();
 
+    public static DependencyResolution empty() {
+        return new DependencyResolution();
+    }
+
     public Set<ModDefinition> getAvailable() {
         return this.available;
     }
@@ -22,8 +26,8 @@ public class DependencyResolution {
         return this.requested;
     }
 
-    public boolean isEmpty() {
-        return this.available == null || this.available.isEmpty();
+    public boolean isAvailable() {
+        return this.available != null && !this.available.isEmpty();
     }
 
     public boolean isResolved() {

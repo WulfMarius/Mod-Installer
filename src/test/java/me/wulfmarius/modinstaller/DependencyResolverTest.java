@@ -70,6 +70,7 @@ public class DependencyResolverTest {
         this.repository.registerSource("./src/test/resources/mod-b.json");
         this.repository.registerSource("./src/test/resources/mod-c.json");
         this.repository.registerSource("./src/test/resources/mod-d.json");
+        this.repository.registerSource("./src/test/resources/mod-e.json");
 
         this.installations = new Installations();
 
@@ -232,7 +233,7 @@ public class DependencyResolverTest {
     }
 
     @Test
-    public void updateWithTransitiveDependencies() {
+    public void updateWithExistingTransitiveDependencies() {
         ModDefinition a13 = this.repository.getModDefinition("A", "1.3.0").get();
         ModDefinition b10 = this.repository.getModDefinition("B", "1.0.0").get();
         ModDefinition c10 = this.repository.getModDefinition("C", "1.0.0").get();
@@ -248,5 +249,18 @@ public class DependencyResolverTest {
         assertFalse(resolution.isErroneous());
         assertMatches(resolution.getInstall(), d20, c13);
         assertMatches(resolution.getUninstall(), c10);
+    }
+
+    @Test
+    public void updateWithTransitiveDependencies() {
+        ModDefinition c13 = this.repository.getModDefinition("C", "1.3.0").get();
+        ModDefinition d24 = this.repository.getModDefinition("D", "2.4.0").get();
+        ModDefinition e20 = this.repository.getModDefinition("E", "2.0.0").get();
+
+        Resolution resolution = this.resolver.resolve(e20);
+
+        assertFalse(resolution.isErroneous());
+        assertMatches(resolution.getInstall(), e20, d24, c13);
+        assertMatches(resolution.getUninstall());
     }
 }

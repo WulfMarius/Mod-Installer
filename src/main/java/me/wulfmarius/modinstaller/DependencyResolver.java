@@ -1,7 +1,6 @@
 package me.wulfmarius.modinstaller;
 
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import me.wulfmarius.modinstaller.repository.*;
@@ -87,31 +86,27 @@ public class DependencyResolver {
     }
 
     private void resolveDependencies(ModDefinition modDefinition) {
-        this.uninstall(modDefinition);
-        this.install(modDefinition);
+        ModDefinition next = modDefinition;
 
-        Map<String, ModDependencies> missingDependencies = this.installed.getAllDependencies();
+        while (next != null) {
+            this.uninstall(next);
+            this.install(next);
 
-        for (Entry<String, ModDependencies> eachEntry : missingDependencies.entrySet()) {
-            ModDependencies dependencies = eachEntry.getValue();
+            DependencyResolution dependencyResolution = this.installed.getAllDependencies()
+                    .values()
+                    .stream()
+                    .filter(dependencies -> !this.installed.satisfiesAll(dependencies))
+                    .map(this::findMatchingVersion)
+                    .findFirst()
+                    .orElseGet(DependencyResolution::empty);
 
-            if (dependencies.stream().allMatch(this.installed::satisfies)) {
-                continue;
+            if (!dependencyResolution.isAvailable()) {
+                this.resolution.setMissingDependencies(dependencyResolution.getRequested());
+            } else if (!dependencyResolution.isResolved()) {
+                this.resolution.setUnresolvableDependencies(dependencyResolution.getRequested());
             }
 
-            DependencyResolution dependencyResolution = this.findMatchingVersion(dependencies);
-            if (dependencyResolution.isEmpty()) {
-                this.resolution.setMissingDependencies(dependencies);
-                break;
-            }
-
-            if (!dependencyResolution.isResolved()) {
-                this.resolution.setUnresolvableDependencies(dependencies);
-                break;
-            }
-
-            this.uninstall(dependencyResolution.getBestMatch());
-            this.install(dependencyResolution.getBestMatch());
+            next = dependencyResolution.getBestMatch();
         }
     }
 

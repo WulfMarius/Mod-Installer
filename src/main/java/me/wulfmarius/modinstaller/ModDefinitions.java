@@ -130,6 +130,10 @@ public class ModDefinitions implements Iterable<ModDefinition> {
         return this.modDefinitions.stream().anyMatch(modDefinition -> modDefinition.satisfies(modDependency));
     }
 
+    public boolean satisfiesAll(ModDependencies modDependencies) {
+        return modDependencies.stream().allMatch(this::satisfies);
+    }
+
     public Stream<ModDefinition> stream() {
         return this.modDefinitions.stream();
     }
