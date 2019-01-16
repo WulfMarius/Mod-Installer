@@ -112,10 +112,10 @@ public class DependencyResolver {
 
     private void uninstall(ModDefinition modDefinition) {
         ModDefinitions installedVersions = this.installed.getModDefinitions(modDefinition.getName());
-
         for (ModDefinition eachInstalledVersion : installedVersions) {
             this.installed.remove(eachInstalledVersion);
-            this.resolution.addUninstalls(this.installations.getInstallations(modDefinition.getName()));
         }
+
+        this.resolution.addUninstalls(this.installations.getInstallations(modDefinition.getName()));
     }
 }

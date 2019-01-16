@@ -252,6 +252,21 @@ public class DependencyResolverTest {
     }
 
     @Test
+    public void updateWithMissingDefinition() {
+        ModDefinition c10 = this.repository.getModDefinition("C", "1.0.0").get();
+
+        ModDefinition c01 = new ModDefinition();
+        c01.setName("C");
+        c01.setVersion("0.1.0");
+        this.installations.addInstallation(createInstallation(c01));
+        Resolution resolution = this.resolver.resolve(c10);
+
+        assertFalse(resolution.isErroneous());
+        assertMatches(resolution.getInstall(), c10);
+        assertMatches(resolution.getUninstall(), c01);
+    }
+
+    @Test
     public void updateWithTransitiveDependencies() {
         ModDefinition c13 = this.repository.getModDefinition("C", "1.3.0").get();
         ModDefinition d24 = this.repository.getModDefinition("D", "2.4.0").get();
