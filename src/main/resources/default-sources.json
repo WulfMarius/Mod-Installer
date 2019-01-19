@@ -799,7 +799,7 @@
     "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"3514ad5a39d6bcdeb2b167db996e902b69ed8ab8\""
+      "etag" : "\"c00beff46842f816388f34ccd366a4c320852bf1\""
     },
     "modDefinitions" : [ {
       "name" : "Better-Placing",
@@ -808,8 +808,8 @@
       "version" : "2.0.0",
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "updated to work with TLD V1.27",
-      "releaseDate" : "2019-01-08T10:08:16.072+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "releaseDate" : "2019-01-19T18:16:56.115+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.0.0-main/Better-Placing-V2.0.0.zip"
       } ],
@@ -822,7 +822,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "",
       "releaseDate" : "2018-06-20T16:50:37.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.0/Better-Placing-V2.1.0.zip"
       } ]
@@ -834,7 +834,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Fixed issue with falling through the world because the coordinates of a furniture's parent were modified",
       "releaseDate" : "2018-06-22T15:53:33.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.1/Better-Placing-V2.1.1.zip"
       } ]
@@ -846,7 +846,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Fixed issue with replacing child meshes too",
       "releaseDate" : "2018-06-24T08:10:07.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.2/Better-Placing-V2.1.2.zip"
       } ]
@@ -858,7 +858,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Fixed issue where stacked items would 'fall down' after reloading",
       "releaseDate" : "2018-10-14T18:55:49.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.3/Better-Placing-V2.1.3.zip"
       } ]
@@ -870,7 +870,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Controller support for rotating items",
       "releaseDate" : "2018-10-15T18:18:07.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.4/Better-Placing-V2.1.4.zip"
       } ]
@@ -882,7 +882,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Fixed issue with GearItems without BoxCollider",
       "releaseDate" : "2018-10-20T19:43:42.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.5/Better-Placing-V2.1.5.zip"
       } ]
@@ -894,7 +894,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Updated for TLD V1.37",
       "releaseDate" : "2018-11-13T21:39:34.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/2.1.6/Better-Placing-V2.1.6.zip"
       } ]
@@ -906,7 +906,7 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Updated for TLD V1.44",
       "releaseDate" : "2018-12-23T18:27:54.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/3.0.0/Better-Placing-V3.0.0.zip"
       } ]
@@ -918,9 +918,21 @@
       "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
       "changes" : "Fixed potential issue while rotation items.",
       "releaseDate" : "2019-01-07T16:46:18.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:16.075+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/3.0.1/Better-Placing-V3.0.1.zip"
+      } ]
+    }, {
+      "name" : "Better-Placing",
+      "url" : "https://github.com/WulfMarius/Better-Placing/releases/tag/3.0.2",
+      "author" : "WulfMarius",
+      "version" : "3.0.2",
+      "description" : "More flexibility when placing items in the world. Also allows to move certain types of furniture.",
+      "changes" : "- removing trigger box colliders from gear items to prevent pointless warnings\r\n\r\n- removed obsolete transpilers",
+      "releaseDate" : "2019-01-19T18:16:00.000+0000",
+      "lastUpdated" : "2019-01-19T18:16:56.119+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Placing/releases/download/3.0.2/Better-Placing-V3.0.2.zip"
       } ]
     } ]
   }, {
@@ -2896,7 +2908,29 @@
       "etag" : "\"7eae4de2d1de8698cb39f1e4a827e384b4467328\""
     },
     "modDefinitions" : [ ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Disable-Camera-Sway",
+    "name" : "Disable-Camera-Sway",
+    "url" : "https://github.com/WulfMarius/Disable-Camera-Sway",
+    "description" : "Prevents the automatic camera rotation that happens when the user isn't changing directions for some time.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"c811ff718636f95cab2f9daa093a1a57a8657487\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Disable-Camera-Sway",
+      "url" : "https://github.com/WulfMarius/Disable-Camera-Sway/releases/tag/1.0.0",
+      "author" : "WulfMarius",
+      "version" : "1.0.0",
+      "description" : "Prevents the automatic camera rotation that happens when the user isn't changing directions for some time.",
+      "changes" : "It prevents automatic camera movements in the absence of user input.",
+      "releaseDate" : "2019-01-18T20:58:40.000+0000",
+      "lastUpdated" : "2019-01-19T18:26:34.856+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Disable-Camera-Sway/releases/download/1.0.0/Disable-Camera-Sway-V1.0.0.zip"
+      } ]
+    } ]
   } ],
-  "lastUpdate" : "2019-01-16T18:47:36.940+0000",
-  "snapshotETag" : "\"d2f4b374dddb114d9faca551f00f929b434633c0\""
+  "lastUpdate" : "2019-01-19T18:26:49.221+0000",
+  "snapshotETag" : "\"c6c64052b91b18aff18e9c6de550a096556cc87f\""
 }
