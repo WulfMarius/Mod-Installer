@@ -1001,7 +1001,7 @@
     "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"dbfb3e0897e57206b592cc29e72290585b6853fb\""
+      "etag" : "\"9d6ca137263d43b33d80fe95fb7c04bfb7b31c9c\""
     },
     "modDefinitions" : [ {
       "name" : "Better-Water-Management",
@@ -1010,8 +1010,8 @@
       "version" : "2.0.0",
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "updated to work with TLD V1.27",
-      "releaseDate" : "2019-01-07T11:26:34.918+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "releaseDate" : "2019-01-23T20:05:39.360+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.0.0-main/Better-Water-Management-V2.0.0.zip"
       } ],
@@ -1027,7 +1027,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- added craftable Waterskin\r\n- added Turkish translation from @UtkuxGARIP",
       "releaseDate" : "2018-04-26T17:43:11.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.1.0/Better-Water-Management-V2.1.0.zip"
       } ],
@@ -1043,7 +1043,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Changes:\r\n- fixed a bug that would allow drinking without losing water\r\n- fixed size of waterskin model\r\n- tuning for sound effects",
       "releaseDate" : "2018-04-27T18:10:11.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.1.1/Better-Water-Management-V2.1.1.zip"
       } ],
@@ -1059,7 +1059,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- updated to work with TLD V1.35\r\n\r\n- cooking pots can be removed from a fire without removing the water\r\n- actually taking the water from a cooking pot will only take as much as the player has empty capacity; the remaining water will be lost\r\n- added \"Metal Cup\" that can be used like the \"Recycled Can\"\r\n- added the \"Metal Cup\" to several loot tables",
       "releaseDate" : "2018-06-30T19:04:34.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.0/Better-Water-Management-V2.2.0.zip"
       } ],
@@ -1075,7 +1075,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "removed obsolete patch for V1.35",
       "releaseDate" : "2018-06-30T20:50:35.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.1/Better-Water-Management-V2.2.1.zip"
       } ],
@@ -1091,7 +1091,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed bug where the remaining water in a pot would vanish after drinking from it (reported by @d33rgod)",
       "releaseDate" : "2018-07-13T18:53:43.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.2/Better-Water-Management-V2.2.2.zip"
       } ],
@@ -1107,7 +1107,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed issue with not consuming water when cooking items.",
       "releaseDate" : "2018-09-17T16:50:20.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.3/Better-Water-Management-V2.2.3.zip"
       } ],
@@ -1123,7 +1123,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Allow cooking food without having water and instead take additional time for melting snow",
       "releaseDate" : "2018-10-29T18:52:20.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.3.0/Better-Water-Management-V2.3.0.zip"
       } ],
@@ -1139,7 +1139,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed issue with showing incorrect weight for boiling water",
       "releaseDate" : "2018-11-11T08:07:51.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.3.1/Better-Water-Management-V2.3.1.zip"
       } ],
@@ -1155,7 +1155,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Drink directly from water sources.",
       "releaseDate" : "2018-11-19T20:56:05.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.4.0/Better-Water-Management-V2.4.0.zip"
       } ],
@@ -1171,7 +1171,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "fixed issue with missing gear item name",
       "releaseDate" : "2018-11-22T20:47:54.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.4.1/Better-Water-Management-V2.4.1.zip"
       } ],
@@ -1187,7 +1187,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- fixed issue with not converting water when purifying\r\n- fixed issue with converting water after moving it off a fire\r\n- fixed issue with continued boiling animation\r\n- added warmth bonus when drinking water that is still hot",
       "releaseDate" : "2018-11-24T19:57:59.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.5.0/Better-Water-Management-V2.5.0.zip"
       } ],
@@ -1203,7 +1203,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- fixed issue with water disappearing when putting it back on a burnt out fire",
       "releaseDate" : "2018-11-26T21:21:37.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.5.1/Better-Water-Management-V2.5.1.zip"
       } ],
@@ -1219,9 +1219,25 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Updated for TLD 1.44",
       "releaseDate" : "2018-12-23T17:45:30.000+0000",
-      "lastUpdated" : "2019-01-07T11:26:34.921+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.0/Better-Water-Management-V3.0.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/3.0.1",
+      "author" : "WulfMarius",
+      "version" : "3.0.1",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Fixed issue with water stored before installing the mod.",
+      "releaseDate" : "2019-01-23T19:52:01.000+0000",
+      "lastUpdated" : "2019-01-23T20:05:39.367+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.1/Better-Water-Management-V3.0.1.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModComponent",
@@ -1596,7 +1612,7 @@
     "description" : "Improve your home by performing repairs and cleaning up.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"ce55b24ec7526d7f3d89c04df4322ceb184cd14e\""
+      "etag" : "\"f08a95540ba4c3b8630941f10e9daa0d4684f573\""
     },
     "modDefinitions" : [ {
       "name" : "Home-Improvement",
@@ -1606,7 +1622,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "repair pulled out wooden drawers and use them as containers.",
       "releaseDate" : "2018-03-29T17:57:45.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.0/Home-Improvement-V2.0.0.zip"
       } ],
@@ -1619,7 +1635,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "- Containers that have been repaired with the previous version will return to their unrepaired status and need to be repaired again. Items stored in those containers will be moved to the player's position.\n- Repair drawers that have been pulled out\n- Repair wooden cabinet doors, including those that have been torn off\n- Repairing requires light\n- Repairing cabinet doors requires tools (simple or quality)\n- Repairing now takes 5 in-game minutes",
       "releaseDate" : "2018-03-30T16:18:48.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.1/Home-Improvement-V2.0.1.zip"
       } ],
@@ -1632,7 +1648,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "- configured more repairable drawers and cabinet doors\n- allow many paper items to be broken down to \"Crumpled Paper\"\n- added a blueprint to make tinder from crumpled paper",
       "releaseDate" : "2018-04-03T18:02:34.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.2/Home-Improvement-V2.0.2.zip"
       } ],
@@ -1648,7 +1664,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "Changes:\r\n\r\n- prevent moose scratches from being recognized as harvestable paper\r\n- added Russian translation by TheRiddlerRUS",
       "releaseDate" : "2018-04-21T16:24:43.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.3/Home-Improvement-V2.0.3.zip"
       } ],
@@ -1664,7 +1680,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "improved detection of removable paper, eliminating a lot of false positive matches",
       "releaseDate" : "2018-06-30T17:37:33.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.0.4/Home-Improvement-V2.0.4.zip"
       } ],
@@ -1680,7 +1696,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "Allow removing corpses with a right click. This feature can be disabled in the mod settings.",
       "releaseDate" : "2018-09-22T16:13:06.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.1.0/Home-Improvement-V2.1.0.zip"
       } ],
@@ -1699,7 +1715,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "Fixed issue with certain corpses not being removable.",
       "releaseDate" : "2018-09-26T17:39:14.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.1.1/Home-Improvement-V2.1.1.zip"
       } ],
@@ -1718,7 +1734,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "Fixed issue with reappearing cleanables",
       "releaseDate" : "2018-09-28T09:51:36.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/2.1.2/Home-Improvement-V2.1.2.zip"
       } ],
@@ -1737,7 +1753,7 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "- Updated to ModComponent 3.0.0 (TLD V1.44)\r\n- Integrated Remove-Campfire (which is now discontinued)",
       "releaseDate" : "2018-12-23T10:04:54.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/3.0.0/Home-Improvement-V3.0.0.zip"
       } ],
@@ -1756,9 +1772,47 @@
       "description" : "Improve your home by performing repairs and cleaning up.",
       "changes" : "changed to ModComponent's 'SceneReady' event to catch additional items",
       "releaseDate" : "2019-01-07T19:04:39.000+0000",
-      "lastUpdated" : "2019-01-08T10:08:18.320+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/3.1.0/Home-Improvement-V3.1.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.1.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/3.2.0",
+      "author" : "WulfMarius",
+      "version" : "3.2.0",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "- Turn toy blocks in the farmstead into GearItems\r\n- reworked scene preparation",
+      "releaseDate" : "2019-01-21T20:39:24.000+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/3.2.0/Home-Improvement-V3.2.0.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.1.0"
+      }, {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
+      "name" : "Home-Improvement",
+      "url" : "https://github.com/WulfMarius/Home-Improvement/releases/tag/3.2.1",
+      "author" : "WulfMarius",
+      "version" : "3.2.1",
+      "description" : "Improve your home by performing repairs and cleaning up.",
+      "changes" : "Added missing type of paper clutter to remove",
+      "releaseDate" : "2019-01-23T06:21:15.000+0000",
+      "lastUpdated" : "2019-01-23T20:05:44.026+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Home-Improvement/releases/download/3.2.1/Home-Improvement-V3.2.1.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModComponent",
@@ -2930,7 +2984,33 @@
         "url" : "https://github.com/WulfMarius/Disable-Camera-Sway/releases/download/1.0.0/Disable-Camera-Sway-V1.0.0.zip"
       } ]
     } ]
+  }, {
+    "definition" : "https://github.com/WulfMarius/Fire-Pack",
+    "name" : "Fire-Pack",
+    "url" : "https://github.com/WulfMarius/Fire-Pack",
+    "description" : "Allows to build an \"Ember Box\" for carrying embers.",
+    "parameters" : {
+      "version" : "3",
+      "etag" : "\"d7fa6a75c328c81b806acc68a410215423eee1f9\""
+    },
+    "modDefinitions" : [ {
+      "name" : "Fire-Pack",
+      "url" : "https://github.com/WulfMarius/Fire-Pack/releases/tag/1.0.0",
+      "author" : "WulfMarius",
+      "version" : "1.0.0",
+      "description" : "Allows to build an \"Ember Box\" for carrying embers.",
+      "changes" : "Added Ember Box",
+      "releaseDate" : "2019-01-23T20:04:55.000+0000",
+      "lastUpdated" : "2019-01-23T20:23:42.029+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Fire-Pack/releases/download/1.0.0/Fire-Pack.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.2.1"
+      } ]
+    } ]
   } ],
-  "lastUpdate" : "2019-01-19T18:26:49.221+0000",
-  "snapshotETag" : "\"c6c64052b91b18aff18e9c6de550a096556cc87f\""
+  "lastUpdate" : "2019-01-23T20:23:42.029+0000",
+  "snapshotETag" : "\"d5f0e06856ee48d0ecfb57aaea8e5ffcee601571\""
 }
