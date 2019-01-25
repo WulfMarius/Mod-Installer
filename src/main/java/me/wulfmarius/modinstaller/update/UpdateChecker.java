@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import org.springframework.http.ResponseEntity;
 
-import me.wulfmarius.modinstaller.ProgressListeners;
+import me.wulfmarius.modinstaller.*;
 import me.wulfmarius.modinstaller.repository.source.*;
 import me.wulfmarius.modinstaller.rest.RestClient;
 import me.wulfmarius.modinstaller.utils.JsonUtils;
@@ -70,7 +70,8 @@ public class UpdateChecker {
         Path currentJar = this.getCurrentJarPath();
 
         try (Stream<Path> stream = Files.list(this.basePath)) {
-            this.otherVersions = stream.filter(Files::isRegularFile).filter(file -> !file.getFileName().equals(currentJar))
+            this.otherVersions = stream.filter(Files::isRegularFile)
+                    .filter(file -> !file.getFileName().equals(currentJar))
                     .filter(file -> file.getFileName().toString().startsWith("mod-installer-")
                             && file.getFileName().toString().endsWith(".jar"))
                     .toArray(Path[]::new);
@@ -112,7 +113,11 @@ public class UpdateChecker {
     }
 
     public boolean isNewVersionAvailable(String version) {
-        return this.state.getLatestVersion() != null && !this.state.getLatestVersion().equals(version);
+        if (this.state.getLatestVersion() == null) {
+            return false;
+        }
+
+        return Version.parse(this.getLatestVersion()).compareTo(Version.parse(version)) > 0;
     }
 
     public void startNewVersion() throws IOException {

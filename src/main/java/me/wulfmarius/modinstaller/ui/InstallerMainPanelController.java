@@ -84,6 +84,18 @@ public class InstallerMainPanelController {
         };
     }
 
+    private static void openFolder(Path folder) {
+        if (Desktop.isDesktopSupported()) {
+            new Thread(() -> {
+                try {
+                    Desktop.getDesktop().open(folder.toFile());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+    }
+
     public boolean isRecent(ModDefinition modDefinition) {
         if (modDefinition.getLastUpdated() == null) {
             return false;
@@ -237,11 +249,7 @@ public class InstallerMainPanelController {
             folder = folder.resolve(".config/unity3d/Hinterland/TheLongDark");
         }
 
-        try {
-            Desktop.getDesktop().open(folder.toFile());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        openFolder(folder);
     }
 
     private void postInitialize() {
