@@ -46,6 +46,11 @@
 					"name": "ModSettings",
 					"version": "^v1.4"
 				}
+			],
+			"assets": [
+				{
+					"url": "https://github.com/Shield-Heart/RelentlessNight/releases/download/v3.02/RelentlessNight.dll"
+				}
 			]
 		}
 	]
