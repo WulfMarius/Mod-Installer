@@ -6,9 +6,25 @@
     "description" : "The Long Dark: AlexTheRegent Game Tweaks",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"acc7dabba07835028b4ccbdad95a35dfb1433f77\""
+      "etag" : "\"053f055f5dcbe52ed262d81f704080bf9dac8c60\""
     },
     "modDefinitions" : [ {
+      "name" : "BadgesUnlocker",
+      "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
+      "author" : "AlexTheRegent",
+      "version" : "v1.0.6",
+      "description" : "The Long Dark: AlexTheRegent Game Tweaks",
+      "changes" : "Lock, unlock badges and feats. Configure mod via ingame mod settings",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
+      "assets" : [ {
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/BadgesUnlocker.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
+    }, {
       "name" : "CookingTweaks",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
@@ -16,115 +32,142 @@
       "description" : "Change time of food prerapation (cooking/burning) or water processing (melting/boiling/drying).\n\nWarning: it does not change displaying cooking time in cans/pots/etc, but it will change once you start cooking!\n\nImportant: Adjust values in CookingTweaks.xml!",
       "changes" : "",
       "releaseDate" : "2018-07-11T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
         "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.5/CookingTweaks.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "DetectionRange",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Change animals detection distance. No more wolves who see/hear/smell you from far distance.\n\nOr you can make game more challenging and make wolves to start looking for you if you leave your home ;)\n\nYou can also change detection range for rabbits, deers, bears, mooses.\n\nImportant: adjust values in DetectionRange.xml!",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Change animals detection distance. Configure mod via ingame mod settings",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/DetectionRange.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/DetectionRange.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "FasterActionRedux",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Do all actions way faster (nearly instant). Be careful, you can die in blink of eye, if you choose action that is very long (such as harvesting meat from bear)!\n\nRedux of FasterActionMod by felipeds + fixed fishing.\n\nThis mod can cause visual bug \"item message stuck\" (very rare and I've probably fixed it, but who knows). This bug will disappear after change of location.\n\nAlso can cause old bug \"stuck with bare hands on pickup\" (I've probably fixed it too). This bug will disappear only after save restart.\n\nTo avoid bugs you can set action speed (container time works fine) to 0.5 (1.0 will be 100% safe) second in FasterActionRedux.xml. This will protect you from these very rare bugs (which I've probably fixed since I've didn't encounter them in 1h).\n\nI highly recommend you to try this mod despite possible bugs (very, very, very low possible bugs), it's pretty amazing and time saving. I can't play without this mod.",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Do all actions way faster (nearly instant). Be careful, you can die in blink of eye, if you choose action that is very long (such as harvesting meat from bear)!\n\nRedux of FasterActionMod by felipeds + fixed fishing.\n\nThis mod can cause visual bug \"item message stuck\"",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/FasterActionRedux.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/FasterActionRedux.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "MapTweaks",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Increase map reveal radius or enable automapping (no charcoal required)",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Adjust map revealing radius. Configure mod via ingame mod settings",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/MapTweaks.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/MapTweaks.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "SkipIntroRedux",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Skip disclaimer (autoclick) and intro. Fading removal on main menu is broken, I'll probably fix it later.\n\nRedux of SkipIntro by ossian.\n\nYou can configure mod in SkipIntroRedux.xml.",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Skip disclaimer and intro",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/SkipIntroRedux.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/SkipIntroRedux.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "StruggleTweaks",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Set chance to instantly kill wolf after struggle or change bleedout time for wolf. Also you can change tap power to save your mouse buttons :)",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Set chance to instantly kill wolf after struggle or change bleedout time for wolf. Also you can change tap power to save your mouse buttons :). Configure mod via ingame mod settings",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/StruggleTweaks.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/StruggleTweaks.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "TimeAccelerator",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Speed up everything in the world to travel faster or do something faster.\n\nImportant: adjust values in TimeAccelerator.xml!",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Speed up everything in the world to travel faster or do something faster. Configure mod via ingame mod settings",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/TimeAccelerator.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/TimeAccelerator.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "TweakRabbits",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Change duration of stun or kill rabbit instantly if hit with rock.\n\nYou can configure mod in TweakRabbits.xml.",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Change duration of stun or kill rabbit instantly if hit with rock. Configure mod via ingame mod settings",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/TweakRabbits.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/TweakRabbits.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     }, {
       "name" : "WeaponCrosshair",
       "url" : "https://github.com/AlexTheRegent/tld-GameTweaks",
       "author" : "AlexTheRegent",
-      "version" : "v1.0.4",
-      "description" : "Show crosshair when zooming with stone (enabled by default), bow (disabled by default), rifle (disabled by default).\n\nYou can configure settings in WeaponCrosshair.xml.",
-      "changes" : "",
-      "releaseDate" : "2018-07-08T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:04.228+0000",
+      "version" : "v1.0.6",
+      "description" : "Show crosshair when zooming with stone, bow, rifle. Configure mod via ingame mod settings",
+      "changes" : "CookingTweaks is not updated, I have some technical issues.",
+      "releaseDate" : "2019-03-16T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:11.493+0000",
       "assets" : [ {
-        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.4/WeaponCrosshair.zip"
+        "url" : "https://github.com/AlexTheRegent/tld-GameTweaks/releases/download/v1.0.6/WeaponCrosshair.zip"
       } ],
-      "dependencies" : [ ]
+      "dependencies" : [ {
+        "name" : "ModSettings",
+        "version" : "^v1.4"
+      } ]
     } ]
   }, {
     "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/alextheregent-mod-installer-description.json",
@@ -257,7 +300,7 @@
     "description" : "The Long Dark: Mikes Mini Mods",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"f173cb7cb808e4bcece1a34364fa2ec1df0f445f\""
+      "etag" : "\"9cf2e8a548b5895440e42fa0c8ebd77622853770\""
     },
     "modDefinitions" : [ {
       "name" : "Faster Searching",
@@ -267,7 +310,7 @@
       "description" : "Empty Containers are instant to search.\nNon-Empty containers are faster to search.",
       "changes" : "",
       "releaseDate" : "2018-06-10T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/FasterSearching.dll"
       } ],
@@ -281,7 +324,7 @@
       "description" : "Repairing clothing repairs half as much condition.",
       "changes" : "",
       "releaseDate" : "2018-06-10T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/LessEffectiveRepairs.dll"
       } ],
@@ -291,11 +334,11 @@
       "name" : "Sprint Costs Food",
       "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
       "author" : "MikeyPdog",
-      "version" : "v2.3",
-      "description" : "Sprinting uses 5x as much food as normal",
-      "changes" : "",
+      "version" : "v3.0",
+      "description" : "Sprinting uses more food (customisable)",
+      "changes" : "Added customisable settings to main menu",
       "releaseDate" : "2018-06-10T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/SprintCostsFood.dll"
       } ],
@@ -305,11 +348,11 @@
       "name" : "Starving Hurts",
       "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
       "author" : "MikeyPdog",
-      "version" : "v2.3",
-      "description" : "Starving (0 food) causes 5x more damage than normal.",
-      "changes" : "",
+      "version" : "v3.0",
+      "description" : "Starving (0 food) causes more damage than normal (customisable).",
+      "changes" : "Added customisable settings to main menu",
       "releaseDate" : "2018-06-10T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/StarvingHurts.dll"
       } ],
@@ -323,7 +366,7 @@
       "description" : "You use half as many calories as normal.",
       "changes" : "",
       "releaseDate" : "2018-06-10T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/LessCaloriesNeeded.dll"
       } ],
@@ -337,7 +380,7 @@
       "description" : "Frostbite is no longer permanent. Instead you take -20% condition immediately.",
       "changes" : "",
       "releaseDate" : "2018-06-27T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/FrostbiteNotPermanent.dll"
       } ],
@@ -351,12 +394,110 @@
       "description" : "Mapping with charcoal takes 1 in-game minute rather than 15.",
       "changes" : "",
       "releaseDate" : "2018-06-27T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-07T11:25:35.982+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
       "assets" : [ {
         "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.3/QuickerMapping.dll"
       } ],
       "dependencies" : [ ],
       "compatibleWith" : "1.41"
+    }, {
+      "name" : "BetterXP - Mending",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v3.0",
+      "description" : "Mending XP is required for crafting clothing:\n* Level 1: Rabbitskin items\n* Level 2: Deerskin items\n* Level 3: Moose hide items\n* Level 4: Wolfskin items\n* Level 5: Bearskin items.\nGive Mending XP for crafting clothing\nSometimes give Mending XP for crafting bandages (customisable)",
+      "changes" : "Added customisable settings to main menu",
+      "releaseDate" : "2019-02-18T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.41/BetterXP-Mending.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.41"
+    }, {
+      "name" : "Tinder Matters",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v3.0",
+      "description" : "Different tinder now affects your chance of lighting a fire (customisable).",
+      "changes" : "Added customisable settings to main menu. Bumped birch bark to +5%. Bumped cattails and tinder plug to +0%. Bumped no tinder to -5%.",
+      "releaseDate" : "2019-03-02T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v3.0/TinderMatters.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.47"
+    }, {
+      "name" : "Mouse Mod",
+      "url" : "https://github.com/MikeyPdog/TLD-MouseMod/",
+      "author" : "MikeyPdog",
+      "version" : "v1.1",
+      "description" : "Disable mouse acceleration and tweak mouse smoothing.",
+      "changes" : "Empty containers are now instant to search (doesnt take 2 seconds to realise a cupboard is empty)\r\nOther containers take 0.6 seconds rather than 2 seconds.",
+      "releaseDate" : "2019-03-02T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-MouseMod/releases/download/v1.1/MouseMod-v1.1.zip"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.47"
+    }, {
+      "name" : "Quicker Wood Cutting",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v3.0",
+      "description" : "Chopping limbs and branches takes less time (customisable).",
+      "changes" : "Added customisable settings to main menu",
+      "releaseDate" : "2019-03-03T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v3.0/QuickerWoodCutting.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.47"
+    }, {
+      "name" : "Archery Target Practice",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.7",
+      "description" : "The archery target in pleasant valley can be used to level up archery (only level 1 and 2)",
+      "changes" : "You can level up archery using the pleasant valley barn archery target:\r\n* You must be level 1 or 2 archery.\r\n* You can't be too close\r\n* You must hit the paper square on the target.\r\n",
+      "releaseDate" : "2019-03-03T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.7/ArcheryTargetPractice.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.47"
+    }, {
+      "name" : "ConsumeTorchOnFirestart",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v2.81",
+      "description" : "Torches are consumed if you attempt to start a fire with them, and now offer +5% higher fire success rate.\n\nExperienced players typically light fires by lighting a torch from a match (100% success rate) and then repeatedly trying to start a fire with the torch, basic tinder, a stick and no accelerant. This makes things like books and accelerant a bit pointless as you can simply retry with the same torch. It wouldnt be so bad if torch crafting was required (using cloth) but you can just pull torches from fires and extinguish them which makes them very easy to acquire.\n\nYou can still move fire from one place to the next by lighting a torch, moving to a new location, throwing the torch on the ground, then lighting more torches from it, and starting a fire with those torches. This strategy requires carrying quite a few torches though (which are heavy) and torches get blown out if its windy, so I figure this is still fine.\n\nThis works well with my TinderMatters mod.",
+      "changes" : "Added +5% firestart chance when using a torch",
+      "releaseDate" : "2019-03-09T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v2.81/ConsumeTorchOnFirestart.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.47"
+    }, {
+      "name" : "ReadWhenHungry",
+      "url" : "https://github.com/MikeyPdog/TLD-Minimods/",
+      "author" : "MikeyPdog",
+      "version" : "v3.2",
+      "description" : "Provides options (customisable) to let you read skill books when:\n* You're starving hungry\n* You have an affliction\n* You're completely thirsty\n* You're freezing cold\n* You're below 10% hp\n* You're completely exhausted",
+      "changes" : "Added separate toggle for every affliction separately, check out mod settings in the options.",
+      "releaseDate" : "2019-03-11T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:13.152+0000",
+      "assets" : [ {
+        "url" : "https://github.com/MikeyPdog/TLD-Minimods/releases/download/v3.2/ReadWhenHungry.dll"
+      } ],
+      "dependencies" : [ ],
+      "compatibleWith" : "1.47"
     } ]
   }, {
     "definition" : "https://raw.githubusercontent.com/WulfMarius/Mod-Installer/master/descriptions/mikeypdog-mod-installer-description.json",
@@ -1017,7 +1158,7 @@
     "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"e05972ef537ca972ef394e3d61692aa0c117463d\""
+      "etag" : "\"7636b0fa4c24b727dc2f048e2df0a4c7eacbdf93\""
     },
     "modDefinitions" : [ {
       "name" : "Better-Water-Management",
@@ -1026,8 +1167,8 @@
       "version" : "2.0.0",
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "updated to work with TLD V1.27",
-      "releaseDate" : "2019-02-10T11:00:13.519+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "releaseDate" : "2019-03-21T09:27:17.415+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.0.0-main/Better-Water-Management-V2.0.0.zip"
       } ],
@@ -1043,7 +1184,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- added craftable Waterskin\r\n- added Turkish translation from @UtkuxGARIP",
       "releaseDate" : "2018-04-26T17:43:11.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.1.0/Better-Water-Management-V2.1.0.zip"
       } ],
@@ -1059,7 +1200,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Changes:\r\n- fixed a bug that would allow drinking without losing water\r\n- fixed size of waterskin model\r\n- tuning for sound effects",
       "releaseDate" : "2018-04-27T18:10:11.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.1.1/Better-Water-Management-V2.1.1.zip"
       } ],
@@ -1075,7 +1216,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- updated to work with TLD V1.35\r\n\r\n- cooking pots can be removed from a fire without removing the water\r\n- actually taking the water from a cooking pot will only take as much as the player has empty capacity; the remaining water will be lost\r\n- added \"Metal Cup\" that can be used like the \"Recycled Can\"\r\n- added the \"Metal Cup\" to several loot tables",
       "releaseDate" : "2018-06-30T19:04:34.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.0/Better-Water-Management-V2.2.0.zip"
       } ],
@@ -1091,7 +1232,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "removed obsolete patch for V1.35",
       "releaseDate" : "2018-06-30T20:50:35.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.1/Better-Water-Management-V2.2.1.zip"
       } ],
@@ -1107,7 +1248,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed bug where the remaining water in a pot would vanish after drinking from it (reported by @d33rgod)",
       "releaseDate" : "2018-07-13T18:53:43.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.2/Better-Water-Management-V2.2.2.zip"
       } ],
@@ -1123,7 +1264,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed issue with not consuming water when cooking items.",
       "releaseDate" : "2018-09-17T16:50:20.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.2.3/Better-Water-Management-V2.2.3.zip"
       } ],
@@ -1139,7 +1280,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Allow cooking food without having water and instead take additional time for melting snow",
       "releaseDate" : "2018-10-29T18:52:20.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.3.0/Better-Water-Management-V2.3.0.zip"
       } ],
@@ -1155,7 +1296,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed issue with showing incorrect weight for boiling water",
       "releaseDate" : "2018-11-11T08:07:51.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.3.1/Better-Water-Management-V2.3.1.zip"
       } ],
@@ -1171,7 +1312,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Drink directly from water sources.",
       "releaseDate" : "2018-11-19T20:56:05.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.4.0/Better-Water-Management-V2.4.0.zip"
       } ],
@@ -1187,7 +1328,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "fixed issue with missing gear item name",
       "releaseDate" : "2018-11-22T20:47:54.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.4.1/Better-Water-Management-V2.4.1.zip"
       } ],
@@ -1203,7 +1344,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- fixed issue with not converting water when purifying\r\n- fixed issue with converting water after moving it off a fire\r\n- fixed issue with continued boiling animation\r\n- added warmth bonus when drinking water that is still hot",
       "releaseDate" : "2018-11-24T19:57:59.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.5.0/Better-Water-Management-V2.5.0.zip"
       } ],
@@ -1219,7 +1360,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "- fixed issue with water disappearing when putting it back on a burnt out fire",
       "releaseDate" : "2018-11-26T21:21:37.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/2.5.1/Better-Water-Management-V2.5.1.zip"
       } ],
@@ -1235,7 +1376,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Updated for TLD 1.44",
       "releaseDate" : "2018-12-23T17:45:30.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.0/Better-Water-Management-V3.0.0.zip"
       } ],
@@ -1251,7 +1392,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed issue with water stored before installing the mod.",
       "releaseDate" : "2019-01-23T19:52:01.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.1/Better-Water-Management-V3.0.1.zip"
       } ],
@@ -1267,7 +1408,7 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed issue with obsolete loss message while loading a scene.",
       "releaseDate" : "2019-01-25T14:34:54.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.2/Better-Water-Management-V3.0.2.zip"
       } ],
@@ -1283,9 +1424,25 @@
       "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
       "changes" : "Fixed an issue where cooked items would revert their status when taking them off a fire.",
       "releaseDate" : "2019-02-10T10:53:54.000+0000",
-      "lastUpdated" : "2019-02-10T11:00:13.524+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
       "assets" : [ {
         "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.3/Better-Water-Management-V3.0.3.zip"
+      } ],
+      "dependencies" : [ {
+        "name" : "ModComponent",
+        "version" : "^3.0.0"
+      } ]
+    }, {
+      "name" : "Better-Water-Management",
+      "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/tag/3.0.4",
+      "author" : "WulfMarius",
+      "version" : "3.0.4",
+      "description" : "Water bottles don't vanish or appear as needed, but must be managed by the player. Melting snow or boiling water requires a pot or pan.",
+      "changes" : "Removed changes for non-water items during cooking.",
+      "releaseDate" : "2019-02-24T10:32:12.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:17.426+0000",
+      "assets" : [ {
+        "url" : "https://github.com/WulfMarius/Better-Water-Management/releases/download/3.0.4/Better-Water-Management-V3.0.4.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModComponent",
@@ -2733,7 +2890,7 @@
     "description" : "Mods for TheLongDark by Xpazeman",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"21586865e101b82f1ba37faacc8950f6c5c5fa59\""
+      "etag" : "\"c224a6fa6e3ebbcaf488bd626e93578692310087\""
     },
     "modDefinitions" : [ {
       "name" : "AmbientLights",
@@ -2743,7 +2900,7 @@
       "description" : "Ambient Lights is a mod intended to make interiors in the game brighter and more reflective of what's going on outside.",
       "changes" : "Updated to work on TLD 1.42, also adjusted daytime brightness of lights to compensate for changes made to the interior lighting.",
       "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.432+0000",
       "assets" : [ {
         "url" : "https://github.com/Xpazeman/tld-ambient-lights/releases/download/v0.9.7-beta/AmbientLights_v0.9.7.zip"
       } ],
@@ -2755,49 +2912,49 @@
       "name" : "GearDecayModifier",
       "url" : "https://github.com/Xpazeman/tld-gear-decay-modifier",
       "author" : "Xpazeman",
-      "version" : "v1.2",
+      "version" : "v1.3",
       "description" : "Mod for The Long Dark to modify decay rates of gear.",
-      "changes" : "Updated to work with The Long Dark v1.42",
-      "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
+      "changes" : "Removed options for stored items decay due to a bug",
+      "releaseDate" : "2019-02-15T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.432+0000",
       "assets" : [ {
-        "url" : "https://github.com/Xpazeman/tld-gear-decay-modifier/releases/download/v1.2/GearDecayModifier_v1.2.zip"
+        "url" : "https://github.com/Xpazeman/tld-gear-decay-modifier/releases/download/v1.3/GearDecayModifier_v1.3.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModSettings",
-        "version" : "^v1.4"
+        "version" : "^v1.5"
       } ]
     }, {
       "name" : "KeroseneLampTweaks",
       "url" : "https://github.com/Xpazeman/tld-kerosene-lamp-tweaks",
       "author" : "Xpazeman",
-      "version" : "v1.2",
+      "version" : "v1.3",
       "description" : "Mod for The Long Dark that tweak kerosene lamps consumption.",
-      "changes" : "Updated to work with The Long Dark v1.42",
-      "releaseDate" : "2018-12-21T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
+      "changes" : "Added options to change color and set the range of the lamp's light",
+      "releaseDate" : "2019-02-15T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.432+0000",
       "assets" : [ {
-        "url" : "https://github.com/Xpazeman/tld-kerosene-lamp-tweaks/releases/download/v1.2/KeroseneLampTweaks_v1.2.zip"
+        "url" : "https://github.com/Xpazeman/tld-kerosene-lamp-tweaks/releases/download/v1.3/KeroseneLampTweaks_v1.3.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModSettings",
-        "version" : "^v1.4"
+        "version" : "^v1.5"
       } ]
     }, {
       "name" : "WeightTweaks",
       "url" : "https://github.com/Xpazeman/tld-weight-tweaks",
       "author" : "Xpazeman",
-      "version" : "v1.1",
+      "version" : "v1.2",
       "description" : "Mod for The Long Dark to modify item weights and carry capacity.",
-      "changes" : "Removed leftover Debug.Log",
-      "releaseDate" : "2019-01-12T00:00:00.000+0000",
-      "lastUpdated" : "2019-01-15T17:59:51.995+0000",
+      "changes" : "Fixed default value for Worn Clothing Modifier",
+      "releaseDate" : "2019-02-15T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.432+0000",
       "assets" : [ {
-        "url" : "https://github.com/Xpazeman/tld-weight-tweaks/releases/download/v1.1/WeightTweaks_v1.1.zip"
+        "url" : "https://github.com/Xpazeman/tld-weight-tweaks/releases/download/v1.2/WeightTweaks_v1.2.zip"
       } ],
       "dependencies" : [ {
         "name" : "ModSettings",
-        "version" : "^v1.4"
+        "version" : "^v1.5"
       } ]
     } ]
   }, {
@@ -2818,7 +2975,7 @@
     "description" : "Mods of zeobviouslyfakeacc",
     "parameters" : {
       "version" : "3",
-      "etag" : "\"686eeab111c1fd0caf3732f440d77092b334973e\""
+      "etag" : "\"b8a6a6820c5341c0e2e3f0cb349a0214551e8cc2\""
     },
     "modDefinitions" : [ {
       "name" : "BreakDownCans",
@@ -2828,7 +2985,7 @@
       "description" : "A tiny mod that lets your break down a recycled can for a single piece of scrap metal.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/BreakDownCans/releases/download/v1.1/BreakDownCans.dll"
       } ],
@@ -2837,13 +2994,13 @@
       "name" : "CacheControl",
       "url" : "https://github.com/zeobviouslyfakeacc/CacheControl",
       "author" : "zeobviouslyfakeacc",
-      "version" : "v1.3",
+      "version" : "v1.3.1",
       "description" : "Lets you decide how many Prepper Caches should spawn in custom mode games.",
-      "changes" : "Updated for TLD v1.41",
-      "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "changes" : "Fixed a bug that made 'force_reroll_caches n' always spawn 0 caches",
+      "releaseDate" : "2019-02-19T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
-        "url" : "https://github.com/zeobviouslyfakeacc/CacheControl/releases/download/v1.3/CacheControl.dll"
+        "url" : "https://github.com/zeobviouslyfakeacc/CacheControl/releases/download/v1.3.1/CacheControl.dll"
       } ],
       "dependencies" : [ {
         "name" : "ModSettings",
@@ -2857,7 +3014,7 @@
       "description" : "Lets you change the game's FPS limit, which is usually locked at 120 FPS.",
       "changes" : "",
       "releaseDate" : "2018-12-26T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/Change-FPS-Limit/releases/download/v1.0/Change-FPS-Limit.dll"
       } ],
@@ -2873,7 +3030,7 @@
       "description" : "Removes the annoying 2D breath cloud that appears every few seconds when it's cold.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/DisableBreathEffect/releases/download/v1.2/DisableBreathEffect.dll"
       } ],
@@ -2886,7 +3043,7 @@
       "description" : "The v1.29 update turned off feat progress in custom mode games - this mod turns it back on.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/EnableFeatProgressInCustomMode/releases/download/v1.1/EnableFeatProgressInCustomMode.dll"
       } ],
@@ -2899,7 +3056,7 @@
       "description" : "This mod re-enables some labels in the status / first aid screen that show a percentage value of how full the warmth, fatigue, thirst, hunger, and health status bars are.",
       "changes" : "Fix condition label position when well fed buff is active",
       "releaseDate" : "2018-12-23T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/EnableStatusBarPercentages/releases/download/v1.3/EnableStatusBarPercentages.dll"
       } ],
@@ -2912,7 +3069,7 @@
       "description" : "Improves the hunger system by separating hunger and stored calories.",
       "changes" : "Reduced food poisoning damage while sleeping",
       "releaseDate" : "2019-02-03T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/HungerRevamped/releases/download/v1.4.1/HungerRevamped.dll"
       } ],
@@ -2925,7 +3082,7 @@
       "description" : "Lets you select the spawn region in Interloper mode.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/InterloperRegionSelection/releases/download/v1.2/InterloperRegionSelection.dll"
       } ],
@@ -2938,7 +3095,7 @@
       "description" : "Lets other mods display their settings in-game. This mod doesn't do anything on its own and should only be used as a dependency for other mods.",
       "changes" : "Added RefreshGUI method, sort mod settings tabs alphabetically, more and better organized examples",
       "releaseDate" : "2019-01-16T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/ModSettings/releases/download/v1.5/ModSettings.dll"
       } ],
@@ -2951,7 +3108,7 @@
       "description" : "This mod remembers the tool you last used to break down furniture. That way, you no longer need to constantly switch from \"using a knife\" to \"no tool\" when breaking down branches or curtains.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2018-12-22T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/RememberBreakDownItem/releases/download/v1.2/RememberBreakDownItem.dll"
       } ],
@@ -2964,7 +3121,7 @@
       "description" : "A mod that lets you research for shorter amounts of time and lets you interrupt research at any time without losing progress.",
       "changes" : "Updated for TLD v1.41",
       "releaseDate" : "2019-02-09T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/ShorterReadingIntervals/releases/download/v1.1.1/ShorterReadingIntervals.dll"
       } ],
@@ -2976,13 +3133,13 @@
       "name" : "TLD-Bugfixes",
       "url" : "https://github.com/zeobviouslyfakeacc/TLD-Bugfixes",
       "author" : "zeobviouslyfakeacc",
-      "version" : "v1.1",
+      "version" : "v1.2",
       "description" : "A mod that fixes some bugs and exploits in the game.",
-      "changes" : "Public release + more bug fixes",
-      "releaseDate" : "2019-02-09T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "changes" : "Update for TLD v1.47",
+      "releaseDate" : "2019-03-03T00:00:00.000+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
-        "url" : "https://github.com/zeobviouslyfakeacc/TLD-Bugfixes/releases/download/v1.1/TLD-Bugfixes.dll"
+        "url" : "https://github.com/zeobviouslyfakeacc/TLD-Bugfixes/releases/download/v1.2/TLD-Bugfixes.dll"
       } ],
       "dependencies" : [ ]
     }, {
@@ -2993,7 +3150,7 @@
       "description" : "This mod removes most of the animals that would usually roam the world and greatly increases their respawn times, thus making you play The Long Dark quite a bit differently.",
       "changes" : "Added setting to enable WildlifeBegone in story mode, bug fixes",
       "releaseDate" : "2018-12-29T00:00:00.000+0000",
-      "lastUpdated" : "2019-02-10T10:54:01.876+0000",
+      "lastUpdated" : "2019-03-21T09:27:22.952+0000",
       "assets" : [ {
         "url" : "https://github.com/zeobviouslyfakeacc/WildlifeBegone/releases/download/v1.3.1/WildlifeBegone.dll"
       }, {
@@ -3072,6 +3229,6 @@
       } ]
     } ]
   } ],
-  "lastUpdate" : "2019-02-10T11:00:18.355+0000",
-  "snapshotETag" : "\"4fe8aba3af092613b034bfef7d8c79175f6bb309\""
+  "lastUpdate" : "2019-03-21T09:27:23.659+0000",
+  "snapshotETag" : "\"8daadf61355ef83aa297f347b87a2ae6be10b0f5\""
 }

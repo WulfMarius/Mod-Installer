@@ -15,7 +15,7 @@ public class GithubSourceFactory extends AbstractSourceFactory {
 
     public static final String PARAMETER_USER = "user";
 
-    private static final Pattern SOURCE_PATTERN = Pattern.compile("\\Qhttps://github.com/\\E([A-Z0-9-]+)/([A-Z0-9-]+)/?",
+    private static final Pattern SOURCE_PATTERN = Pattern.compile("\\Qhttps://github.com/\\E([A-Z0-9-]+)/([A-Z0-9-_]+)/?",
             Pattern.CASE_INSENSITIVE);
 
     public GithubSourceFactory(RestClient restClient) {
@@ -35,7 +35,8 @@ public class GithubSourceFactory extends AbstractSourceFactory {
         }
 
         return MessageFormat.format("https://raw.githubusercontent.com/{0}/{1}/master/mod-installer-description.json",
-                matcher.group(1), matcher.group(2));
+                matcher.group(1),
+                matcher.group(2));
     }
 
     protected GithubRelease[] getGithubReleases(String definition) {
@@ -57,8 +58,8 @@ public class GithubSourceFactory extends AbstractSourceFactory {
 
         for (ModDefinition eachRelease : releases) {
             if (StringUtils.isEmpty(eachRelease.getUrl())) {
-                eachRelease.setUrl(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getUrl)
-                        .orElse(definition + "/releases/tag/" + eachRelease.getVersion()));
+                eachRelease.setUrl(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getUrl).orElse(
+                        definition + "/releases/tag/" + eachRelease.getVersion()));
             }
 
             if (StringUtils.isEmpty(eachRelease.getChanges())) {
@@ -66,8 +67,10 @@ public class GithubSourceFactory extends AbstractSourceFactory {
             }
 
             if (eachRelease.getAssets() == null || eachRelease.getAssets().length == 0) {
-                eachRelease.setAssets(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getAssets)
-                        .map(assets -> Arrays.stream(assets).map(GithubAsset::toAsset).toArray(Asset[]::new)).orElse(new Asset[0]));
+                eachRelease.setAssets(releaseProvider.getRelease(eachRelease.getVersion())
+                        .map(GithubRelease::getAssets)
+                        .map(assets -> Arrays.stream(assets).map(GithubAsset::toAsset).toArray(Asset[]::new))
+                        .orElse(new Asset[0]));
             }
 
             if (eachRelease.getReleaseDate() == null) {
@@ -76,8 +79,10 @@ public class GithubSourceFactory extends AbstractSourceFactory {
             }
 
             if (eachRelease.getAuthor() == null) {
-                eachRelease.setAuthor(releaseProvider.getRelease(eachRelease.getVersion()).map(GithubRelease::getAuthor)
-                        .map(GithubAuthor::getLogin).orElse(sourceDescription.getAuthor()));
+                eachRelease.setAuthor(releaseProvider.getRelease(eachRelease.getVersion())
+                        .map(GithubRelease::getAuthor)
+                        .map(GithubAuthor::getLogin)
+                        .orElse(sourceDescription.getAuthor()));
             }
 
             if (eachRelease.getAuthor() == null) {
